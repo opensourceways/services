@@ -2,16 +2,10 @@
 GOPATH:=$(shell go env GOPATH)
 MODIFY=Mgithub.com/micro/go-micro/api/proto/api.proto=github.com/micro/go-micro/v2/api/proto
 
-.PHONY: proto
-proto:
-    
-	protoc --proto_path=. --micro_out=${MODIFY}:. --go_out=${MODIFY}:. proto/blog/blog.proto
-    
-
 .PHONY: build
-build: proto
+build:
 
-	go build -o blog-service *.go
+	go build -o blog-web *.go
 
 .PHONY: test
 test:
@@ -19,4 +13,4 @@ test:
 
 .PHONY: docker
 docker:
-	docker build . -t blog-service:latest
+	docker build . -t blog-web:latest

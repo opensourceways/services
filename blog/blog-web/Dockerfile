@@ -1,3 +1,5 @@
 FROM alpine
-ADD blog-service /blog-service
-ENTRYPOINT [ "/blog-service" ]
+ADD html /html
+ADD blog-web /blog-web
+WORKDIR /
+ENTRYPOINT [ "/blog-web" ]

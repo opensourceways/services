@@ -1,31 +1,33 @@
 package main
 
 import (
-	log "github.com/micro/go-micro/v2/logger"
-	"github.com/micro/go-micro/v2"
-	"blog-web/handler"
-	"blog-web/subscriber"
+	"github.com/micro/examples/blog/blog-web/handler"
 
-	blog "blog-web/proto/blog"
+	log "github.com/micro/go-micro/v2/logger"
+	"github.com/micro/go-micro/v2/web"
 )
 
 func main() {
-	// New Service
-	service := micro.NewService(
-		micro.Name("go.micro.service.blog"),
-		micro.Version("latest"),
+	// create new web service
+	service := web.NewService(
+		web.Name("go.micro.web.blog-example"),
+		web.Version("latest"),
 	)
 
-	// Initialise service
-	service.Init()
+	// initialise service
+	if err := service.Init(); err != nil {
+		log.Fatal(err)
+	}
 
-	// Register Handler
-	blog.RegisterBlogHandler(service.Server(), new(handler.Blog))
+	handl := handler.Handler{
+		Client: service.Options().Service.Client(),
+	}
+	// register call handler
+	service.HandleFunc("/post/", handl.Post)
+	service.HandleFunc("/api/post", handl.Post)
+	service.HandleFunc("/", handl.Index)
 
-	// Register Struct as Subscriber
-	micro.RegisterSubscriber("go.micro.service.blog", service.Server(), new(subscriber.Blog))
-
-	// Run service
+	// run service
 	if err := service.Run(); err != nil {
 		log.Fatal(err)
 	}

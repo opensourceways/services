@@ -43,6 +43,7 @@ require (
 	github.com/pborman/uuid v1.2.0
 	github.com/shiena/ansicolor v0.0.0-20151119151921-a422bbe96644 // indirect
 	github.com/vektah/gqlparser v1.2.0
+	go.etcd.io/etcd v3.3.22+incompatible // indirect
 	golang.org/x/net v0.0.0-20200520182314-0ba52f642ac2
 	google.golang.org/genproto v0.0.0-20200526211855-cb27e3aa2013
 	google.golang.org/grpc v1.27.0

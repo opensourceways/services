@@ -5,7 +5,7 @@ This is the Blog service
 Generated with
 
 ```
-micro new --namespace=go.micro --type=service blog-web
+micro new --namespace=go.micro --type=web blog-web
 ```
 
 ## Getting Started
@@ -16,8 +16,8 @@ micro new --namespace=go.micro --type=service blog-web
 
 ## Configuration
 
-- FQDN: go.micro.service.blog
-- Type: service
+- FQDN: go.micro.web.blog
+- Type: web
 - Alias: blog
 
 ## Dependencies
@@ -46,7 +46,7 @@ make build
 
 Run the service
 ```
-./blog-service
+./blog-web
 ```
 
 Build a docker image

@@ -38,7 +38,7 @@ func (t *PostService) Post(ctx context.Context, req *post.PostRequest, rsp *post
 	}
 
 	// read by parent ID + slug, the record is identical in boths places anyway
-	records, err := t.Store.Read(req.Post.Id)
+	records, err := t.Store.Read(req.Post.Slug)
 	if err != nil && err != store.ErrNotFound {
 		return err
 	}
@@ -59,7 +59,7 @@ func (t *PostService) Post(ctx context.Context, req *post.PostRequest, rsp *post
 		}
 
 		err = t.Store.Write(&store.Record{
-			Key:   post.ID,
+			Key:   post.Slug,
 			Value: bytes,
 		})
 		if err != nil {
@@ -95,7 +95,7 @@ func (t *PostService) Post(ctx context.Context, req *post.PostRequest, rsp *post
 		return err
 	}
 	err = t.Store.Write(&store.Record{
-		Key:   post.ID,
+		Key:   post.Slug,
 		Value: bytes,
 	})
 	return t.diffTags(ctx, post.ID, oldPost.TagNames, post.TagNames)
@@ -135,7 +135,34 @@ func (t *PostService) diffTags(ctx context.Context, parentID string, oldTagNames
 }
 
 func (t *PostService) Query(ctx context.Context, req *post.QueryRequest, rsp *post.QueryResponse) error {
-	log.Info("Received Post.Call request")
+	log.Info("Received Post.Query request")
+
+	key := ""
+	if len(req.Slug) > 0 {
+		key = req.Slug
+	} else {
+		return errors.New("List params required")
+	}
+
+	records, err := t.Store.Read(key, store.ReadPrefix())
+	if err != nil {
+		return err
+	}
+	rsp.Posts = make([]*post.Post, len(records))
+	for i, record := range records {
+		postRecord := &Post{}
+		err := json.Unmarshal(record.Value, postRecord)
+		if err != nil {
+			return err
+		}
+		rsp.Posts[i] = &post.Post{
+			Id:       postRecord.ID,
+			Title:    postRecord.Title,
+			Slug:     postRecord.Slug,
+			Content:  postRecord.Content,
+			TagNames: postRecord.TagNames,
+		}
+	}
 	return nil
 }
 

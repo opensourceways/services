@@ -1,6 +1,16 @@
 # Post Service
 
-This is the Post service
+## Create a post
+
+```
+micro call go.micro.service.post PostService.Post '{"post":{"id":"1","title":"How to Micro","content":"Simply put, Micro is awesome."}}'
+```
+
+## Query a post
+
+```
+
+```
 
 Generated with
 

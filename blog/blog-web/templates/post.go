@@ -2,9 +2,9 @@ package template
 
 var PostBody = `
 	<h1>
-		{{ Post.Title }}
+		{{ .Post.Title }}
 	</h1>
 	<div id="content">
-		{{ Post.Content }}
+		{{ .Post.Content }}
 	</div>
 `

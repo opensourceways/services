@@ -35,6 +35,7 @@ func (h Handler) Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h Handler) Post(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Received post req")
 	pastPostFragments := strings.Split(r.URL.Path, "post/")
 	slug := strings.Split(pastPostFragments[0], "/")[0]
 
@@ -43,6 +44,7 @@ func (h Handler) Post(w http.ResponseWriter, r *http.Request) {
 	})
 	rsp := &postproto.QueryResponse{}
 	if err := h.Client.Call(r.Context(), request, rsp); err != nil {
+		fmt.Println(err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
@@ -51,6 +53,10 @@ func (h Handler) Post(w http.ResponseWriter, r *http.Request) {
 	t, err := template.New("webpage").Parse(postTemplate)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
+		return
+	}
+	if len(rsp.Posts) == 0 {
+		http.Error(w, "Not found", 404)
 		return
 	}
 	vars := map[string]interface{}{

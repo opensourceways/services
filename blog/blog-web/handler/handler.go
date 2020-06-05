@@ -20,18 +20,16 @@ func (h Handler) Index(w http.ResponseWriter, r *http.Request) {
 	request := h.Client.NewRequest("go.micro.service.post", "PostService.Query", &postproto.QueryRequest{})
 	rsp := &postproto.QueryResponse{}
 	if err := h.Client.Call(r.Context(), request, rsp); err != nil {
+		fmt.Println("err", err)
 		http.Error(w, err.Error(), 500)
 		return
 	}
+	fmt.Println("Serving index")
 
 	postTemplate := templ.Header + templ.IndexBody + templ.Footer
 	t, err := template.New("webpage").Parse(postTemplate)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
-		return
-	}
-	if len(rsp.Posts) == 0 {
-		http.Error(w, "Not found", 404)
 		return
 	}
 	vars := map[string]interface{}{

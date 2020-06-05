@@ -4,12 +4,21 @@
 
 ```
 micro call go.micro.service.post PostService.Post '{"post":{"id":"1","title":"How to Micro","content":"Simply put, Micro is awesome."}}'
+micro call go.micro.service.post PostService.Post '{"post":{"id":"2","title":"Fresh posts are fresh","content":"This post is fresher than the How to Micro one"}}'
 ```
 
-## Query a post
+## Query posts
 
 ```
+micro call go.micro.service.post PostService.Query '{}'
+micro call go.micro.service.post PostService.Query '{"slug":"how-to-micro"}'
+micro call go.micro.service.post PostService.Query '{"offset": 10, "limit": 10}'
+```
 
+## Delete posts
+
+```
+micro call go.micro.service.post PostService.Delete '{"offset": 10, "limit": 10}'
 ```
 
 Generated with

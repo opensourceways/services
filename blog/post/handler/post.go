@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"math"
 	"time"
 
 	tagProto "github.com/micro/examples/blog/tag/proto/tag"
@@ -93,7 +94,7 @@ func (t *PostService) savePost(ctx context.Context, oldPost, post *Post) error {
 		return err
 	}
 	err = t.Store.Write(&store.Record{
-		Key:   fmt.Sprintf("%v:%v", timeStampPrefix, post.CreateTimestamp),
+		Key:   fmt.Sprintf("%v:%v", timeStampPrefix, math.MaxInt64-post.CreateTimestamp),
 		Value: bytes,
 	})
 	if err != nil {
@@ -191,6 +192,6 @@ func (t *PostService) Query(ctx context.Context, req *post.QueryRequest, rsp *po
 }
 
 func (t *PostService) Delete(ctx context.Context, req *post.DeleteRequest, rsp *post.DeleteResponse) error {
-	log.Info("Received Post.Call request")
-	return nil
+	log.Info("Received Post.Delete request")
+	return t.Store.Delete(fmt.Sprintf("%v:%v", slugPrefix, req.Slug))
 }

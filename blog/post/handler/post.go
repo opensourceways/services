@@ -4,6 +4,8 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"fmt"
+	"time"
 
 	tagProto "github.com/micro/examples/blog/tag/proto/tag"
 
@@ -15,7 +17,11 @@ import (
 	post "github.com/micro/examples/blog/post/proto/post"
 )
 
-const tagType = "post-tag"
+const (
+	tagType         = "post-tag"
+	slugPrefix      = "slug"
+	timeStampPrefix = "timestamp"
+)
 
 type Post struct {
 	ID              string   `json:"id"`
@@ -47,26 +53,55 @@ func (t *PostService) Post(ctx context.Context, req *post.PostRequest, rsp *post
 	// If no existing record is found, create a new one
 	if len(records) == 0 {
 		post := &Post{
-			ID:       req.Post.Id,
-			Title:    req.Post.Title,
-			Content:  req.Post.Content,
-			TagNames: req.Post.TagNames,
-			Slug:     postSlug,
+			ID:              req.Post.Id,
+			Title:           req.Post.Title,
+			Content:         req.Post.Content,
+			TagNames:        req.Post.TagNames,
+			Slug:            postSlug,
+			CreateTimestamp: time.Now().Unix(),
 		}
-		bytes, err := json.Marshal(post)
-		if err != nil {
-			return err
-		}
+		return t.savePost(ctx, nil, post)
+	}
+	record := records[0]
+	oldPost := &Post{}
+	err = json.Unmarshal(record.Value, oldPost)
+	if err != nil {
+		return err
+	}
+	post := &Post{
+		ID:              req.Post.Id,
+		Title:           req.Post.Title,
+		Slug:            postSlug,
+		TagNames:        req.Post.TagNames,
+		CreateTimestamp: oldPost.CreateTimestamp,
+		UpdateTimestamp: time.Now().Unix(),
+	}
+	return t.savePost(ctx, oldPost, post)
+}
 
-		err = t.Store.Write(&store.Record{
-			Key:   post.Slug,
-			Value: bytes,
-		})
-		if err != nil {
-			return err
-		}
+func (t *PostService) savePost(ctx context.Context, oldPost, post *Post) error {
+	bytes, err := json.Marshal(post)
+	if err != nil {
+		return err
+	}
+
+	err = t.Store.Write(&store.Record{
+		Key:   fmt.Sprintf("%v:%v", slugPrefix, post.Slug),
+		Value: bytes,
+	})
+	if err != nil {
+		return err
+	}
+	err = t.Store.Write(&store.Record{
+		Key:   fmt.Sprintf("%v:%v", timeStampPrefix, post.CreateTimestamp),
+		Value: bytes,
+	})
+	if err != nil {
+		return err
+	}
+	if oldPost == nil {
 		tagClient := tagProto.NewTagService("go.micro.service.tag", t.Client)
-		for _, tagName := range req.Post.TagNames {
+		for _, tagName := range post.TagNames {
 			_, err := tagClient.IncreaseCount(ctx, &tagProto.IncreaseCountRequest{
 				ParentID: post.ID,
 				Type:     tagType,
@@ -78,27 +113,7 @@ func (t *PostService) Post(ctx context.Context, req *post.PostRequest, rsp *post
 		}
 		return nil
 	}
-	record := records[0]
-	oldPost := &Post{}
-	err = json.Unmarshal(record.Value, oldPost)
-	if err != nil {
-		return err
-	}
-	post := &Post{
-		ID:       req.Post.Id,
-		Title:    req.Post.Title,
-		Slug:     postSlug,
-		TagNames: req.Post.TagNames,
-	}
-	bytes, err := json.Marshal(post)
-	if err != nil {
-		return err
-	}
-	err = t.Store.Write(&store.Record{
-		Key:   post.Slug,
-		Value: bytes,
-	})
-	return t.diffTags(ctx, post.ID, oldPost.TagNames, post.TagNames)
+	return t.diffTags(ctx, oldPost.ID, oldPost.TagNames, post.TagNames)
 }
 
 func (t *PostService) diffTags(ctx context.Context, parentID string, oldTagNames, newTagNames []string) error {
@@ -137,14 +152,23 @@ func (t *PostService) diffTags(ctx context.Context, parentID string, oldTagNames
 func (t *PostService) Query(ctx context.Context, req *post.QueryRequest, rsp *post.QueryResponse) error {
 	log.Info("Received Post.Query request")
 
-	key := ""
+	var records []*store.Record
+	var err error
 	if len(req.Slug) > 0 {
-		key = req.Slug
+		key := fmt.Sprintf("%v:%v", slugPrefix, req.Slug)
+		records, err = t.Store.Read(key, store.ReadPrefix())
 	} else {
-		return errors.New("List params required")
+		key := fmt.Sprintf("%v:", timeStampPrefix)
+		var limit uint
+		limit = 20
+		if req.Limit > 0 {
+			limit = uint(req.Limit)
+		}
+		records, err = t.Store.Read(key, store.ReadPrefix(),
+			store.ReadOffset(uint(req.Offset)),
+			store.ReadLimit(limit))
 	}
 
-	records, err := t.Store.Read(key, store.ReadPrefix())
 	if err != nil {
 		return err
 	}

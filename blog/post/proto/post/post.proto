@@ -20,7 +20,8 @@ message Post {
 
 message QueryRequest {
 	string slug = 1;
-	string timestamp = 2;
+	int64 offset = 2;
+	int64 limit = 3;
 }
 
 message QueryResponse {

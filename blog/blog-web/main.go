@@ -24,7 +24,9 @@ func main() {
 	}
 	// register call handler
 	service.HandleFunc("/post/", handl.Post)
-	service.HandleFunc("/api/post", handl.Post)
+	service.HandleFunc("/new-post", handl.NewPost)
+	//service.HandleFunc("/edit-post", handl.EditPost)
+	service.HandleFunc("/api/post", handl.PostAPI)
 	service.HandleFunc("/", handl.Index)
 
 	// run service

@@ -151,12 +151,11 @@ func (t *PostService) diffTags(ctx context.Context, parentID string, oldTagNames
 }
 
 func (t *PostService) Query(ctx context.Context, req *post.QueryRequest, rsp *post.QueryResponse) error {
-	log.Info("Received Post.Query request")
-
 	var records []*store.Record
 	var err error
 	if len(req.Slug) > 0 {
 		key := fmt.Sprintf("%v:%v", slugPrefix, req.Slug)
+		log.Infof("Reading post by slug: %v", req.Slug)
 		records, err = t.Store.Read(key, store.ReadPrefix())
 	} else {
 		key := fmt.Sprintf("%v:", timeStampPrefix)
@@ -165,6 +164,7 @@ func (t *PostService) Query(ctx context.Context, req *post.QueryRequest, rsp *po
 		if req.Limit > 0 {
 			limit = uint(req.Limit)
 		}
+		log.Infof("Listing posts, offset: %v, limit: %v", req.Offset, limit)
 		records, err = t.Store.Read(key, store.ReadPrefix(),
 			store.ReadOffset(uint(req.Offset)),
 			store.ReadLimit(limit))

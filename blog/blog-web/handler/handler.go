@@ -7,9 +7,11 @@ import (
 	"net/http"
 	"strings"
 
+	"github.com/lithammer/shortuuid/v3"
 	templ "github.com/micro/examples/blog/blog-web/templates"
 	postproto "github.com/micro/examples/blog/post/proto/post"
 	"github.com/micro/go-micro/v2/client"
+	log "github.com/micro/go-micro/v2/logger"
 )
 
 type Handler struct {
@@ -48,6 +50,7 @@ func (h Handler) Index(w http.ResponseWriter, r *http.Request) {
 func (h Handler) Post(w http.ResponseWriter, r *http.Request) {
 	pastPostFragments := strings.Split(r.URL.Path, "post/")
 	slug := strings.Split(pastPostFragments[1], "/")[0]
+	log.Infof("Getting post by slug: %v, for path: %v", slug, r.URL.Path)
 
 	request := h.Client.NewRequest("go.micro.service.post", "PostService.Query", &postproto.QueryRequest{
 		Slug: slug,
@@ -81,6 +84,54 @@ func (h Handler) Post(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, buf.String())
 }
 
-func (h Handler) PostAPI(w http.ResponseWriter, r *http.Request) {
+func (h Handler) NewPost(w http.ResponseWriter, r *http.Request) {
+	newPostTemplate := templ.Header + templ.NewPostBody + templ.Footer
+	t, err := template.New("webpage").Parse(newPostTemplate)
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	vars := map[string]interface{}{}
+	buf := new(bytes.Buffer)
+	err = t.Execute(buf, vars)
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
 
+	fmt.Fprint(w, buf.String())
+}
+
+func (h Handler) PostAPI(w http.ResponseWriter, r *http.Request) {
+	log.Infof("New post request")
+	err := r.ParseForm()
+	if err != nil {
+		panic(err)
+	}
+
+	tagNames := []string{}
+	if len(r.PostFormValue("tagNames")) > 0 {
+		for _, tagName := range strings.Split(r.PostFormValue("tagNames"), ",") {
+			tagNames = append(tagNames, strings.TrimSpace(tagName))
+		}
+	}
+	title := r.PostFormValue("title")
+	content := r.PostFormValue("content")
+	log.Infof("Creating post with title %v", title)
+	request := h.Client.NewRequest("go.micro.service.post", "PostService.Post", &postproto.PostRequest{
+		Post: &postproto.Post{
+			Id:       shortuuid.New(),
+			Title:    title,
+			Content:  content,
+			TagNames: tagNames,
+		},
+	})
+	rsp := &postproto.PostResponse{}
+	if err := h.Client.Call(r.Context(), request, rsp); err != nil {
+		fmt.Println("Error creating post: ", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+
+	http.Redirect(w, r, "/post/"+rsp.Post.Slug, 301)
 }

@@ -1,27 +1,47 @@
-# Hello World
+# Helloworld Service
 
-This is hello world using micro
+This is the Helloworld service
 
-## Contents
+Generated with
 
-- main.go - is the main definition of the service, handler and client
-- proto - contains the protobuf definition of the API
+```
+micro new github.com/micro/services/helloworld --namespace=go.micro --type=srv
+```
+
+## Getting Started
+
+- [Configuration](#configuration)
+- [Dependencies](#dependencies)
+- [Usage](#usage)
+
+## Configuration
+
+- FQDN: go.micro.srv.helloworld
+- Type: srv
+- Alias: helloworld
 
 ## Dependencies
 
-Install the following
+Micro services depend on service discovery. The default is multicast DNS, a zeroconf system.
 
-- [micro](https://github.com/micro/micro)
-- [protoc-gen-micro](https://github.com/micro/protoc-gen-micro)
+In the event you need a resilient multi-host setup we recommend etcd.
 
-## Run Service
+## Usage
 
-```shell
-micro run service --name helloworld
-```
+A Makefile is included for convenience
 
-## Query Service
+Build the binary
 
 ```
-micro call helloworld Greeter.Hello '{"name": "John"}'
+make build
+```
+
+Run the service
+```
+./helloworld-srv
+```
+
+Build a docker image
+```
+make docker
 ```

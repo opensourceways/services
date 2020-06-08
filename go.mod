@@ -21,7 +21,7 @@ require (
 	github.com/gin-gonic/gin v1.4.0
 	github.com/go-delve/delve v1.4.1 // indirect
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
-	github.com/golang/protobuf v1.4.1
+	github.com/golang/protobuf v1.4.0
 	github.com/google/uuid v1.1.1
 	github.com/gorilla/rpc v1.2.0
 	github.com/gorilla/websocket v1.4.1
@@ -29,14 +29,13 @@ require (
 	github.com/grpc-ecosystem/grpc-gateway v1.12.1
 	github.com/hailocab/go-geoindex v0.0.0-20160127134810-64631bfe9711
 	github.com/micro/cli/v2 v2.1.2
-	github.com/micro/go-micro v1.18.0
 	github.com/micro/go-micro/v2 v2.8.0
 	github.com/micro/go-plugins/broker/grpc/v2 v2.3.0
 	github.com/micro/go-plugins/client/selector/static/v2 v2.3.0
 	github.com/micro/go-plugins/config/source/configmap/v2 v2.3.0
 	github.com/micro/go-plugins/config/source/grpc/v2 v2.3.0
 	github.com/micro/go-plugins/registry/etcd/v2 v2.3.0
-	github.com/micro/go-plugins/registry/kubernetes/v2 v2.3.0
+	github.com/micro/go-plugins/registry/kubernetes/v2 v2.8.0
 	github.com/micro/go-plugins/wrapper/select/roundrobin/v2 v2.3.0
 	github.com/micro/go-plugins/wrapper/select/shard/v2 v2.3.0
 	github.com/micro/micro/v2 v2.4.0
@@ -49,3 +48,5 @@ require (
 	google.golang.org/grpc v1.27.0
 	google.golang.org/protobuf v1.24.0
 )
+
+replace github.com/micro/go-micro/v2 => github.com/micro/go-micro/v2 v2.8.1-0.20200604083217-bd3ef6732811

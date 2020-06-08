@@ -4,14 +4,6 @@ This is a repository for micro examples. Feel free to contribute.
 
 ## Contents
 
-Most likely needed examples
-
-- [service](service) - A sample micro service
-- [greeter](greeter) - A complete greeter example
-- [booking](booking) - A demo end to end application
-
-### Other
-
 - [api](api) - Provides API usage examples
 - [booking](booking) - A booking.com demo application
 - [broker](broker) - A example of using Broker for Publish and Subscribing.
@@ -51,52 +43,20 @@ Most likely needed examples
 
 ## Community
 
-Find contributions from the community via the [explorer](https://micro.mu/explore/)
+Find contributions from the community via the [explorer](https://micro.mu/projects/)
 
-- [go-shopping](https://github.com/autodidaddict/go-shopping) - A sample product with a suite of services
-- [shippy](https://github.com/EwanValentine/shippy) - A multi app demo and tutorial
-- [services](https://github.com/micro/services) - The home of Micro services
-
-## Dependencies
-
-- [Service Discovery](#service-discovery)
-- [Protobuf](#protobuf)
-
-## Service Discovery
-
-All services require service discovery. The default is multicast DNS, a zeroconf system.
-
-If you need something multi-host or more resilient use etcd.
-
-```
-# install
-go get -v go.etcd.io/etcd
-
-# run
-etcd
-```
-
-Use env var `MICRO_REGISTRY=etcd` to enable the etcd registry.
-
-## Protobuf
-
-Protobuf is used for code generation of message types and client/hander stubs.
-
-If making changes recompile the protos.
-
-### Install
+## Install
 
 Install [protoc](https://github.com/google/protobuf) for your environment. Then:
 
 ```shell
+# install protoc-gen-go
 go get github.com/golang/protobuf/{proto,protoc-gen-go}
-```
-
-```shell
+# install protoc-gen-micro
 go get github.com/micro/micro/v2/cmd/protoc-gen-micro@master
 ```
 
-### Compile Proto
+To recompile any proto after changes:
 
 ```shell
 protoc --proto_path=$GOPATH/src:. --micro_out=. --go_out=. path/to/proto

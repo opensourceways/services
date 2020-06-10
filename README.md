@@ -41,10 +41,6 @@ This is a repository for micro examples. Feel free to contribute.
 - [waitgroup](waitgroup) - Demonstrates how to use a waitgroup with a service
 - [wrapper](wrapper) - A simple example of using a log wrapper
 
-## Community
-
-Find contributions from the community via the [explorer](https://micro.mu/projects/)
-
 ## Install
 
 Install [protoc](https://github.com/google/protobuf) for your environment. Then:

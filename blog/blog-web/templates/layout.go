@@ -17,6 +17,11 @@ var Header = `
 			padding: 3rem 1.5rem;
 			text-align: center;
 		  }
+		  .tag {
+			  padding: 0.5em;
+			  border-radius: 25px;
+			  background: #eee;
+		  }
 		</style>
 		<title>
 			{{ .Title }}

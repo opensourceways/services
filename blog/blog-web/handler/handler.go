@@ -60,15 +60,15 @@ func (h Handler) Post(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), 500)
 		return
 	}
+	if len(rsp.Posts) == 0 {
+		http.Error(w, "Not found", 404)
+		return
+	}
 
 	postTemplate := templ.Header + templ.PostBody + templ.Footer
 	t, err := template.New("webpage").Parse(postTemplate)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
-		return
-	}
-	if len(rsp.Posts) == 0 {
-		http.Error(w, "Not found", 404)
 		return
 	}
 	vars := map[string]interface{}{
@@ -102,6 +102,44 @@ func (h Handler) NewPost(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, buf.String())
 }
 
+func (h Handler) EditPost(w http.ResponseWriter, r *http.Request) {
+	pastPostFragments := strings.Split(r.URL.Path, "edit/")
+	slug := strings.Split(pastPostFragments[1], "/")[0]
+
+	request := h.Client.NewRequest("go.micro.service.post", "PostService.Query", &postproto.QueryRequest{
+		Slug: slug,
+	})
+	rsp := &postproto.QueryResponse{}
+	if err := h.Client.Call(r.Context(), request, rsp); err != nil {
+		fmt.Println("err", err)
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	if len(rsp.Posts) == 0 {
+		http.Error(w, "Not found", 404)
+		return
+	}
+
+	editPostTemplate := templ.Header + templ.EditPostBody + templ.Footer
+	t, err := template.New("webpage").Parse(editPostTemplate)
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+	vars := map[string]interface{}{
+		"Post":     rsp.Posts[0],
+		"TagNames": strings.Join(rsp.Posts[0].TagNames, ", "),
+	}
+	buf := new(bytes.Buffer)
+	err = t.Execute(buf, vars)
+	if err != nil {
+		http.Error(w, err.Error(), 500)
+		return
+	}
+
+	fmt.Fprint(w, buf.String())
+}
+
 func (h Handler) PostAPI(w http.ResponseWriter, r *http.Request) {
 	log.Infof("New post request")
 	err := r.ParseForm()
@@ -117,10 +155,15 @@ func (h Handler) PostAPI(w http.ResponseWriter, r *http.Request) {
 	}
 	title := r.PostFormValue("title")
 	content := r.PostFormValue("content")
+	id := r.PostFormValue("id")
+	if len(id) == 0 {
+		id = shortuuid.New()
+	}
+
 	log.Infof("Creating post with title %v", title)
 	request := h.Client.NewRequest("go.micro.service.post", "PostService.Post", &postproto.PostRequest{
 		Post: &postproto.Post{
-			Id:       shortuuid.New(),
+			Id:       id,
 			Title:    title,
 			Content:  content,
 			TagNames: tagNames,
@@ -133,5 +176,5 @@ func (h Handler) PostAPI(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	http.Redirect(w, r, "/post/"+rsp.Post.Slug, 301)
+	http.Redirect(w, r, "/", 301)
 }

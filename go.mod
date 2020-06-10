@@ -21,13 +21,14 @@ require (
 	github.com/gin-gonic/gin v1.4.0
 	github.com/go-delve/delve v1.4.1 // indirect
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
-	github.com/golang/protobuf v1.4.0
+	github.com/golang/protobuf v1.4.1
 	github.com/google/uuid v1.1.1
 	github.com/gorilla/rpc v1.2.0
 	github.com/gorilla/websocket v1.4.1
 	github.com/gosimple/slug v1.9.0
 	github.com/grpc-ecosystem/grpc-gateway v1.12.1
 	github.com/hailocab/go-geoindex v0.0.0-20160127134810-64631bfe9711
+	github.com/lithammer/shortuuid/v3 v3.0.4 // indirect
 	github.com/micro/cli/v2 v2.1.2
 	github.com/micro/go-micro/v2 v2.8.0
 	github.com/micro/go-plugins/broker/grpc/v2 v2.3.0

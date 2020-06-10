@@ -1,13 +1,19 @@
 package template
 
 var IndexBody = `
-	{{ range $index, $element := .Posts }}
+	{{ range $index, $post := .Posts }}
 	<div class="entry" style="text-align: left">
 		<h1>
-			<a href="post/{{ $element.Slug }}">{{ $element.Title }}</a>
+			<a href="post/{{ $post.Slug }}">{{ $post.Title }}</a>
 		</h1>
+		<div>
+			{{ range $index, $tagName := $post.TagNames }}
+			<span class="tag">{{ $tagName }}</span>
+			{{ end }}
+		</div>
+		<br />
 		<div id="content">
-			{{ $element.Content }}
+			{{ $post.Content }}
 		</div>
 	</div>
 	<br />

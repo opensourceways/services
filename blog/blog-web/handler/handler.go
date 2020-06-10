@@ -160,7 +160,7 @@ func (h Handler) PostAPI(w http.ResponseWriter, r *http.Request) {
 		id = shortuuid.New()
 	}
 
-	log.Infof("Creating post with title %v", title)
+	log.Infof("Creating post with id and title %v: %v", title)
 	request := h.Client.NewRequest("go.micro.service.post", "PostService.Post", &postproto.PostRequest{
 		Post: &postproto.Post{
 			Id:       id,

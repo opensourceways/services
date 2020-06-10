@@ -21,6 +21,7 @@ import (
 const (
 	tagType         = "post-tag"
 	slugPrefix      = "slug"
+	idPrefix        = "id"
 	timeStampPrefix = "timestamp"
 )
 
@@ -45,11 +46,10 @@ func (t *PostService) Post(ctx context.Context, req *post.PostRequest, rsp *post
 	}
 
 	// read by parent ID + slug, the record is identical in boths places anyway
-	records, err := t.Store.Read(req.Post.Slug)
+	records, err := t.Store.Read(fmt.Sprintf("%v:%v", idPrefix, req.Post.Id))
 	if err != nil && err != store.ErrNotFound {
 		return err
 	}
-
 	postSlug := slug.Make(req.Post.Title)
 	// If no existing record is found, create a new one
 	if len(records) == 0 {
@@ -72,11 +72,27 @@ func (t *PostService) Post(ctx context.Context, req *post.PostRequest, rsp *post
 	post := &Post{
 		ID:              req.Post.Id,
 		Title:           req.Post.Title,
+		Content:         req.Post.Content,
 		Slug:            postSlug,
 		TagNames:        req.Post.TagNames,
 		CreateTimestamp: oldPost.CreateTimestamp,
 		UpdateTimestamp: time.Now().Unix(),
 	}
+
+	// Check if slug exists
+	recordsBySlug, err := t.Store.Read(fmt.Sprintf("%v:%v", slugPrefix, postSlug))
+	if err != nil && err != store.ErrNotFound {
+		return err
+	}
+	otherSlugPost := &Post{}
+	err = json.Unmarshal(record.Value, otherSlugPost)
+	if err != nil {
+		return err
+	}
+	if len(recordsBySlug) > 0 && oldPost.ID != otherSlugPost.ID {
+		return errors.New("An other post with this slug already exists")
+	}
+
 	return t.savePost(ctx, oldPost, post)
 }
 
@@ -86,6 +102,20 @@ func (t *PostService) savePost(ctx context.Context, oldPost, post *Post) error {
 		return err
 	}
 
+	err = t.Store.Write(&store.Record{
+		Key:   fmt.Sprintf("%v:%v", idPrefix, post.ID),
+		Value: bytes,
+	})
+	if err != nil {
+		return err
+	}
+	// Delete old slug index if the slug has changed
+	if oldPost.Slug != post.Slug {
+		err = t.Store.Delete(fmt.Sprintf("%v:%v", slugPrefix, post.Slug))
+		if err != nil {
+			return err
+		}
+	}
 	err = t.Store.Write(&store.Record{
 		Key:   fmt.Sprintf("%v:%v", slugPrefix, post.Slug),
 		Value: bytes,

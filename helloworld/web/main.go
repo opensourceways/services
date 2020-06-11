@@ -6,8 +6,8 @@ import (
 	"log"
 	"net/http"
 
+	hello "github.com/micro/examples/helloworld/proto"
 	"github.com/micro/go-micro/v2/web"
-	hello "github.com/micro/services/helloworld/proto"
 )
 
 var (

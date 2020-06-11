@@ -2,9 +2,10 @@ package subscriber
 
 import (
 	"context"
+
 	log "github.com/micro/go-micro/v2/logger"
 
-	comment "comment/proto/comment"
+	comment "github.com/micro/examples/blog/comment/proto/comment"
 )
 
 type Comment struct{}

@@ -40,6 +40,7 @@ require (
 	github.com/micro/go-plugins/wrapper/select/roundrobin/v2 v2.3.0
 	github.com/micro/go-plugins/wrapper/select/shard/v2 v2.3.0
 	github.com/micro/micro/v2 v2.4.0
+	github.com/micro/services/helloworld v0.0.0-20200531144117-cc559211129a // indirect
 	github.com/pborman/uuid v1.2.0
 	github.com/shiena/ansicolor v0.0.0-20151119151921-a422bbe96644 // indirect
 	github.com/vektah/gqlparser v1.2.0

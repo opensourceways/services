@@ -1,4 +1,4 @@
-module github.com/micro/services/helloworld
+module github.com/micro/examples/helloworld
 
 go 1.13
 

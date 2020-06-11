@@ -1,4 +1,4 @@
-module github.com/micro/examples/blog/search
+module github.com/micro/examples/blog/comment
 
 go 1.13
 

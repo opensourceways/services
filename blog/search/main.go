@@ -1,12 +1,11 @@
 package main
 
 import (
-	log "github.com/micro/go-micro/v2/logger"
+	"github.com/micro/examples/blog/search/handler"
 	"github.com/micro/go-micro/v2"
-	"search/handler"
-	"search/subscriber"
+	log "github.com/micro/go-micro/v2/logger"
 
-	search "search/proto/search"
+	search "github.com/micro/examples/blog/search/proto/search"
 )
 
 func main() {
@@ -20,10 +19,7 @@ func main() {
 	service.Init()
 
 	// Register Handler
-	search.RegisterSearchHandler(service.Server(), new(handler.Search))
-
-	// Register Struct as Subscriber
-	micro.RegisterSubscriber("go.micro.service.search", service.Server(), new(subscriber.Search))
+	search.RegisterSearchServiceHandler(service.Server(), new(handler.Search))
 
 	// Run service
 	if err := service.Run(); err != nil {

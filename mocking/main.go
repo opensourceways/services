@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	var c proto.GreeterService
+	var c proto.HelloworldService
 
 	service := micro.NewService(
 		micro.Flags(&cli.StringFlag{
@@ -27,19 +27,19 @@ func main() {
 			if env == "testing" {
 				c = mock.NewGreeterService()
 			} else {
-				c = proto.NewGreeterService("helloworld", service.Client())
+				c = proto.NewHelloworldService("helloworld", service.Client())
 			}
 			return nil
 		}),
 	)
 
 	// call hello service
-	rsp, err := c.Hello(context.TODO(), &proto.Request{
+	rsp, err := c.Call(context.TODO(), &proto.Request{
 		Name: "John",
 	})
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println(rsp.Greeting)
+	fmt.Println(rsp.Msg)
 }

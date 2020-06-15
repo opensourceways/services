@@ -5,6 +5,7 @@ This is a repository for micro examples. Feel free to contribute.
 ## Contents
 
 - [api](api) - Provides API usage examples
+- [blog](blog) - Full end to end multi-service blog example
 - [booking](booking) - A booking.com demo application
 - [broker](broker) - A example of using Broker for Publish and Subscribing.
 - [client](client) - Usage of the Client package to call a service.

@@ -3,12 +3,10 @@ package main
 
 import (
 	"context"
-	"time"
 
 	hello "github.com/micro/examples/greeter/srv/proto/hello"
 	"github.com/micro/go-micro/v2"
 	"github.com/micro/go-micro/v2/util/log"
-	"google.golang.org/grpc"
 )
 
 type Say struct{}

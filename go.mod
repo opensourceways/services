@@ -32,7 +32,8 @@ require (
 	github.com/micro/cli/v2 v2.1.2
 	github.com/micro/examples/blog/post v0.0.0-20200611104942-3aa40685d492 // indirect
 	github.com/micro/examples/helloworld v0.0.0-20200611083641-71addf7d37de
-	github.com/micro/go-micro/v2 v2.8.0
+	github.com/micro/go-micro v1.18.0
+	github.com/micro/go-micro/v2 v2.9.1-0.20200702162645-b5314829fa7d
 	github.com/micro/go-plugins/broker/grpc/v2 v2.3.0
 	github.com/micro/go-plugins/client/selector/static/v2 v2.3.0
 	github.com/micro/go-plugins/config/source/configmap/v2 v2.3.0
@@ -54,4 +55,4 @@ require (
 	google.golang.org/protobuf v1.24.0
 )
 
-replace github.com/micro/go-micro/v2 => github.com/micro/go-micro/v2 v2.8.1-0.20200604083217-bd3ef6732811
+replace github.com/micro/go-micro/v2 => github.com/micro/go-micro/v2 v2.9.1-0.20200702162645-b5314829fa7d

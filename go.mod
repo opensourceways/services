@@ -19,18 +19,15 @@ require (
 	github.com/astaxie/beego v1.12.0
 	github.com/emicklei/go-restful v2.11.1+incompatible
 	github.com/gin-gonic/gin v1.4.0
-	github.com/go-delve/delve v1.4.1 // indirect
 	github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b
 	github.com/golang/protobuf v1.4.1
 	github.com/google/uuid v1.1.1
 	github.com/gorilla/rpc v1.2.0
 	github.com/gorilla/websocket v1.4.1
-	github.com/gosimple/slug v1.9.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway v1.12.1
 	github.com/hailocab/go-geoindex v0.0.0-20160127134810-64631bfe9711
-	github.com/lithammer/shortuuid/v3 v3.0.4 // indirect
+	github.com/hashicorp/golang-lru v0.5.4 // indirect
 	github.com/micro/cli/v2 v2.1.2
-	github.com/micro/examples/blog/post v0.0.0-20200611104942-3aa40685d492 // indirect
 	github.com/micro/examples/helloworld v0.0.0-20200611083641-71addf7d37de
 	github.com/micro/go-micro v1.18.0 // indirect
 	github.com/micro/go-micro/v2 v2.9.1-0.20200702162645-b5314829fa7d
@@ -43,12 +40,10 @@ require (
 	github.com/micro/go-plugins/wrapper/select/roundrobin/v2 v2.3.0
 	github.com/micro/go-plugins/wrapper/select/shard/v2 v2.3.0
 	github.com/micro/micro/v2 v2.4.0
-	github.com/micro/services/helloworld v0.0.0-20200531144117-cc559211129a // indirect
-	github.com/micro/services/helloworld/api v0.0.0-20200531144117-cc559211129a // indirect
 	github.com/pborman/uuid v1.2.0
 	github.com/shiena/ansicolor v0.0.0-20151119151921-a422bbe96644 // indirect
+	github.com/sirupsen/logrus v1.6.0 // indirect
 	github.com/vektah/gqlparser v1.2.0
-	go.etcd.io/etcd v3.3.22+incompatible // indirect
 	golang.org/x/net v0.0.0-20200520182314-0ba52f642ac2
 	google.golang.org/genproto v0.0.0-20200526211855-cb27e3aa2013
 	google.golang.org/grpc v1.27.0

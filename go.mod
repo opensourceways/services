@@ -25,14 +25,14 @@ require (
 	github.com/google/uuid v1.1.1
 	github.com/gorilla/rpc v1.2.0
 	github.com/gorilla/websocket v1.4.1
-	github.com/gosimple/slug v1.9.0
+	github.com/gosimple/slug v1.9.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway v1.12.1
 	github.com/hailocab/go-geoindex v0.0.0-20160127134810-64631bfe9711
 	github.com/lithammer/shortuuid/v3 v3.0.4 // indirect
 	github.com/micro/cli/v2 v2.1.2
 	github.com/micro/examples/blog/post v0.0.0-20200611104942-3aa40685d492 // indirect
 	github.com/micro/examples/helloworld v0.0.0-20200611083641-71addf7d37de
-	github.com/micro/go-micro v1.18.0
+	github.com/micro/go-micro v1.18.0 // indirect
 	github.com/micro/go-micro/v2 v2.9.1-0.20200702162645-b5314829fa7d
 	github.com/micro/go-plugins/broker/grpc/v2 v2.3.0
 	github.com/micro/go-plugins/client/selector/static/v2 v2.3.0
@@ -52,7 +52,7 @@ require (
 	golang.org/x/net v0.0.0-20200520182314-0ba52f642ac2
 	google.golang.org/genproto v0.0.0-20200526211855-cb27e3aa2013
 	google.golang.org/grpc v1.27.0
-	google.golang.org/protobuf v1.24.0
+	google.golang.org/protobuf v1.24.0 // indirect
 )
 
 replace github.com/micro/go-micro/v2 => github.com/micro/go-micro/v2 v2.9.1-0.20200702162645-b5314829fa7d

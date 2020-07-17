@@ -110,7 +110,7 @@ func (t *Posts) savePost(ctx context.Context, oldPost, post *Post) error {
 		return err
 	}
 	// Delete old slug index if the slug has changed
-	if oldPost.Slug != post.Slug {
+	if oldPost != nil && oldPost.Slug != post.Slug {
 		err = t.Store.Delete(fmt.Sprintf("%v:%v", slugPrefix, post.Slug))
 		if err != nil {
 			return err
@@ -131,7 +131,7 @@ func (t *Posts) savePost(ctx context.Context, oldPost, post *Post) error {
 		return err
 	}
 	if oldPost == nil {
-		tagClient := tagProto.NewTagsService("go.micro.service.tag", t.Client)
+		tagClient := tagProto.NewTagsService("go.micro.service.tags", t.Client)
 		for _, tagName := range post.TagNames {
 			_, err := tagClient.IncreaseCount(ctx, &tagProto.IncreaseCountRequest{
 				ParentID: post.ID,
@@ -144,7 +144,7 @@ func (t *Posts) savePost(ctx context.Context, oldPost, post *Post) error {
 		}
 		return nil
 	}
-	return t.diffTags(ctx, oldPost.ID, oldPost.TagNames, post.TagNames)
+	return t.diffTags(ctx, post.ID, oldPost.TagNames, post.TagNames)
 }
 
 func (t *Posts) diffTags(ctx context.Context, parentID string, oldTagNames, newTagNames []string) error {
@@ -160,21 +160,27 @@ func (t *Posts) diffTags(ctx context.Context, parentID string, oldTagNames, newT
 	for i := range oldTags {
 		_, stillThere := newTags[i]
 		if !stillThere {
-			tagClient.DecreaseCount(ctx, &tagProto.DecreaseCountRequest{
+			_, err := tagClient.DecreaseCount(ctx, &tagProto.DecreaseCountRequest{
 				ParentID: parentID,
 				Type:     tagType,
 				Title:    i,
 			})
+			if err != nil {
+				log.Errorf("Error decreasing count for tag '%v' with type '%v' for parent '%v'", i, tagType, parentID)
+			}
 		}
 	}
 	for i := range newTags {
 		_, newlyAdded := oldTags[i]
 		if newlyAdded {
-			tagClient.IncreaseCount(ctx, &tagProto.IncreaseCountRequest{
+			_, err := tagClient.IncreaseCount(ctx, &tagProto.IncreaseCountRequest{
 				ParentID: parentID,
 				Type:     tagType,
 				Title:    i,
 			})
+			if err != nil {
+				log.Errorf("Error increasing count for tag '%v' with type '%v' for parent '%v'", i, tagType, parentID)
+			}
 		}
 	}
 	return nil

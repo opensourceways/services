@@ -21,7 +21,6 @@ This is a repository for micro examples. Feel free to contribute.
 - [greeter](greeter) - A complete greeter example (includes python, ruby examples)
 - [heartbeat](heartbeat) - Make services heartbeat with discovery for high availability
 - [helloworld](helloworld) - Hello world using micro
-- [kubernetes](kubernetes) - Examples of using the k8s registry and grpc
 - [metadata](metadata) - Extracting metadata from context of a request
 - [mocking](mocking) - Demonstrate mocking helloworld service
 - [noproto](noproto) - Use micro without protobuf or code generation, only go types

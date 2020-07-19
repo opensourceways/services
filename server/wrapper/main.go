@@ -6,7 +6,6 @@ import (
 	"context"
 	"github.com/micro/examples/server/handler"
 	"github.com/micro/examples/server/subscriber"
-	"github.com/micro/go-micro/v2/config/cmd"
 	"github.com/micro/go-micro/v2/server"
 )
 
@@ -29,9 +28,6 @@ func logSubWrapper(fn server.SubscriberFunc) server.SubscriberFunc {
 }
 
 func main() {
-	// optionally setup command line usage
-	cmd.Init()
-
 	md := server.DefaultOptions().Metadata
 	md["datacenter"] = "local"
 

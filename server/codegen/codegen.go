@@ -5,7 +5,6 @@ import (
 
 	"context"
 	"github.com/micro/examples/server/subscriber"
-	"github.com/micro/go-micro/v2/config/cmd"
 	"github.com/micro/go-micro/v2/server"
 
 	example "github.com/micro/examples/server/proto/example"
@@ -48,9 +47,6 @@ func (e *Example) PingPong(ctx context.Context, stream example.Example_PingPongS
 }
 
 func main() {
-	// optionally setup command line usage
-	cmd.Init()
-
 	// Initialise Server
 	server.Init(
 		server.Name("go.micro.srv.example"),

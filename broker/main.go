@@ -6,7 +6,6 @@ import (
 	"time"
 
 	"github.com/micro/go-micro/v2/broker"
-	"github.com/micro/go-micro/v2/config/cmd"
 )
 
 var (
@@ -43,8 +42,6 @@ func sub() {
 }
 
 func main() {
-	cmd.Init()
-
 	if err := broker.Init(); err != nil {
 		log.Fatalf("Broker Init error: %v", err)
 	}

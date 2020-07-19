@@ -7,7 +7,6 @@ import (
 	"context"
 	example "github.com/micro/examples/server/proto/example"
 	"github.com/micro/go-micro/v2/client"
-	"github.com/micro/go-micro/v2/config/cmd"
 	"github.com/micro/go-micro/v2/metadata"
 	"github.com/micro/go-micro/v2/registry"
 )
@@ -80,8 +79,6 @@ func call(i int) {
 }
 
 func main() {
-	cmd.Init()
-
 	fmt.Println("\n--- Log Wrapper example ---")
 
 	// Wrap the default client

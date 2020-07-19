@@ -226,7 +226,9 @@ var _Foo_serviceDesc = grpc.ServiceDesc{
 	Metadata: "github.com/micro/examples/api/meta/proto/api.proto",
 }
 
-func init() { proto.RegisterFile("github.com/micro/examples/api/meta/proto/api.proto", fileDescriptor0) }
+func init() {
+	proto.RegisterFile("github.com/micro/examples/api/meta/proto/api.proto", fileDescriptor0)
+}
 
 var fileDescriptor0 = []byte{
 	// 203 bytes of a gzipped FileDescriptorProto

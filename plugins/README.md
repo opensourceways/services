@@ -63,7 +63,7 @@ import (
 
 func main() {
 	// Parse CLI flags
-	cmd.Init()
+	cmd.Run()
 }
 ```
 

@@ -5,7 +5,6 @@ import (
 
 	"context"
 	example "github.com/micro/examples/server/proto/example"
-	"github.com/micro/go-micro/v2/config/cmd"
 )
 
 var (
@@ -64,8 +63,6 @@ func pingPong(i int) {
 }
 
 func main() {
-	cmd.Init()
-
 	fmt.Println("\n--- Call example ---")
 	for i := 0; i < 10; i++ {
 		call(i)

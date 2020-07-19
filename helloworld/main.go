@@ -2,27 +2,27 @@ package main
 
 import (
 	"github.com/micro/examples/helloworld/handler"
-	"github.com/micro/go-micro/v2"
-	"github.com/micro/go-micro/v2/util/log"
+	"github.com/micro/micro/v3/service"
+	"github.com/micro/micro/v3/logger"
 
-	helloworld "github.com/micro/examples/helloworld/proto"
+	pb "github.com/micro/examples/helloworld/proto"
 )
 
 func main() {
 	// New Service
-	service := micro.NewService(
-		micro.Name("go.micro.service.helloworld"),
-		micro.Version("latest"),
+	helloworld := service.New(
+		service.Name("helloworld"),
+		service.Version("latest"),
 	)
 
 	// Initialise service
-	service.Init()
+	helloworld.Init()
 
 	// Register Handler
-	helloworld.RegisterHelloworldHandler(service.Server(), new(handler.Helloworld))
+	pb.RegisterHelloworldHandler(service.Server(), new(handler.Helloworld))
 
 	// Run service
-	if err := service.Run(); err != nil {
-		log.Fatal(err)
+	if err := helloworld.Run(); err != nil {
+		logger.Fatal(err)
 	}
 }

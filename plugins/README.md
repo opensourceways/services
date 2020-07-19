@@ -55,7 +55,7 @@ Plugins can be added to go-micro in the following ways. By doing so they'll be a
 
 ```go
 import (
-	"github.com/micro/go-micro/v2/config/cmd"
+	"github.com/micro/go-micro/v2/cmd"
 	_ "github.com/micro/go-plugins/broker/rabbitmq"
 	_ "github.com/micro/go-plugins/registry/kubernetes"
 	_ "github.com/micro/go-plugins/transport/nats"

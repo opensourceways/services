@@ -9,7 +9,7 @@ import (
 	"github.com/micro/go-micro/v2"
 	"github.com/micro/go-micro/v2/errors"
 	"github.com/micro/go-micro/v2/selector/roundrobin"
-	api "github.com/micro/micro/v2/api/proto"
+	api "github.com/micro/go-micro/v2/api/proto"
 
 	"context"
 )

@@ -30,7 +30,7 @@ require (
 	github.com/kr/pretty v0.2.0 // indirect
 	github.com/micro/cli/v2 v2.1.2
 	github.com/micro/examples/helloworld v0.0.0-20200611083641-71addf7d37de
-	github.com/micro/go-micro/v2 v2.9.1-0.20200719172017-16c591d74105
+	github.com/micro/go-micro/v2 v2.9.1-0.20200720090451-a3a7434f2cd9
 	github.com/micro/go-plugins/config/source/grpc/v2 v2.9.2-0.20200719172930-2e074a3c698e
 	github.com/micro/go-plugins/registry/etcd/v2 v2.9.2-0.20200719172930-2e074a3c698e
 	github.com/micro/micro/v2 v2.9.2-0.20200719172208-61eab2ea8d4b

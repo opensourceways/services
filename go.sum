@@ -409,6 +409,8 @@ github.com/micro/go-micro/v2 v2.9.1-0.20200716131338-e63b9015ae45/go.mod h1:JgTt
 github.com/micro/go-micro/v2 v2.9.1-0.20200716153311-f9bf56239306/go.mod h1:JgTt07BfD2x4mcTm/qZi8HZnxopoBYJxfpIETI8MKq8=
 github.com/micro/go-micro/v2 v2.9.1-0.20200719172017-16c591d74105 h1:cnMsUJY/1rHaj1PdjkP650tsSwL9IF1mvABD6oUqu+Y=
 github.com/micro/go-micro/v2 v2.9.1-0.20200719172017-16c591d74105/go.mod h1:niBfOpaZzEw22NJlAtz1CEHocA3qrkzpcTYi0h0d8CE=
+github.com/micro/go-micro/v2 v2.9.1-0.20200720090451-a3a7434f2cd9 h1:tyAToidaELJ8xMf2RPdH0jcgFKr16O8oY8Z6IGHJnP4=
+github.com/micro/go-micro/v2 v2.9.1-0.20200720090451-a3a7434f2cd9/go.mod h1:niBfOpaZzEw22NJlAtz1CEHocA3qrkzpcTYi0h0d8CE=
 github.com/micro/go-plugins/config/source/grpc/v2 v2.9.2-0.20200719172930-2e074a3c698e h1:tsT+yb+xI4hNVc9kSXpyVc1VHT6RtnTYBDqul6W20as=
 github.com/micro/go-plugins/config/source/grpc/v2 v2.9.2-0.20200719172930-2e074a3c698e/go.mod h1:YSHGiVS7iQn6dK4auLWZva/KzW1YmU1lCIJds9YZmew=
 github.com/micro/go-plugins/registry/etcd/v2 v2.9.2-0.20200719172930-2e074a3c698e h1:5G1rKoxlGnObV5ldvSRupR2y7re33VPNzpUwBlIW0Dw=

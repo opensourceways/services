@@ -6,8 +6,8 @@ Examples is a repository to Learn Micro by example.
 
 Examples provides a place for real world examples for using Micro v3.
 
-- [blog] - A blog app composed as micro services
-- [helloworld] - A simple helloworld service
+- [blog](blog) - A blog app composed as micro services
+- [helloworld](helloworld) - A simple helloworld service
 
 ## Legacy
 

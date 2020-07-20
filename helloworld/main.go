@@ -12,7 +12,6 @@ func main() {
 	// New Service
 	helloworld := micro.NewService(
 		micro.Name("helloworld"),
-		micro.Version("latest"),
 	)
 
 	// Initialise service

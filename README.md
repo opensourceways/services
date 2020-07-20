@@ -11,7 +11,7 @@ Examples provides a place for real world examples for using Micro v3.
 
 ## Legacy
 
-For past examples please see [go-micro](https://go-micro.dev)
+For v2 usage please see [go-micro](https://go-micro.dev).
 
 ## Contributing
 

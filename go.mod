@@ -1,3 +1,11 @@
 module github.com/micro/examples
 
-go 1.14
+go 1.13
+
+require (
+	github.com/golang/protobuf v1.4.0
+	github.com/gosimple/slug v1.9.0
+	github.com/lithammer/shortuuid/v3 v3.0.4
+	github.com/micro/go-micro/v2 v2.9.1-0.20200720090451-a3a7434f2cd9
+	google.golang.org/protobuf v1.22.0
+)

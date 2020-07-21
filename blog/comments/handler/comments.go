@@ -3,27 +3,26 @@ package handler
 import (
 	"context"
 
+	pb "github.com/micro/examples/blog/comments/proto"
 	log "github.com/micro/go-micro/v2/logger"
-
-	comment "github.com/micro/examples/blog/comment/proto/comment"
 )
 
-type Comment struct{}
+type Comments struct{}
 
 // Call is a single request handler called via client.Call or the generated client code
-func (e *Comment) Call(ctx context.Context, req *comment.Request, rsp *comment.Response) error {
-	log.Info("Received Comment.Call request")
+func (e *Comments) Call(ctx context.Context, req *pb.Request, rsp *pb.Response) error {
+	log.Info("Received Comments.Call request")
 	rsp.Msg = "Hello " + req.Name
 	return nil
 }
 
 // Stream is a server side stream handler called via client.Stream or the generated client code
-func (e *Comment) Stream(ctx context.Context, req *comment.StreamingRequest, stream comment.Comment_StreamStream) error {
-	log.Infof("Received Comment.Stream request with count: %d", req.Count)
+func (e *Comments) Stream(ctx context.Context, req *pb.StreamingRequest, stream pb.Comments_StreamStream) error {
+	log.Infof("Received Comments.Stream request with count: %d", req.Count)
 
 	for i := 0; i < int(req.Count); i++ {
 		log.Infof("Responding: %d", i)
-		if err := stream.Send(&comment.StreamingResponse{
+		if err := stream.Send(&pb.StreamingResponse{
 			Count: int64(i),
 		}); err != nil {
 			return err
@@ -34,14 +33,14 @@ func (e *Comment) Stream(ctx context.Context, req *comment.StreamingRequest, str
 }
 
 // PingPong is a bidirectional stream handler called via client.Stream or the generated client code
-func (e *Comment) PingPong(ctx context.Context, stream comment.Comment_PingPongStream) error {
+func (e *Comments) PingPong(ctx context.Context, stream pb.Comments_PingPongStream) error {
 	for {
 		req, err := stream.Recv()
 		if err != nil {
 			return err
 		}
 		log.Infof("Got ping %v", req.Stroke)
-		if err := stream.Send(&comment.Pong{Stroke: req.Stroke}); err != nil {
+		if err := stream.Send(&pb.Pong{Stroke: req.Stroke}); err != nil {
 			return err
 		}
 	}

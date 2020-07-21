@@ -328,6 +328,8 @@ github.com/micro/micro/v2 v2.9.2-0.20200721144551-2451560dd2c9 h1:60irCsvOmdl4Zj
 github.com/micro/micro/v2 v2.9.2-0.20200721144551-2451560dd2c9/go.mod h1:N16YL3x2W8EVyYjLpwV5oXW6v3hHP4n4SKEPBCWOHGw=
 github.com/micro/micro/v2 v2.9.2-0.20200721160531-dd641034d24b h1:UTjzqmEpsd9soOLX3sS+5lMGJUo6LnpuXDq3qNB7IGc=
 github.com/micro/micro/v2 v2.9.2-0.20200721160531-dd641034d24b/go.mod h1:N16YL3x2W8EVyYjLpwV5oXW6v3hHP4n4SKEPBCWOHGw=
+github.com/micro/micro/v2 v2.9.2-0.20200721170630-4be71619b615 h1:NMN6t2nVvHj2WxC+JMtcptTx0HmNu0XpABr//KiABEw=
+github.com/micro/micro/v2 v2.9.2-0.20200721170630-4be71619b615/go.mod h1:N16YL3x2W8EVyYjLpwV5oXW6v3hHP4n4SKEPBCWOHGw=
 github.com/micro/micro/v2 v2.9.3 h1:20tSy6OEFQFcxQpSj+MRWpwtJPzXP1upCX3V9KsG3Wk=
 github.com/micro/micro/v2 v2.9.3/go.mod h1:YsjUsRTTjtBw07MnEYeglNLCZjgvrbmdQFKfTuC9AYk=
 github.com/micro/services v0.0.0-20200716140808-890e08d2c50b h1:CHkla8UiaXuGoZlBMYwEmzcCRW95Z2JLSj5RW0fQG2Q=

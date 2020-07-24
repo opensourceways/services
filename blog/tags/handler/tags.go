@@ -9,7 +9,7 @@ import (
 	log "github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/store"
 
-	tags "github.com/micro/examples/blog/tags/proto/tags"
+	tags "github.com/micro/services/blog/tags/proto/tags"
 
 	"github.com/gosimple/slug"
 )

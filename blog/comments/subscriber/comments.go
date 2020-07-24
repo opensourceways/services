@@ -3,8 +3,8 @@ package subscriber
 import (
 	"context"
 
-	pb "github.com/micro/examples/blog/comments/proto"
 	log "github.com/micro/go-micro/v2/logger"
+	pb "github.com/micro/services/blog/comments/proto"
 )
 
 type Comments struct{}

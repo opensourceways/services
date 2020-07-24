@@ -8,10 +8,10 @@ import (
 	"strings"
 
 	"github.com/lithammer/shortuuid/v3"
-	postsproto "github.com/micro/examples/blog/posts/proto/posts"
-	templ "github.com/micro/examples/blog/web/templates"
 	"github.com/micro/go-micro/v2/client"
 	log "github.com/micro/go-micro/v2/logger"
+	postsproto "github.com/micro/services/blog/posts/proto/posts"
+	templ "github.com/micro/services/blog/web/templates"
 )
 
 type Handler struct {

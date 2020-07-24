@@ -1,14 +1,14 @@
 package main
 
 import (
-	"github.com/micro/examples/blog/posts/handler"
-	"github.com/micro/examples/blog/posts/subscriber"
+	"github.com/micro/services/blog/posts/handler"
+	"github.com/micro/services/blog/posts/subscriber"
 
 	"github.com/micro/go-micro/v2"
 
 	log "github.com/micro/go-micro/v2/logger"
 
-	posts "github.com/micro/examples/blog/posts/proto/posts"
+	posts "github.com/micro/services/blog/posts/proto/posts"
 )
 
 func main() {

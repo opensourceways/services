@@ -5,7 +5,7 @@ import (
 
 	log "github.com/micro/go-micro/v2/logger"
 
-	search "github.com/micro/examples/blog/search/proto/search"
+	search "github.com/micro/services/blog/search/proto/search"
 )
 
 type Search struct{}

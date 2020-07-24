@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.24.0
 // 	protoc        v3.6.1
-// source: github.com/micro/examples/helloworld/proto/helloworld.proto
+// source: github.com/micro/services/helloworld/proto/helloworld.proto
 
 package go_micro_srv_helloworld
 

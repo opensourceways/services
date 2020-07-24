@@ -1,10 +1,10 @@
-# Examples
+# Micro services
 
-Examples is a repository to Learn Micro by example.
+This repo includes reusable micro services.
 
 ## Overview
 
-Examples provides a place for real world examples for using Micro v3. Check out the associated [tutorials](https://dev.m3o.com/tutorials).
+Services provides a place for real world examples for using Micro v3. Check out the associated [tutorials](https://dev.m3o.com/tutorials).
 
 - [blog](blog) - A blog app composed as micro services
 - [helloworld](helloworld) - A simple helloworld service

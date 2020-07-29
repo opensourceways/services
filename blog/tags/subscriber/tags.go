@@ -3,8 +3,7 @@ package subscriber
 import (
 	"context"
 
-	log "github.com/micro/go-micro/v2/logger"
-
+	log "github.com/micro/go-micro/v3/logger"
 	tags "github.com/micro/services/blog/tags/proto/tags"
 )
 

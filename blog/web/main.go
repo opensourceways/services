@@ -3,8 +3,8 @@ package main
 import (
 	"github.com/micro/services/blog/web/handler"
 
-	log "github.com/micro/go-micro/v2/logger"
-	"github.com/micro/go-micro/v2/web"
+	log "github.com/micro/go-micro/v3/logger"
+	"github.com/micro/go-micro/v3/web"
 )
 
 func main() {
@@ -19,9 +19,8 @@ func main() {
 		log.Fatal(err)
 	}
 
-	handl := handler.Handler{
-		Client: service.Options().Service.Client(),
-	}
+	handl := new(handler.Handler)
+
 	// register call handler
 	service.HandleFunc("/post/", handl.Post)
 	service.HandleFunc("/new-post", handl.NewPost)

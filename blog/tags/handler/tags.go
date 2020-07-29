@@ -6,8 +6,9 @@ import (
 	"errors"
 	"fmt"
 
-	log "github.com/micro/go-micro/v2/logger"
-	"github.com/micro/go-micro/v2/store"
+	log "github.com/micro/go-micro/v3/logger"
+	"github.com/micro/go-micro/v3/store"
+	microstore "github.com/micro/micro/v3/service/store"
 
 	tags "github.com/micro/services/blog/tags/proto/tags"
 
@@ -27,9 +28,7 @@ type Tag struct {
 	Count    int64  `json:"count"`
 }
 
-type Tags struct {
-	Store store.Store
-}
+type Tags struct{}
 
 func (t *Tags) IncreaseCount(ctx context.Context, req *tags.IncreaseCountRequest, rsp *tags.IncreaseCountResponse) error {
 	if len(req.ParentID) == 0 || len(req.Type) == 0 {
@@ -40,7 +39,7 @@ func (t *Tags) IncreaseCount(ctx context.Context, req *tags.IncreaseCountRequest
 	parentID := fmt.Sprintf("%v:%v:%v", parentPrefix, req.GetParentID(), tagSlug)
 
 	// read by parent ID + slug, the record is identical in boths places anyway
-	records, err := t.Store.Read(parentID)
+	records, err := microstore.DefaultStore.Read(parentID)
 	if err != nil && err != store.ErrNotFound {
 		return err
 	}
@@ -78,7 +77,7 @@ func (t *Tags) saveTag(tag *Tag) error {
 	}
 
 	// write parentId:slug to enable prefix listing based on parent
-	err = t.Store.Write(&store.Record{
+	err = microstore.DefaultStore.Write(&store.Record{
 		Key:   parentID,
 		Value: bytes,
 	})
@@ -87,7 +86,7 @@ func (t *Tags) saveTag(tag *Tag) error {
 	}
 
 	// write type:slug to enable prefix listing based on parent
-	return t.Store.Write(&store.Record{
+	return microstore.DefaultStore.Write(&store.Record{
 		Key:   typeID,
 		Value: bytes,
 	})
@@ -102,7 +101,7 @@ func (t *Tags) DecreaseCount(ctx context.Context, req *tags.DecreaseCountRequest
 	parentID := fmt.Sprintf("%v:%v:%v", parentPrefix, req.GetParentID(), tagSlug)
 
 	// read by parent ID + slug, the record is identical in boths places anyway
-	records, err := t.Store.Read(parentID)
+	records, err := microstore.DefaultStore.Read(parentID)
 	if err != nil && err != store.ErrNotFound {
 		return err
 	}
@@ -137,7 +136,7 @@ func (t *Tags) List(ctx context.Context, req *tags.ListRequest, rsp *tags.ListRe
 		return errors.New("parent id or type required for listing")
 	}
 
-	records, err := t.Store.Read(key, store.ReadPrefix())
+	records, err := microstore.DefaultStore.Read(key, store.ReadPrefix())
 	if err != nil {
 		return err
 	}
@@ -168,7 +167,7 @@ func (t *Tags) Update(ctx context.Context, req *tags.UpdateRequest, rsp *tags.Up
 	parentID := fmt.Sprintf("%v:%v:%v", parentPrefix, req.GetParentID(), tagSlug)
 
 	// read by parent ID + slug, the record is identical in boths places anyway
-	records, err := t.Store.Read(parentID)
+	records, err := microstore.DefaultStore.Read(parentID)
 	if err != nil {
 		return err
 	}

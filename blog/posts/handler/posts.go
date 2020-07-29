@@ -11,9 +11,10 @@ import (
 	tagProto "github.com/micro/services/blog/tags/proto/tags"
 
 	"github.com/gosimple/slug"
-	"github.com/micro/go-micro/v2/client"
-	log "github.com/micro/go-micro/v2/logger"
-	"github.com/micro/go-micro/v2/store"
+	"github.com/micro/go-micro/v3/client"
+	log "github.com/micro/go-micro/v3/logger"
+	"github.com/micro/go-micro/v3/store"
+	microstore "github.com/micro/micro/v3/service/store"
 
 	posts "github.com/micro/services/blog/posts/proto/posts"
 )
@@ -36,7 +37,6 @@ type Post struct {
 }
 
 type Posts struct {
-	Store  store.Store
 	Client client.Client
 }
 
@@ -46,7 +46,7 @@ func (t *Posts) Post(ctx context.Context, req *posts.PostRequest, rsp *posts.Pos
 	}
 
 	// read by post
-	records, err := t.Store.Read(fmt.Sprintf("%v:%v", idPrefix, req.Post.Id))
+	records, err := microstore.DefaultStore.Read(fmt.Sprintf("%v:%v", idPrefix, req.Post.Id))
 	if err != nil && err != store.ErrNotFound {
 		return err
 	}
@@ -80,7 +80,7 @@ func (t *Posts) Post(ctx context.Context, req *posts.PostRequest, rsp *posts.Pos
 	}
 
 	// Check if slug exists
-	recordsBySlug, err := t.Store.Read(fmt.Sprintf("%v:%v", slugPrefix, postSlug))
+	recordsBySlug, err := microstore.DefaultStore.Read(fmt.Sprintf("%v:%v", slugPrefix, postSlug))
 	if err != nil && err != store.ErrNotFound {
 		return err
 	}
@@ -102,7 +102,7 @@ func (t *Posts) savePost(ctx context.Context, oldPost, post *Post) error {
 		return err
 	}
 
-	err = t.Store.Write(&store.Record{
+	err = microstore.DefaultStore.Write(&store.Record{
 		Key:   fmt.Sprintf("%v:%v", idPrefix, post.ID),
 		Value: bytes,
 	})
@@ -111,19 +111,19 @@ func (t *Posts) savePost(ctx context.Context, oldPost, post *Post) error {
 	}
 	// Delete old slug index if the slug has changed
 	if oldPost != nil && oldPost.Slug != post.Slug {
-		err = t.Store.Delete(fmt.Sprintf("%v:%v", slugPrefix, post.Slug))
+		err = microstore.DefaultStore.Delete(fmt.Sprintf("%v:%v", slugPrefix, post.Slug))
 		if err != nil {
 			return err
 		}
 	}
-	err = t.Store.Write(&store.Record{
+	err = microstore.DefaultStore.Write(&store.Record{
 		Key:   fmt.Sprintf("%v:%v", slugPrefix, post.Slug),
 		Value: bytes,
 	})
 	if err != nil {
 		return err
 	}
-	err = t.Store.Write(&store.Record{
+	err = microstore.DefaultStore.Write(&store.Record{
 		Key:   fmt.Sprintf("%v:%v", timeStampPrefix, math.MaxInt64-post.CreateTimestamp),
 		Value: bytes,
 	})
@@ -192,7 +192,7 @@ func (t *Posts) Query(ctx context.Context, req *posts.QueryRequest, rsp *posts.Q
 	if len(req.Slug) > 0 {
 		key := fmt.Sprintf("%v:%v", slugPrefix, req.Slug)
 		log.Infof("Reading post by slug: %v", req.Slug)
-		records, err = t.Store.Read(key, store.ReadPrefix())
+		records, err = microstore.DefaultStore.Read(key, store.ReadPrefix())
 	} else {
 		key := fmt.Sprintf("%v:", timeStampPrefix)
 		var limit uint
@@ -201,7 +201,7 @@ func (t *Posts) Query(ctx context.Context, req *posts.QueryRequest, rsp *posts.Q
 			limit = uint(req.Limit)
 		}
 		log.Infof("Listing posts, offset: %v, limit: %v", req.Offset, limit)
-		records, err = t.Store.Read(key, store.ReadPrefix(),
+		records, err = microstore.DefaultStore.Read(key, store.ReadPrefix(),
 			store.ReadOffset(uint(req.Offset)),
 			store.ReadLimit(limit))
 	}
@@ -229,7 +229,7 @@ func (t *Posts) Query(ctx context.Context, req *posts.QueryRequest, rsp *posts.Q
 
 func (t *Posts) Delete(ctx context.Context, req *posts.DeleteRequest, rsp *posts.DeleteResponse) error {
 	log.Info("Received Post.Delete request")
-	records, err := t.Store.Read(fmt.Sprintf("%v:%v", idPrefix, req.Id))
+	records, err := microstore.DefaultStore.Read(fmt.Sprintf("%v:%v", idPrefix, req.Id))
 	if err != nil && err != store.ErrNotFound {
 		return err
 	}
@@ -243,15 +243,15 @@ func (t *Posts) Delete(ctx context.Context, req *posts.DeleteRequest, rsp *posts
 	}
 
 	// Delete by ID
-	err = t.Store.Delete(fmt.Sprintf("%v:%v", idPrefix, post.ID))
+	err = microstore.DefaultStore.Delete(fmt.Sprintf("%v:%v", idPrefix, post.ID))
 	if err != nil {
 		return err
 	}
 	// Delete by slug
-	err = t.Store.Delete(fmt.Sprintf("%v:%v", slugPrefix, post.Slug))
+	err = microstore.DefaultStore.Delete(fmt.Sprintf("%v:%v", slugPrefix, post.Slug))
 	if err != nil {
 		return err
 	}
 	// Delete by timeStamp
-	return t.Store.Delete(fmt.Sprintf("%v:%v", timeStampPrefix, post.CreateTimestamp))
+	return microstore.DefaultStore.Delete(fmt.Sprintf("%v:%v", timeStampPrefix, post.CreateTimestamp))
 }

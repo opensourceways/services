@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/micro/go-micro/v2"
-	log "github.com/micro/go-micro/v2/logger"
+	"github.com/micro/go-micro/v3/logger"
+	"github.com/micro/micro/v3/service"
 	"github.com/micro/services/blog/comments/handler"
 	"github.com/micro/services/blog/comments/subscriber"
 
@@ -11,22 +11,19 @@ import (
 
 func main() {
 	// New Service
-	service := micro.NewService(
-		micro.Name("go.micro.service.comments"),
-		micro.Version("latest"),
+	srv := service.New(
+		service.Name("go.micro.service.comments"),
+		service.Version("latest"),
 	)
 
-	// Initialise service
-	service.Init()
-
 	// Register Handler
-	comments.RegisterCommentsHandler(service.Server(), new(handler.Comments))
+	comments.RegisterCommentsHandler(srv.Server(), new(handler.Comments))
 
 	// Register Struct as Subscriber
-	micro.RegisterSubscriber("go.micro.service.comments", service.Server(), new(subscriber.Comments))
+	service.RegisterSubscriber("go.micro.service.comments", new(subscriber.Comments))
 
 	// Run service
-	if err := service.Run(); err != nil {
-		log.Fatal(err)
+	if err := srv.Run(); err != nil {
+		logger.Fatal(err)
 	}
 }

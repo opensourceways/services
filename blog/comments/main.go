@@ -16,9 +16,6 @@ func main() {
 		service.Version("latest"),
 	)
 
-	// Initialise service
-	srv.Init()
-
 	// Register Handler
 	comments.RegisterCommentsHandler(srv.Server(), new(handler.Comments))
 

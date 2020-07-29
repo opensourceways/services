@@ -15,9 +15,6 @@ func main() {
 		service.Version("latest"),
 	)
 
-	// Initialise service
-	srv.Init()
-
 	// Register Handler
 	posts.RegisterPostsHandler(srv.Server(), &handler.Posts{
 		Client: srv.Client(),

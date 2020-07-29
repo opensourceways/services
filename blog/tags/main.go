@@ -16,9 +16,6 @@ func main() {
 		service.Version("latest"),
 	)
 
-	// Initialise service
-	srv.Init()
-
 	// Register Handler
 	tags.RegisterTagsHandler(srv.Server(), new(handler.Tags))
 

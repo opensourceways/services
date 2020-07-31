@@ -303,7 +303,9 @@ func init() {
 	proto.RegisterType((*Pong)(nil), "go.micro.service.comments.Pong")
 }
 
-func init() { proto.RegisterFile("blog/comments/proto/comments.proto", fileDescriptor_d19150fa1ba9d873) }
+func init() {
+	proto.RegisterFile("blog/comments/proto/comments.proto", fileDescriptor_d19150fa1ba9d873)
+}
 
 var fileDescriptor_d19150fa1ba9d873 = []byte{
 	// 279 bytes of a gzipped FileDescriptorProto

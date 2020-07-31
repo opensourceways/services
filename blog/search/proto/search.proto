@@ -1,9 +1,8 @@
 syntax = "proto3";
 
-package go.micro.service.search;
+package search;
 
-// Full text search service
-service SearchService {
+service Search {
 	rpc Index(IndexRequest) returns (IndexResponse) {}
 	rpc Search(SearchRequest) returns (SearchResponse) {}
 }

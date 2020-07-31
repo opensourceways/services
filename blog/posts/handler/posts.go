@@ -8,16 +8,18 @@ import (
 	"math"
 	"time"
 
-	tagProto "github.com/micro/services/blog/tags/proto/tags"
+	gostore "github.com/micro/go-micro/v3/store"
+	"github.com/micro/micro/v3/service/logger"
+	"github.com/micro/micro/v3/service/store"
 
 	"github.com/gosimple/slug"
-	"github.com/micro/go-micro/v3/client"
-	log "github.com/micro/go-micro/v3/logger"
-	"github.com/micro/go-micro/v3/store"
-	microstore "github.com/micro/micro/v3/service/store"
-
-	posts "github.com/micro/services/blog/posts/proto/posts"
+	pb "github.com/micro/services/blog/posts/proto/posts"
+	tags "github.com/micro/services/blog/tags/proto"
 )
+
+func New() pb.PostsHandler {
+	return new(handler)
+}
 
 const (
 	tagType         = "post-tag"
@@ -36,18 +38,16 @@ type Post struct {
 	TagNames        []string `json:"tagNames"`
 }
 
-type Posts struct {
-	Client client.Client
-}
+type handler struct{}
 
-func (t *Posts) Post(ctx context.Context, req *posts.PostRequest, rsp *posts.PostResponse) error {
+func (h *handler) Post(ctx context.Context, req *pb.PostRequest, rsp *pb.PostResponse) error {
 	if len(req.Post.Id) == 0 || len(req.Post.Title) == 0 || len(req.Post.Content) == 0 {
 		return errors.New("ID, title or content is missing")
 	}
 
 	// read by post
-	records, err := microstore.DefaultStore.Read(fmt.Sprintf("%v:%v", idPrefix, req.Post.Id))
-	if err != nil && err != store.ErrNotFound {
+	records, err := store.Read(fmt.Sprintf("%v:%v", idPrefix, req.Post.Id))
+	if err != nil && err != gostore.ErrNotFound {
 		return err
 	}
 	postSlug := slug.Make(req.Post.Title)
@@ -61,7 +61,7 @@ func (t *Posts) Post(ctx context.Context, req *posts.PostRequest, rsp *posts.Pos
 			Slug:            postSlug,
 			CreateTimestamp: time.Now().Unix(),
 		}
-		return t.savePost(ctx, nil, post)
+		return h.savePost(ctx, nil, post)
 	}
 	record := records[0]
 	oldPost := &Post{}
@@ -80,8 +80,8 @@ func (t *Posts) Post(ctx context.Context, req *posts.PostRequest, rsp *posts.Pos
 	}
 
 	// Check if slug exists
-	recordsBySlug, err := microstore.DefaultStore.Read(fmt.Sprintf("%v:%v", slugPrefix, postSlug))
-	if err != nil && err != store.ErrNotFound {
+	recordsBySlug, err := store.Read(fmt.Sprintf("%v:%v", slugPrefix, postSlug))
+	if err != nil && err != gostore.ErrNotFound {
 		return err
 	}
 	otherSlugPost := &Post{}
@@ -93,16 +93,16 @@ func (t *Posts) Post(ctx context.Context, req *posts.PostRequest, rsp *posts.Pos
 		return errors.New("An other post with this slug already exists")
 	}
 
-	return t.savePost(ctx, oldPost, post)
+	return h.savePost(ctx, oldPost, post)
 }
 
-func (t *Posts) savePost(ctx context.Context, oldPost, post *Post) error {
+func (h *handler) savePost(ctx context.Context, oldPost, post *Post) error {
 	bytes, err := json.Marshal(post)
 	if err != nil {
 		return err
 	}
 
-	err = microstore.DefaultStore.Write(&store.Record{
+	err = store.Write(&gostore.Record{
 		Key:   fmt.Sprintf("%v:%v", idPrefix, post.ID),
 		Value: bytes,
 	})
@@ -111,19 +111,19 @@ func (t *Posts) savePost(ctx context.Context, oldPost, post *Post) error {
 	}
 	// Delete old slug index if the slug has changed
 	if oldPost != nil && oldPost.Slug != post.Slug {
-		err = microstore.DefaultStore.Delete(fmt.Sprintf("%v:%v", slugPrefix, post.Slug))
+		err = store.Delete(fmt.Sprintf("%v:%v", slugPrefix, post.Slug))
 		if err != nil {
 			return err
 		}
 	}
-	err = microstore.DefaultStore.Write(&store.Record{
+	err = store.Write(&gostore.Record{
 		Key:   fmt.Sprintf("%v:%v", slugPrefix, post.Slug),
 		Value: bytes,
 	})
 	if err != nil {
 		return err
 	}
-	err = microstore.DefaultStore.Write(&store.Record{
+	err = store.Write(&gostore.Record{
 		Key:   fmt.Sprintf("%v:%v", timeStampPrefix, math.MaxInt64-post.CreateTimestamp),
 		Value: bytes,
 	})
@@ -131,9 +131,8 @@ func (t *Posts) savePost(ctx context.Context, oldPost, post *Post) error {
 		return err
 	}
 	if oldPost == nil {
-		tagClient := tagProto.NewTagsService("go.micro.service.tags", t.Client)
 		for _, tagName := range post.TagNames {
-			_, err := tagClient.IncreaseCount(ctx, &tagProto.IncreaseCountRequest{
+			_, err := tags.TagsIncreaseCount(ctx, &tags.IncreaseCountRequest{
 				ParentID: post.ID,
 				Type:     tagType,
 				Title:    tagName,
@@ -144,10 +143,10 @@ func (t *Posts) savePost(ctx context.Context, oldPost, post *Post) error {
 		}
 		return nil
 	}
-	return t.diffTags(ctx, post.ID, oldPost.TagNames, post.TagNames)
+	return h.diffTags(ctx, post.ID, oldPost.TagNames, post.TagNames)
 }
 
-func (t *Posts) diffTags(ctx context.Context, parentID string, oldTagNames, newTagNames []string) error {
+func (h *handler) diffTags(ctx context.Context, parentID string, oldTagNames, newTagNames []string) error {
 	oldTags := map[string]struct{}{}
 	for _, v := range oldTagNames {
 		oldTags[v] = struct{}{}
@@ -156,43 +155,42 @@ func (t *Posts) diffTags(ctx context.Context, parentID string, oldTagNames, newT
 	for _, v := range newTagNames {
 		newTags[v] = struct{}{}
 	}
-	tagClient := tagProto.NewTagsService("go.micro.service.tag", t.Client)
 	for i := range oldTags {
 		_, stillThere := newTags[i]
 		if !stillThere {
-			_, err := tagClient.DecreaseCount(ctx, &tagProto.DecreaseCountRequest{
+			_, err := tags.TagsDecreaseCount(ctx, &tags.DecreaseCountRequest{
 				ParentID: parentID,
 				Type:     tagType,
 				Title:    i,
 			})
 			if err != nil {
-				log.Errorf("Error decreasing count for tag '%v' with type '%v' for parent '%v'", i, tagType, parentID)
+				logger.Errorf("Error decreasing count for tag '%v' with type '%v' for parent '%v'", i, tagType, parentID)
 			}
 		}
 	}
 	for i := range newTags {
 		_, newlyAdded := oldTags[i]
 		if newlyAdded {
-			_, err := tagClient.IncreaseCount(ctx, &tagProto.IncreaseCountRequest{
+			_, err := tags.TagsIncreaseCount(ctx, &tags.IncreaseCountRequest{
 				ParentID: parentID,
 				Type:     tagType,
 				Title:    i,
 			})
 			if err != nil {
-				log.Errorf("Error increasing count for tag '%v' with type '%v' for parent '%v'", i, tagType, parentID)
+				logger.Errorf("Error increasing count for tag '%v' with type '%v' for parent '%v'", i, tagType, parentID)
 			}
 		}
 	}
 	return nil
 }
 
-func (t *Posts) Query(ctx context.Context, req *posts.QueryRequest, rsp *posts.QueryResponse) error {
-	var records []*store.Record
+func (h *handler) Query(ctx context.Context, req *pb.QueryRequest, rsp *pb.QueryResponse) error {
+	var records []*gostore.Record
 	var err error
 	if len(req.Slug) > 0 {
 		key := fmt.Sprintf("%v:%v", slugPrefix, req.Slug)
-		log.Infof("Reading post by slug: %v", req.Slug)
-		records, err = microstore.DefaultStore.Read(key, store.ReadPrefix())
+		logger.Infof("Reading post by slug: %v", req.Slug)
+		records, err = store.Read(key, gostore.ReadPrefix())
 	} else {
 		key := fmt.Sprintf("%v:", timeStampPrefix)
 		var limit uint
@@ -200,23 +198,23 @@ func (t *Posts) Query(ctx context.Context, req *posts.QueryRequest, rsp *posts.Q
 		if req.Limit > 0 {
 			limit = uint(req.Limit)
 		}
-		log.Infof("Listing posts, offset: %v, limit: %v", req.Offset, limit)
-		records, err = microstore.DefaultStore.Read(key, store.ReadPrefix(),
-			store.ReadOffset(uint(req.Offset)),
-			store.ReadLimit(limit))
+		logger.Infof("Listing posts, offset: %v, limit: %v", req.Offset, limit)
+		records, err = store.Read(key, gostore.ReadPrefix(),
+			gostore.ReadOffset(uint(req.Offset)),
+			gostore.ReadLimit(limit))
 	}
 
 	if err != nil {
 		return err
 	}
-	rsp.Posts = make([]*posts.Post, len(records))
+	rsp.Posts = make([]*pb.Post, len(records))
 	for i, record := range records {
 		postRecord := &Post{}
 		err := json.Unmarshal(record.Value, postRecord)
 		if err != nil {
 			return err
 		}
-		rsp.Posts[i] = &posts.Post{
+		rsp.Posts[i] = &pb.Post{
 			Id:       postRecord.ID,
 			Title:    postRecord.Title,
 			Slug:     postRecord.Slug,
@@ -227,10 +225,10 @@ func (t *Posts) Query(ctx context.Context, req *posts.QueryRequest, rsp *posts.Q
 	return nil
 }
 
-func (t *Posts) Delete(ctx context.Context, req *posts.DeleteRequest, rsp *posts.DeleteResponse) error {
-	log.Info("Received Post.Delete request")
-	records, err := microstore.DefaultStore.Read(fmt.Sprintf("%v:%v", idPrefix, req.Id))
-	if err != nil && err != store.ErrNotFound {
+func (h *handler) Delete(ctx context.Context, req *pb.DeleteRequest, rsp *pb.DeleteResponse) error {
+	logger.Info("Received Post.Delete request")
+	records, err := store.Read(fmt.Sprintf("%v:%v", idPrefix, req.Id))
+	if err != nil && err != gostore.ErrNotFound {
 		return err
 	}
 	if len(records) == 0 {
@@ -243,15 +241,15 @@ func (t *Posts) Delete(ctx context.Context, req *posts.DeleteRequest, rsp *posts
 	}
 
 	// Delete by ID
-	err = microstore.DefaultStore.Delete(fmt.Sprintf("%v:%v", idPrefix, post.ID))
+	err = store.Delete(fmt.Sprintf("%v:%v", idPrefix, post.ID))
 	if err != nil {
 		return err
 	}
 	// Delete by slug
-	err = microstore.DefaultStore.Delete(fmt.Sprintf("%v:%v", slugPrefix, post.Slug))
+	err = store.Delete(fmt.Sprintf("%v:%v", slugPrefix, post.Slug))
 	if err != nil {
 		return err
 	}
 	// Delete by timeStamp
-	return microstore.DefaultStore.Delete(fmt.Sprintf("%v:%v", timeStampPrefix, post.CreateTimestamp))
+	return store.Delete(fmt.Sprintf("%v:%v", timeStampPrefix, post.CreateTimestamp))
 }

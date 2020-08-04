@@ -14,4 +14,7 @@ micro server
 
 # run the service
 micro run github.com/micro/services/helloworld
+
+## call the service
+micro call helloworld Helloworld.Call '{"name": "Alice"}'
 ```

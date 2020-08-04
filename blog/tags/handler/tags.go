@@ -6,8 +6,8 @@ import (
 	"errors"
 	"fmt"
 
-	log "github.com/micro/go-micro/v3/logger"
 	"github.com/micro/go-micro/v3/store"
+	log "github.com/micro/micro/v3/service/logger"
 	microstore "github.com/micro/micro/v3/service/store"
 
 	tags "github.com/micro/services/blog/tags/proto/tags"

@@ -12,8 +12,8 @@ import (
 
 	"github.com/gosimple/slug"
 	"github.com/micro/go-micro/v3/client"
-	log "github.com/micro/go-micro/v3/logger"
 	"github.com/micro/go-micro/v3/store"
+	log "github.com/micro/micro/v3/service/logger"
 	microstore "github.com/micro/micro/v3/service/store"
 
 	posts "github.com/micro/services/blog/posts/proto/posts"

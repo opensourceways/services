@@ -7,8 +7,8 @@ The posts service stores posts
 ### Create a post
 
 ```
-micro call go.micro.service.posts Posts.Post '{"post":{"id":"1","title":"How to Micro","content":"Simply put, Micro is awesome."}}'
-micro call go.micro.service.posts Posts.Post '{"post":{"id":"2","title":"Fresh posts are fresh","content":"This post is fresher than the How to Micro one"}}'
+micro call go.micro.service.posts Posts.Save '{"post":{"id":"1","title":"How to Micro","content":"Simply put, Micro is awesome."}}'
+micro call go.micro.service.posts Posts.Save '{"post":{"id":"2","title":"Fresh posts are fresh","content":"This post is fresher than the How to Micro one"}}'
 ```
 
 ### Query posts

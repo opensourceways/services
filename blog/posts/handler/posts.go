@@ -40,7 +40,7 @@ type Posts struct {
 	Client client.Client
 }
 
-func (t *Posts) Post(ctx context.Context, req *posts.PostRequest, rsp *posts.PostResponse) error {
+func (t *Posts) Save(ctx context.Context, req *posts.SaveRequest, rsp *posts.SaveResponse) error {
 	if len(req.Post.Id) == 0 || len(req.Post.Title) == 0 || len(req.Post.Content) == 0 {
 		return errors.New("ID, title or content is missing")
 	}

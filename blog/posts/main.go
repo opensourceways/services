@@ -10,7 +10,7 @@ import (
 func main() {
 	// Create the service
 	srv := service.New(
-		service.Name("comments"),
+		service.Name("posts"),
 	)
 
 	// Register Handler

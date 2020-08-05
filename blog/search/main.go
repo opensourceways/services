@@ -10,7 +10,6 @@ func main() {
 	// New Service
 	srv := service.New(
 		service.Name("go.micro.service.search"),
-		service.Version("latest"),
 	)
 
 	// Register Handler

@@ -4,7 +4,7 @@ This repo includes reusable micro services.
 
 ## Overview
 
-Services provides a place for real world examples for using Micro v3.
+Services provides a home for real world examples for using Micro v3.
 
 - [blog](blog) - A blog app composed as micro services
 - [helloworld](helloworld) - A simple helloworld service

@@ -7,10 +7,9 @@ import (
 )
 
 func main() {
-	// New Serviceost
+	// New Service
 	srv := service.New(
 		service.Name("go.micro.service.tags"),
-		service.Version("latest"),
 	)
 
 	// Register Handler

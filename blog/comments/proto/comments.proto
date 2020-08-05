@@ -3,35 +3,15 @@ syntax = "proto3";
 package comments;
 
 service Comments {
-	rpc Call(Request) returns (Response) {}
-	rpc Stream(StreamingRequest) returns (stream StreamingResponse) {}
-	rpc PingPong(stream Ping) returns (stream Pong) {}
-}
-
-message Message {
-	string say = 1;
+	rpc Save(Request) returns (Response) {}
 }
 
 message Request {
-	string name = 1;
+	// post to comment on
+	string post_id = 1;
+	// message to leave
+	string message = 2;
+
 }
 
-message Response {
-	string msg = 1;
-}
-
-message StreamingRequest {
-	int64 count = 1;
-}
-
-message StreamingResponse {
-	int64 count = 1;
-}
-
-message Ping {
-	int64 stroke = 1;
-}
-
-message Pong {
-	int64 stroke = 1;
-}
+message Response {}

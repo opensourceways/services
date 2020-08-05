@@ -10,7 +10,7 @@ import (
 type Comments struct{}
 
 // Call is a single request handler called via client.Call or the generated client code
-func (c *Comments) Call(ctx context.Context, req *pb.Request, rsp *pb.Response) error {
+func (c *Comments) Save(ctx context.Context, req *pb.Request, rsp *pb.Response) error {
 	logger.Info("Not yet implemented")
 	return nil
 }

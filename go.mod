@@ -6,9 +6,11 @@ require (
 	github.com/golang/protobuf v1.4.2
 	github.com/gosimple/slug v1.9.0
 	github.com/lithammer/shortuuid/v3 v3.0.4
-	github.com/micro/cli v0.2.0 // indirect
-	github.com/micro/go-micro/v3 v3.0.0-alpha.0.20200728125458-9813f98c8b60
-	github.com/micro/micro/v3 v3.0.0-20200729142931-f3a5aa42e072
+	github.com/micro/go-micro v1.18.0
+	github.com/micro/go-micro/v2 v2.9.1
+	github.com/micro/go-micro/v3 v3.0.0-alpha.0.20200805114556-38ec233350c8
+	github.com/micro/micro/v3 v3.0.0-alpha.0.20200805122416-74c024c2f6c5
+	github.com/stripe/stripe-go/v71 v71.28.0 // indirect
 )
 
 replace google.golang.org/grpc => google.golang.org/grpc v1.26.0

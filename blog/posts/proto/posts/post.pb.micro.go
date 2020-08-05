@@ -14,8 +14,6 @@ import (
 	api "github.com/micro/go-micro/v3/api"
 	client "github.com/micro/go-micro/v3/client"
 	server "github.com/micro/go-micro/v3/server"
-	microClient "github.com/micro/micro/v3/service/client"
-	microServer "github.com/micro/micro/v3/service/server"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -34,8 +32,6 @@ var _ api.Endpoint
 var _ context.Context
 var _ client.Option
 var _ server.Option
-var _ = microServer.Handle
-var _ = microClient.Call
 
 // Api Endpoints for Posts service
 
@@ -53,55 +49,45 @@ type PostsService interface {
 }
 
 type postsService struct {
+	c    client.Client
 	name string
 }
 
-func NewPostsService(name string) PostsService {
-	return &postsService{name: name}
+func NewPostsService(name string, c client.Client) PostsService {
+	return &postsService{
+		c:    c,
+		name: name,
+	}
 }
 
-var defaultPostsService = NewPostsService("posts")
-
 func (c *postsService) Query(ctx context.Context, in *QueryRequest, opts ...client.CallOption) (*QueryResponse, error) {
-	req := microClient.NewRequest(c.name, "Posts.Query", in)
+	req := c.c.NewRequest(c.name, "Posts.Query", in)
 	out := new(QueryResponse)
-	err := microClient.Call(ctx, req, out, opts...)
+	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
-}
-
-func PostsQuery(ctx context.Context, in *QueryRequest, opts ...client.CallOption) (*QueryResponse, error) {
-	return defaultPostsService.Query(ctx, in, opts...)
 }
 
 func (c *postsService) Post(ctx context.Context, in *PostRequest, opts ...client.CallOption) (*PostResponse, error) {
-	req := microClient.NewRequest(c.name, "Posts.Post", in)
+	req := c.c.NewRequest(c.name, "Posts.Post", in)
 	out := new(PostResponse)
-	err := microClient.Call(ctx, req, out, opts...)
+	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
-}
-
-func PostsPost(ctx context.Context, in *PostRequest, opts ...client.CallOption) (*PostResponse, error) {
-	return defaultPostsService.Post(ctx, in, opts...)
 }
 
 func (c *postsService) Delete(ctx context.Context, in *DeleteRequest, opts ...client.CallOption) (*DeleteResponse, error) {
-	req := microClient.NewRequest(c.name, "Posts.Delete", in)
+	req := c.c.NewRequest(c.name, "Posts.Delete", in)
 	out := new(DeleteResponse)
-	err := microClient.Call(ctx, req, out, opts...)
+	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
-}
-
-func PostsDelete(ctx context.Context, in *DeleteRequest, opts ...client.CallOption) (*DeleteResponse, error) {
-	return defaultPostsService.Delete(ctx, in, opts...)
 }
 
 // Server API for Posts service
@@ -113,7 +99,7 @@ type PostsHandler interface {
 	Delete(context.Context, *DeleteRequest, *DeleteResponse) error
 }
 
-func RegisterPostsHandler(hdlr PostsHandler, opts ...server.HandlerOption) error {
+func RegisterPostsHandler(s server.Server, hdlr PostsHandler, opts ...server.HandlerOption) error {
 	type posts interface {
 		Query(ctx context.Context, in *QueryRequest, out *QueryResponse) error
 		Post(ctx context.Context, in *PostRequest, out *PostResponse) error
@@ -123,7 +109,7 @@ func RegisterPostsHandler(hdlr PostsHandler, opts ...server.HandlerOption) error
 		posts
 	}
 	h := &postsHandler{hdlr}
-	return microServer.Handle(microServer.NewHandler(&Posts{h}, opts...))
+	return s.Handle(s.NewHandler(&Posts{h}, opts...))
 }
 
 type postsHandler struct {

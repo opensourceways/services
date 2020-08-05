@@ -14,8 +14,6 @@ import (
 	api "github.com/micro/go-micro/v3/api"
 	client "github.com/micro/go-micro/v3/client"
 	server "github.com/micro/go-micro/v3/server"
-	microClient "github.com/micro/micro/v3/service/client"
-	microServer "github.com/micro/micro/v3/service/server"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -34,8 +32,6 @@ var _ api.Endpoint
 var _ context.Context
 var _ client.Option
 var _ server.Option
-var _ = microServer.Handle
-var _ = microClient.Call
 
 // Api Endpoints for Helloworld service
 
@@ -50,27 +46,25 @@ type HelloworldService interface {
 }
 
 type helloworldService struct {
+	c    client.Client
 	name string
 }
 
-func NewHelloworldService(name string) HelloworldService {
-	return &helloworldService{name: name}
+func NewHelloworldService(name string, c client.Client) HelloworldService {
+	return &helloworldService{
+		c:    c,
+		name: name,
+	}
 }
 
-var defaultHelloworldService = NewHelloworldService("helloworld")
-
 func (c *helloworldService) Call(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error) {
-	req := microClient.NewRequest(c.name, "Helloworld.Call", in)
+	req := c.c.NewRequest(c.name, "Helloworld.Call", in)
 	out := new(Response)
-	err := microClient.Call(ctx, req, out, opts...)
+	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
-}
-
-func HelloworldCall(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error) {
-	return defaultHelloworldService.Call(ctx, in, opts...)
 }
 
 // Server API for Helloworld service
@@ -79,7 +73,7 @@ type HelloworldHandler interface {
 	Call(context.Context, *Request, *Response) error
 }
 
-func RegisterHelloworldHandler(hdlr HelloworldHandler, opts ...server.HandlerOption) error {
+func RegisterHelloworldHandler(s server.Server, hdlr HelloworldHandler, opts ...server.HandlerOption) error {
 	type helloworld interface {
 		Call(ctx context.Context, in *Request, out *Response) error
 	}
@@ -87,7 +81,7 @@ func RegisterHelloworldHandler(hdlr HelloworldHandler, opts ...server.HandlerOpt
 		helloworld
 	}
 	h := &helloworldHandler{hdlr}
-	return microServer.Handle(microServer.NewHandler(&Helloworld{h}, opts...))
+	return s.Handle(s.NewHandler(&Helloworld{h}, opts...))
 }
 
 type helloworldHandler struct {

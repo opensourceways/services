@@ -9,6 +9,7 @@ import (
 	"time"
 
 	gostore "github.com/micro/go-micro/v3/store"
+	"github.com/micro/micro/v3/service"
 	"github.com/micro/micro/v3/service/logger"
 	"github.com/micro/micro/v3/service/store"
 
@@ -17,8 +18,10 @@ import (
 	tags "github.com/micro/services/blog/tags/proto"
 )
 
-func New() pb.PostsHandler {
-	return new(handler)
+func New(srv *service.Service) pb.PostsHandler {
+	return &handler{
+		tags: tags.NewTagsService("tags", srv.Client()),
+	}
 }
 
 const (
@@ -38,7 +41,9 @@ type Post struct {
 	TagNames        []string `json:"tagNames"`
 }
 
-type handler struct{}
+type handler struct {
+	tags tags.TagsService
+}
 
 func (h *handler) Post(ctx context.Context, req *pb.PostRequest, rsp *pb.PostResponse) error {
 	if len(req.Post.Id) == 0 || len(req.Post.Title) == 0 || len(req.Post.Content) == 0 {
@@ -132,7 +137,7 @@ func (h *handler) savePost(ctx context.Context, oldPost, post *Post) error {
 	}
 	if oldPost == nil {
 		for _, tagName := range post.TagNames {
-			_, err := tags.TagsIncreaseCount(ctx, &tags.IncreaseCountRequest{
+			_, err := h.tags.IncreaseCount(ctx, &tags.IncreaseCountRequest{
 				ParentID: post.ID,
 				Type:     tagType,
 				Title:    tagName,
@@ -158,7 +163,7 @@ func (h *handler) diffTags(ctx context.Context, parentID string, oldTagNames, ne
 	for i := range oldTags {
 		_, stillThere := newTags[i]
 		if !stillThere {
-			_, err := tags.TagsDecreaseCount(ctx, &tags.DecreaseCountRequest{
+			_, err := h.tags.DecreaseCount(ctx, &tags.DecreaseCountRequest{
 				ParentID: parentID,
 				Type:     tagType,
 				Title:    i,
@@ -171,7 +176,7 @@ func (h *handler) diffTags(ctx context.Context, parentID string, oldTagNames, ne
 	for i := range newTags {
 		_, newlyAdded := oldTags[i]
 		if newlyAdded {
-			_, err := tags.TagsIncreaseCount(ctx, &tags.IncreaseCountRequest{
+			_, err := h.tags.IncreaseCount(ctx, &tags.IncreaseCountRequest{
 				ParentID: parentID,
 				Type:     tagType,
 				Title:    i,

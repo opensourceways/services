@@ -14,8 +14,6 @@ import (
 	api "github.com/micro/go-micro/v3/api"
 	client "github.com/micro/go-micro/v3/client"
 	server "github.com/micro/go-micro/v3/server"
-	microClient "github.com/micro/micro/v3/service/client"
-	microServer "github.com/micro/micro/v3/service/server"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -34,8 +32,6 @@ var _ api.Endpoint
 var _ context.Context
 var _ client.Option
 var _ server.Option
-var _ = microServer.Handle
-var _ = microClient.Call
 
 // Api Endpoints for Tags service
 
@@ -56,69 +52,55 @@ type TagsService interface {
 }
 
 type tagsService struct {
+	c    client.Client
 	name string
 }
 
-func NewTagsService(name string) TagsService {
-	return &tagsService{name: name}
+func NewTagsService(name string, c client.Client) TagsService {
+	return &tagsService{
+		c:    c,
+		name: name,
+	}
 }
 
-var defaultTagsService = NewTagsService("tags")
-
 func (c *tagsService) IncreaseCount(ctx context.Context, in *IncreaseCountRequest, opts ...client.CallOption) (*IncreaseCountResponse, error) {
-	req := microClient.NewRequest(c.name, "Tags.IncreaseCount", in)
+	req := c.c.NewRequest(c.name, "Tags.IncreaseCount", in)
 	out := new(IncreaseCountResponse)
-	err := microClient.Call(ctx, req, out, opts...)
+	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
-}
-
-func TagsIncreaseCount(ctx context.Context, in *IncreaseCountRequest, opts ...client.CallOption) (*IncreaseCountResponse, error) {
-	return defaultTagsService.IncreaseCount(ctx, in, opts...)
 }
 
 func (c *tagsService) DecreaseCount(ctx context.Context, in *DecreaseCountRequest, opts ...client.CallOption) (*DecreaseCountResponse, error) {
-	req := microClient.NewRequest(c.name, "Tags.DecreaseCount", in)
+	req := c.c.NewRequest(c.name, "Tags.DecreaseCount", in)
 	out := new(DecreaseCountResponse)
-	err := microClient.Call(ctx, req, out, opts...)
+	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
-}
-
-func TagsDecreaseCount(ctx context.Context, in *DecreaseCountRequest, opts ...client.CallOption) (*DecreaseCountResponse, error) {
-	return defaultTagsService.DecreaseCount(ctx, in, opts...)
 }
 
 func (c *tagsService) List(ctx context.Context, in *ListRequest, opts ...client.CallOption) (*ListResponse, error) {
-	req := microClient.NewRequest(c.name, "Tags.List", in)
+	req := c.c.NewRequest(c.name, "Tags.List", in)
 	out := new(ListResponse)
-	err := microClient.Call(ctx, req, out, opts...)
+	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
-}
-
-func TagsList(ctx context.Context, in *ListRequest, opts ...client.CallOption) (*ListResponse, error) {
-	return defaultTagsService.List(ctx, in, opts...)
 }
 
 func (c *tagsService) Update(ctx context.Context, in *UpdateRequest, opts ...client.CallOption) (*UpdateResponse, error) {
-	req := microClient.NewRequest(c.name, "Tags.Update", in)
+	req := c.c.NewRequest(c.name, "Tags.Update", in)
 	out := new(UpdateResponse)
-	err := microClient.Call(ctx, req, out, opts...)
+	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
-}
-
-func TagsUpdate(ctx context.Context, in *UpdateRequest, opts ...client.CallOption) (*UpdateResponse, error) {
-	return defaultTagsService.Update(ctx, in, opts...)
 }
 
 // Server API for Tags service
@@ -133,7 +115,7 @@ type TagsHandler interface {
 	Update(context.Context, *UpdateRequest, *UpdateResponse) error
 }
 
-func RegisterTagsHandler(hdlr TagsHandler, opts ...server.HandlerOption) error {
+func RegisterTagsHandler(s server.Server, hdlr TagsHandler, opts ...server.HandlerOption) error {
 	type tags interface {
 		IncreaseCount(ctx context.Context, in *IncreaseCountRequest, out *IncreaseCountResponse) error
 		DecreaseCount(ctx context.Context, in *DecreaseCountRequest, out *DecreaseCountResponse) error
@@ -144,7 +126,7 @@ func RegisterTagsHandler(hdlr TagsHandler, opts ...server.HandlerOption) error {
 		tags
 	}
 	h := &tagsHandler{hdlr}
-	return microServer.Handle(microServer.NewHandler(&Tags{h}, opts...))
+	return s.Handle(s.NewHandler(&Tags{h}, opts...))
 }
 
 type tagsHandler struct {

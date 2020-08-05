@@ -14,8 +14,6 @@ import (
 	api "github.com/micro/go-micro/v3/api"
 	client "github.com/micro/go-micro/v3/client"
 	server "github.com/micro/go-micro/v3/server"
-	microClient "github.com/micro/micro/v3/service/client"
-	microServer "github.com/micro/micro/v3/service/server"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -34,8 +32,6 @@ var _ api.Endpoint
 var _ context.Context
 var _ client.Option
 var _ server.Option
-var _ = microServer.Handle
-var _ = microClient.Call
 
 // Api Endpoints for Comments service
 
@@ -52,32 +48,30 @@ type CommentsService interface {
 }
 
 type commentsService struct {
+	c    client.Client
 	name string
 }
 
-func NewCommentsService(name string) CommentsService {
-	return &commentsService{name: name}
+func NewCommentsService(name string, c client.Client) CommentsService {
+	return &commentsService{
+		c:    c,
+		name: name,
+	}
 }
 
-var defaultCommentsService = NewCommentsService("comments")
-
 func (c *commentsService) Call(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error) {
-	req := microClient.NewRequest(c.name, "Comments.Call", in)
+	req := c.c.NewRequest(c.name, "Comments.Call", in)
 	out := new(Response)
-	err := microClient.Call(ctx, req, out, opts...)
+	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func CommentsCall(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error) {
-	return defaultCommentsService.Call(ctx, in, opts...)
-}
-
 func (c *commentsService) Stream(ctx context.Context, in *StreamingRequest, opts ...client.CallOption) (Comments_StreamService, error) {
-	req := microClient.NewRequest(c.name, "Comments.Stream", &StreamingRequest{})
-	stream, err := microClient.Stream(ctx, req, opts...)
+	req := c.c.NewRequest(c.name, "Comments.Stream", &StreamingRequest{})
+	stream, err := c.c.Stream(ctx, req, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -124,13 +118,9 @@ func (x *commentsServiceStream) Recv() (*StreamingResponse, error) {
 	return m, nil
 }
 
-func CommentsStream(ctx context.Context, in *StreamingRequest, opts ...client.CallOption) (Comments_StreamService, error) {
-	return defaultCommentsService.Stream(ctx, in, opts...)
-}
-
 func (c *commentsService) PingPong(ctx context.Context, opts ...client.CallOption) (Comments_PingPongService, error) {
-	req := microClient.NewRequest(c.name, "Comments.PingPong", &Ping{})
-	stream, err := microClient.Stream(ctx, req, opts...)
+	req := c.c.NewRequest(c.name, "Comments.PingPong", &Ping{})
+	stream, err := c.c.Stream(ctx, req, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -179,10 +169,6 @@ func (x *commentsServicePingPong) Recv() (*Pong, error) {
 	return m, nil
 }
 
-func CommentsPingPong(ctx context.Context, opts ...client.CallOption) (Comments_PingPongService, error) {
-	return defaultCommentsService.PingPong(ctx, opts...)
-}
-
 // Server API for Comments service
 
 type CommentsHandler interface {
@@ -191,7 +177,7 @@ type CommentsHandler interface {
 	PingPong(context.Context, Comments_PingPongStream) error
 }
 
-func RegisterCommentsHandler(hdlr CommentsHandler, opts ...server.HandlerOption) error {
+func RegisterCommentsHandler(s server.Server, hdlr CommentsHandler, opts ...server.HandlerOption) error {
 	type comments interface {
 		Call(ctx context.Context, in *Request, out *Response) error
 		Stream(ctx context.Context, stream server.Stream) error
@@ -201,7 +187,7 @@ func RegisterCommentsHandler(hdlr CommentsHandler, opts ...server.HandlerOption)
 		comments
 	}
 	h := &commentsHandler{hdlr}
-	return microServer.Handle(microServer.NewHandler(&Comments{h}, opts...))
+	return s.Handle(s.NewHandler(&Comments{h}, opts...))
 }
 
 type commentsHandler struct {

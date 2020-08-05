@@ -6,13 +6,14 @@ import (
 	"errors"
 	"fmt"
 
+	"github.com/gosimple/slug"
+	"github.com/micro/go-micro/v3/store"
 	gostore "github.com/micro/go-micro/v3/store"
 	"github.com/micro/micro/v3/service/logger"
 	"github.com/micro/micro/v3/service/store"
-
-	"github.com/gosimple/slug"
 	pb "github.com/micro/services/blog/tags/proto"
 	tags "github.com/micro/services/blog/tags/proto"
+	tags "github.com/micro/services/blog/tags/proto/tags"
 )
 
 func New() pb.TagsHandler {

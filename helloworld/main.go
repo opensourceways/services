@@ -4,8 +4,6 @@ import (
 	"github.com/micro/micro/v3/service"
 	"github.com/micro/micro/v3/service/logger"
 	"github.com/micro/services/helloworld/handler"
-
-	pb "github.com/micro/services/helloworld/proto"
 )
 
 func main() {
@@ -15,7 +13,7 @@ func main() {
 	)
 
 	// Register Handler
-	pb.RegisterHelloworldHandler(srv.Server(), new(handler.Helloworld))
+	srv.Handle(new(handler.Helloworld))
 
 	// Run the service
 	if err := srv.Run(); err != nil {

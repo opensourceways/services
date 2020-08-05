@@ -5,7 +5,6 @@ import (
 	"github.com/micro/micro/v3/service/logger"
 
 	"github.com/micro/services/blog/posts/handler"
-	pb "github.com/micro/services/blog/posts/proto/posts"
 )
 
 func main() {
@@ -15,7 +14,7 @@ func main() {
 	)
 
 	// Register Handler
-	pb.RegisterPostsHandler(srv.Server(), handler.New(srv))
+	srv.Handle(handler.New(srv))
 
 	// Run service
 	if err := srv.Run(); err != nil {

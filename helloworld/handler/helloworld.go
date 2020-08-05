@@ -4,7 +4,6 @@ import (
 	"context"
 
 	"github.com/micro/micro/v3/service/logger"
-
 	helloworld "github.com/micro/services/helloworld/proto"
 )
 

@@ -16,6 +16,8 @@ import (
 	"github.com/gosimple/slug"
 	pb "github.com/micro/services/blog/posts/proto/posts"
 	tags "github.com/micro/services/blog/tags/proto"
+
+	posts "github.com/micro/services/blog/posts/proto/posts"
 )
 
 func New(srv *service.Service) pb.PostsHandler {
@@ -45,7 +47,7 @@ type handler struct {
 	tags tags.TagsService
 }
 
-func (h *handler) Post(ctx context.Context, req *pb.PostRequest, rsp *pb.PostResponse) error {
+func (h *handler) Save(ctx context.Context, req *posts.SaveRequest, rsp *posts.SaveResponse) error {
 	if len(req.Post.Id) == 0 || len(req.Post.Title) == 0 || len(req.Post.Content) == 0 {
 		return errors.New("ID, title or content is missing")
 	}

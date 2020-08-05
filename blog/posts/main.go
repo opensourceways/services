@@ -3,8 +3,8 @@ package main
 import (
 	"github.com/micro/micro/v3/service"
 	"github.com/micro/micro/v3/service/logger"
-
 	"github.com/micro/services/blog/posts/handler"
+	tags "github.com/micro/services/blog/tags/proto"
 )
 
 func main() {
@@ -14,7 +14,9 @@ func main() {
 	)
 
 	// Register Handler
-	srv.Handle(handler.New(srv))
+	srv.Handle(&handler.Posts{
+		Tags: tags.NewTagsService("tags", srv.Client()),
+	})
 
 	// Run service
 	if err := srv.Run(); err != nil {

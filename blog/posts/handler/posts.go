@@ -9,22 +9,14 @@ import (
 	"time"
 
 	gostore "github.com/micro/go-micro/v3/store"
-	"github.com/micro/micro/v3/service"
 	"github.com/micro/micro/v3/service/logger"
 	"github.com/micro/micro/v3/service/store"
 
 	"github.com/gosimple/slug"
 	pb "github.com/micro/services/blog/posts/proto/posts"
-	tags "github.com/micro/services/blog/tags/proto"
-
 	posts "github.com/micro/services/blog/posts/proto/posts"
+	tags "github.com/micro/services/blog/tags/proto"
 )
-
-func New(srv *service.Service) pb.PostsHandler {
-	return &handler{
-		tags: tags.NewTagsService("tags", srv.Client()),
-	}
-}
 
 const (
 	tagType         = "post-tag"
@@ -43,11 +35,11 @@ type Post struct {
 	TagNames        []string `json:"tagNames"`
 }
 
-type handler struct {
-	tags tags.TagsService
+type Posts struct {
+	Tags tags.TagsService
 }
 
-func (h *handler) Save(ctx context.Context, req *posts.SaveRequest, rsp *posts.SaveResponse) error {
+func (p *Posts) Save(ctx context.Context, req *posts.SaveRequest, rsp *posts.SaveResponse) error {
 	if len(req.Post.Id) == 0 || len(req.Post.Title) == 0 || len(req.Post.Content) == 0 {
 		return errors.New("ID, title or content is missing")
 	}
@@ -68,7 +60,7 @@ func (h *handler) Save(ctx context.Context, req *posts.SaveRequest, rsp *posts.S
 			Slug:            postSlug,
 			CreateTimestamp: time.Now().Unix(),
 		}
-		return h.savePost(ctx, nil, post)
+		return p.savePost(ctx, nil, post)
 	}
 	record := records[0]
 	oldPost := &Post{}
@@ -100,10 +92,10 @@ func (h *handler) Save(ctx context.Context, req *posts.SaveRequest, rsp *posts.S
 		return errors.New("An other post with this slug already exists")
 	}
 
-	return h.savePost(ctx, oldPost, post)
+	return p.savePost(ctx, oldPost, post)
 }
 
-func (h *handler) savePost(ctx context.Context, oldPost, post *Post) error {
+func (p *Posts) savePost(ctx context.Context, oldPost, post *Post) error {
 	bytes, err := json.Marshal(post)
 	if err != nil {
 		return err
@@ -139,7 +131,7 @@ func (h *handler) savePost(ctx context.Context, oldPost, post *Post) error {
 	}
 	if oldPost == nil {
 		for _, tagName := range post.TagNames {
-			_, err := h.tags.IncreaseCount(ctx, &tags.IncreaseCountRequest{
+			_, err := p.Tags.IncreaseCount(ctx, &tags.IncreaseCountRequest{
 				ParentID: post.ID,
 				Type:     tagType,
 				Title:    tagName,
@@ -150,10 +142,10 @@ func (h *handler) savePost(ctx context.Context, oldPost, post *Post) error {
 		}
 		return nil
 	}
-	return h.diffTags(ctx, post.ID, oldPost.TagNames, post.TagNames)
+	return p.diffTags(ctx, post.ID, oldPost.TagNames, post.TagNames)
 }
 
-func (h *handler) diffTags(ctx context.Context, parentID string, oldTagNames, newTagNames []string) error {
+func (p *Posts) diffTags(ctx context.Context, parentID string, oldTagNames, newTagNames []string) error {
 	oldTags := map[string]struct{}{}
 	for _, v := range oldTagNames {
 		oldTags[v] = struct{}{}
@@ -165,7 +157,7 @@ func (h *handler) diffTags(ctx context.Context, parentID string, oldTagNames, ne
 	for i := range oldTags {
 		_, stillThere := newTags[i]
 		if !stillThere {
-			_, err := h.tags.DecreaseCount(ctx, &tags.DecreaseCountRequest{
+			_, err := p.Tags.DecreaseCount(ctx, &tags.DecreaseCountRequest{
 				ParentID: parentID,
 				Type:     tagType,
 				Title:    i,
@@ -178,7 +170,7 @@ func (h *handler) diffTags(ctx context.Context, parentID string, oldTagNames, ne
 	for i := range newTags {
 		_, newlyAdded := oldTags[i]
 		if newlyAdded {
-			_, err := h.tags.IncreaseCount(ctx, &tags.IncreaseCountRequest{
+			_, err := p.Tags.IncreaseCount(ctx, &tags.IncreaseCountRequest{
 				ParentID: parentID,
 				Type:     tagType,
 				Title:    i,
@@ -191,7 +183,7 @@ func (h *handler) diffTags(ctx context.Context, parentID string, oldTagNames, ne
 	return nil
 }
 
-func (h *handler) Query(ctx context.Context, req *pb.QueryRequest, rsp *pb.QueryResponse) error {
+func (p *Posts) Query(ctx context.Context, req *pb.QueryRequest, rsp *pb.QueryResponse) error {
 	var records []*gostore.Record
 	var err error
 	if len(req.Slug) > 0 {
@@ -232,7 +224,7 @@ func (h *handler) Query(ctx context.Context, req *pb.QueryRequest, rsp *pb.Query
 	return nil
 }
 
-func (h *handler) Delete(ctx context.Context, req *pb.DeleteRequest, rsp *pb.DeleteResponse) error {
+func (p *Posts) Delete(ctx context.Context, req *pb.DeleteRequest, rsp *pb.DeleteResponse) error {
 	logger.Info("Received Post.Delete request")
 	records, err := store.Read(fmt.Sprintf("%v:%v", idPrefix, req.Id))
 	if err != nil && err != gostore.ErrNotFound {

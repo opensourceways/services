@@ -3,13 +3,14 @@ package main
 import (
 	"github.com/micro/micro/v3/service"
 	"github.com/micro/micro/v3/service/logger"
+
 	"github.com/micro/services/blog/tags/handler"
 )
 
 func main() {
-	// New Service
+	// Create service
 	srv := service.New(
-		service.Name("go.micro.service.tags"),
+		service.Name("tags"),
 	)
 
 	// Register Handler

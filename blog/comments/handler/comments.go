@@ -3,25 +3,25 @@ package handler
 import (
 	"context"
 
-	log "github.com/micro/micro/v3/service/logger"
+	"github.com/micro/micro/v3/service/logger"
 	pb "github.com/micro/services/blog/comments/proto"
 )
 
 type Comments struct{}
 
 // Call is a single request handler called via client.Call or the generated client code
-func (e *Comments) Call(ctx context.Context, req *pb.Request, rsp *pb.Response) error {
-	log.Info("Received Comments.Call request")
+func (c *Comments) Call(ctx context.Context, req *pb.Request, rsp *pb.Response) error {
+	logger.Info("Received Comments.Call request")
 	rsp.Msg = "Hello " + req.Name
 	return nil
 }
 
 // Stream is a server side stream handler called via client.Stream or the generated client code
-func (e *Comments) Stream(ctx context.Context, req *pb.StreamingRequest, stream pb.Comments_StreamStream) error {
-	log.Infof("Received Comments.Stream request with count: %d", req.Count)
+func (c *Comments) Stream(ctx context.Context, req *pb.StreamingRequest, stream pb.Comments_StreamStream) error {
+	logger.Infof("Received Comments.Stream request with count: %d", req.Count)
 
 	for i := 0; i < int(req.Count); i++ {
-		log.Infof("Responding: %d", i)
+		logger.Infof("Responding: %d", i)
 		if err := stream.Send(&pb.StreamingResponse{
 			Count: int64(i),
 		}); err != nil {
@@ -33,13 +33,13 @@ func (e *Comments) Stream(ctx context.Context, req *pb.StreamingRequest, stream 
 }
 
 // PingPong is a bidirectional stream handler called via client.Stream or the generated client code
-func (e *Comments) PingPong(ctx context.Context, stream pb.Comments_PingPongStream) error {
+func (c *Comments) PingPong(ctx context.Context, stream pb.Comments_PingPongStream) error {
 	for {
 		req, err := stream.Recv()
 		if err != nil {
 			return err
 		}
-		log.Infof("Got ping %v", req.Stroke)
+		logger.Infof("Got ping %v", req.Stroke)
 		if err := stream.Send(&pb.Pong{Stroke: req.Stroke}); err != nil {
 			return err
 		}

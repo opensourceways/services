@@ -3,13 +3,14 @@ package main
 import (
 	"github.com/micro/micro/v3/service"
 	"github.com/micro/micro/v3/service/logger"
+
 	"github.com/micro/services/blog/comments/handler"
 )
 
 func main() {
-	// New Service
+	// Create the service
 	srv := service.New(
-		service.Name("go.micro.service.comments"),
+		service.Name("comments"),
 	)
 
 	// Register Handler

@@ -7,9 +7,9 @@ import (
 )
 
 func main() {
-	// New Service
+	// Create service
 	srv := service.New(
-		service.Name("go.micro.service.search"),
+		service.Name("search"),
 	)
 
 	// Register Handler

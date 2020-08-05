@@ -7,16 +7,16 @@ import (
 )
 
 func main() {
-	// New Service
-	helloworld := service.New(
+	// Create service
+	srv := service.New(
 		service.Name("helloworld"),
 	)
 
 	// Register Handler
-	helloworld.Handle(new(handler.Helloworld))
+	srv.Handle(new(handler.Helloworld))
 
-	// Run service
-	if err := helloworld.Run(); err != nil {
+	// Run the service
+	if err := srv.Run(); err != nil {
 		logger.Fatal(err)
 	}
 }

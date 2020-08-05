@@ -4,18 +4,18 @@ import (
 	"github.com/micro/micro/v3/service"
 	"github.com/micro/micro/v3/service/logger"
 	"github.com/micro/services/blog/posts/handler"
+	tags "github.com/micro/services/blog/tags/proto"
 )
 
 func main() {
-	// New Service
+	// Create the service
 	srv := service.New(
-		service.Name("go.micro.service.posts"),
-		service.Version("latest"),
+		service.Name("comments"),
 	)
 
 	// Register Handler
 	srv.Handle(&handler.Posts{
-		Client: srv.Client(),
+		Tags: tags.NewTagsService("tags", srv.Client()),
 	})
 
 	// Run service

@@ -7,21 +7,17 @@ import (
 	pb "github.com/micro/services/blog/comments/proto"
 )
 
-func New() pb.CommentsHandler {
-	return new(comments)
-}
-
-type comments struct{}
+type Comments struct{}
 
 // Call is a single request handler called via client.Call or the generated client code
-func (c *comments) Call(ctx context.Context, req *pb.Request, rsp *pb.Response) error {
+func (c *Comments) Call(ctx context.Context, req *pb.Request, rsp *pb.Response) error {
 	logger.Info("Received Comments.Call request")
 	rsp.Msg = "Hello " + req.Name
 	return nil
 }
 
 // Stream is a server side stream handler called via client.Stream or the generated client code
-func (c *comments) Stream(ctx context.Context, req *pb.StreamingRequest, stream pb.Comments_StreamStream) error {
+func (c *Comments) Stream(ctx context.Context, req *pb.StreamingRequest, stream pb.Comments_StreamStream) error {
 	logger.Infof("Received Comments.Stream request with count: %d", req.Count)
 
 	for i := 0; i < int(req.Count); i++ {
@@ -37,7 +33,7 @@ func (c *comments) Stream(ctx context.Context, req *pb.StreamingRequest, stream 
 }
 
 // PingPong is a bidirectional stream handler called via client.Stream or the generated client code
-func (c *comments) PingPong(ctx context.Context, stream pb.Comments_PingPongStream) error {
+func (c *Comments) PingPong(ctx context.Context, stream pb.Comments_PingPongStream) error {
 	for {
 		req, err := stream.Recv()
 		if err != nil {

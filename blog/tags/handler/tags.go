@@ -7,18 +7,11 @@ import (
 	"fmt"
 
 	"github.com/gosimple/slug"
-	"github.com/micro/go-micro/v3/store"
 	gostore "github.com/micro/go-micro/v3/store"
 	"github.com/micro/micro/v3/service/logger"
 	"github.com/micro/micro/v3/service/store"
 	pb "github.com/micro/services/blog/tags/proto"
-	tags "github.com/micro/services/blog/tags/proto"
-	tags "github.com/micro/services/blog/tags/proto/tags"
 )
-
-func New() pb.TagsHandler {
-	return new(handler)
-}
 
 const (
 	parentPrefix = "parent"
@@ -33,9 +26,9 @@ type Tag struct {
 	Count    int64  `json:"count"`
 }
 
-type handler struct{}
+type Tags struct{}
 
-func (h *handler) IncreaseCount(ctx context.Context, req *pb.IncreaseCountRequest, rsp *pb.IncreaseCountResponse) error {
+func (t *Tags) IncreaseCount(ctx context.Context, req *pb.IncreaseCountRequest, rsp *pb.IncreaseCountResponse) error {
 	if len(req.ParentID) == 0 || len(req.Type) == 0 {
 		return errors.New("parent id and type is required")
 	}
@@ -58,7 +51,7 @@ func (h *handler) IncreaseCount(ctx context.Context, req *pb.IncreaseCountReques
 			Slug:     tagSlug,
 			Count:    1,
 		}
-		return h.saveTag(tag)
+		return t.saveTag(tag)
 	}
 	record := records[0]
 	tag := &Tag{}
@@ -67,10 +60,10 @@ func (h *handler) IncreaseCount(ctx context.Context, req *pb.IncreaseCountReques
 		return err
 	}
 	tag.Count++
-	return h.saveTag(tag)
+	return t.saveTag(tag)
 }
 
-func (h *handler) saveTag(tag *Tag) error {
+func (t *Tags) saveTag(tag *Tag) error {
 	tagSlug := slug.Make(tag.Title)
 
 	parentID := fmt.Sprintf("%v:%v:%v", parentPrefix, tag.ParentID, tagSlug)
@@ -97,7 +90,7 @@ func (h *handler) saveTag(tag *Tag) error {
 	})
 }
 
-func (h *handler) DecreaseCount(ctx context.Context, req *pb.DecreaseCountRequest, rsp *pb.DecreaseCountResponse) error {
+func (t *Tags) DecreaseCount(ctx context.Context, req *pb.DecreaseCountRequest, rsp *pb.DecreaseCountResponse) error {
 	if len(req.ParentID) == 0 || len(req.Type) == 0 {
 		return errors.New("parent id and type is required")
 	}
@@ -127,10 +120,10 @@ func (h *handler) DecreaseCount(ctx context.Context, req *pb.DecreaseCountReques
 		return nil
 	}
 	tag.Count--
-	return h.saveTag(tag)
+	return t.saveTag(tag)
 }
 
-func (h *handler) List(ctx context.Context, req *pb.ListRequest, rsp *pb.ListResponse) error {
+func (t *Tags) List(ctx context.Context, req *pb.ListRequest, rsp *pb.ListResponse) error {
 	logger.Info("Received Tags.List request")
 	key := ""
 	if len(req.ParentID) > 0 {
@@ -145,14 +138,14 @@ func (h *handler) List(ctx context.Context, req *pb.ListRequest, rsp *pb.ListRes
 	if err != nil {
 		return err
 	}
-	rsp.Tags = make([]*tags.Tag, len(records))
+	rsp.Tags = make([]*pb.Tag, len(records))
 	for i, record := range records {
 		tagRecord := &Tag{}
 		err := json.Unmarshal(record.Value, tagRecord)
 		if err != nil {
 			return err
 		}
-		rsp.Tags[i] = &tags.Tag{
+		rsp.Tags[i] = &pb.Tag{
 			ParentID: tagRecord.ParentID,
 			Title:    tagRecord.Title,
 			Type:     tagRecord.Type,
@@ -163,7 +156,7 @@ func (h *handler) List(ctx context.Context, req *pb.ListRequest, rsp *pb.ListRes
 	return nil
 }
 
-func (h *handler) Update(ctx context.Context, req *pb.UpdateRequest, rsp *pb.UpdateResponse) error {
+func (t *Tags) Update(ctx context.Context, req *pb.UpdateRequest, rsp *pb.UpdateResponse) error {
 	if len(req.ParentID) == 0 || len(req.Type) == 0 {
 		return errors.New("parent id and type is required")
 	}
@@ -187,5 +180,5 @@ func (h *handler) Update(ctx context.Context, req *pb.UpdateRequest, rsp *pb.Upd
 		return err
 	}
 	tag.Title = req.Title
-	return h.saveTag(tag)
+	return t.saveTag(tag)
 }

@@ -3,11 +3,11 @@ package handler
 import (
 	"context"
 	"encoding/json"
-	"errors"
 	"fmt"
 	"math"
 	"time"
 
+	"github.com/micro/go-micro/v3/errors"
 	gostore "github.com/micro/go-micro/v3/store"
 	"github.com/micro/micro/v3/service/logger"
 	"github.com/micro/micro/v3/service/store"
@@ -41,13 +41,13 @@ type Posts struct {
 
 func (p *Posts) Save(ctx context.Context, req *posts.SaveRequest, rsp *posts.SaveResponse) error {
 	if len(req.Post.Id) == 0 || len(req.Post.Title) == 0 || len(req.Post.Content) == 0 {
-		return errors.New("ID, title or content is missing")
+		return errors.BadRequest("posts.save.input-check", "Id, title or content is missing")
 	}
 
 	// read by post
 	records, err := store.Read(fmt.Sprintf("%v:%v", idPrefix, req.Post.Id))
 	if err != nil && err != gostore.ErrNotFound {
-		return err
+		return errors.InternalServerError("posts.save.store-id-read", "Failed to read post by id: %v", err.Error())
 	}
 	postSlug := slug.Make(req.Post.Title)
 	// If no existing record is found, create a new one
@@ -60,13 +60,17 @@ func (p *Posts) Save(ctx context.Context, req *posts.SaveRequest, rsp *posts.Sav
 			Slug:            postSlug,
 			CreateTimestamp: time.Now().Unix(),
 		}
-		return p.savePost(ctx, nil, post)
+		err := p.savePost(ctx, nil, post)
+		if err != nil {
+			return errors.InternalServerError("posts.save.post-save", "Failed to save new post: %v", err.Error())
+		}
+		return nil
 	}
 	record := records[0]
 	oldPost := &Post{}
 	err = json.Unmarshal(record.Value, oldPost)
 	if err != nil {
-		return err
+		return errors.InternalServerError("posts.save.unmarshal", "Failed to unmarshal old post: %v", err.Error())
 	}
 	post := &Post{
 		ID:              req.Post.Id,
@@ -81,15 +85,15 @@ func (p *Posts) Save(ctx context.Context, req *posts.SaveRequest, rsp *posts.Sav
 	// Check if slug exists
 	recordsBySlug, err := store.Read(fmt.Sprintf("%v:%v", slugPrefix, postSlug))
 	if err != nil && err != gostore.ErrNotFound {
-		return err
+		return errors.InternalServerError("posts.save.store-read", "Failed to read post by slug: %v", err.Error())
 	}
 	otherSlugPost := &Post{}
 	err = json.Unmarshal(record.Value, otherSlugPost)
 	if err != nil {
-		return err
+		return errors.InternalServerError("posts.save.slug-unmarshal", "Error unmarshaling other post with same slug: %v", err.Error())
 	}
 	if len(recordsBySlug) > 0 && oldPost.ID != otherSlugPost.ID {
-		return errors.New("An other post with this slug already exists")
+		return errors.BadRequest("posts.save.slug-check", "An other post with this slug already exists")
 	}
 
 	return p.savePost(ctx, oldPost, post)
@@ -204,14 +208,14 @@ func (p *Posts) Query(ctx context.Context, req *pb.QueryRequest, rsp *pb.QueryRe
 	}
 
 	if err != nil {
-		return err
+		return errors.BadRequest("posts.query.store-read", "Failed to read from store: %v", err.Error())
 	}
 	rsp.Posts = make([]*pb.Post, len(records))
 	for i, record := range records {
 		postRecord := &Post{}
 		err := json.Unmarshal(record.Value, postRecord)
 		if err != nil {
-			return err
+			return errors.InternalServerError("posts.save.unmarshal", "Failed to unmarshal old post: %v", err.Error())
 		}
 		rsp.Posts[i] = &pb.Post{
 			Id:       postRecord.ID,

@@ -3,10 +3,11 @@ package handler
 import (
 	"context"
 	"encoding/json"
-	"errors"
+
 	"fmt"
 
 	"github.com/gosimple/slug"
+	"github.com/micro/go-micro/v3/errors"
 	gostore "github.com/micro/go-micro/v3/store"
 	"github.com/micro/micro/v3/service/logger"
 	"github.com/micro/micro/v3/service/store"
@@ -30,7 +31,7 @@ type Tags struct{}
 
 func (t *Tags) IncreaseCount(ctx context.Context, req *pb.IncreaseCountRequest, rsp *pb.IncreaseCountResponse) error {
 	if len(req.ParentID) == 0 || len(req.Type) == 0 {
-		return errors.New("parent id and type is required")
+		return errors.BadRequest("tags.increasecount.input-check", "parent id and type is required")
 	}
 
 	tagSlug := slug.Make(req.GetTitle())
@@ -92,7 +93,7 @@ func (t *Tags) saveTag(tag *Tag) error {
 
 func (t *Tags) DecreaseCount(ctx context.Context, req *pb.DecreaseCountRequest, rsp *pb.DecreaseCountResponse) error {
 	if len(req.ParentID) == 0 || len(req.Type) == 0 {
-		return errors.New("parent id and type is required")
+		return errors.BadRequest("tags.decreaseecount.input-check", "parent id and type is required")
 	}
 
 	tagSlug := slug.Make(req.GetTitle())
@@ -131,7 +132,7 @@ func (t *Tags) List(ctx context.Context, req *pb.ListRequest, rsp *pb.ListRespon
 	} else if len(req.Type) > 0 {
 		key = fmt.Sprintf("%v:%v", typePrefix, req.Type)
 	} else {
-		return errors.New("parent id or type required for listing")
+		return errors.BadRequest("tags.list.input-check", "parent id or type is required")
 	}
 
 	records, err := store.Read(key, gostore.ReadPrefix())
@@ -158,7 +159,7 @@ func (t *Tags) List(ctx context.Context, req *pb.ListRequest, rsp *pb.ListRespon
 
 func (t *Tags) Update(ctx context.Context, req *pb.UpdateRequest, rsp *pb.UpdateResponse) error {
 	if len(req.ParentID) == 0 || len(req.Type) == 0 {
-		return errors.New("parent id and type is required")
+		return errors.BadRequest("tags.update.input-check", "parent id and type is required")
 	}
 
 	tagSlug := slug.Make(req.GetTitle())

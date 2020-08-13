@@ -2,6 +2,12 @@
 
 This is the Tag service
 
+## Query tags
+
+```
+micro tags list --type=post-tag
+```
+
 Generated with
 
 ```

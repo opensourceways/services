@@ -4,6 +4,8 @@ This is a full end to end example of writing a multi-service blog application
 
 ## Usage
 
+See the posts and tags readmes in their folders for more usage.
+
 Check out the [blog tutorial](https://m3o.dev/tutorials/building-a-blog) on the developer docs.
 
 ## How it works

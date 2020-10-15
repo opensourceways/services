@@ -25,13 +25,13 @@ const (
 )
 
 type Post struct {
-	ID              string   `json:"id"`
-	Title           string   `json:"title"`
-	Slug            string   `json:"slug"`
-	Content         string   `json:"content"`
-	CreateTimestamp int64    `json:"create_timestamp"`
-	UpdateTimestamp int64    `json:"update_timestamp"`
-	Tags            []string `json:"tags"`
+	ID      string   `json:"id"`
+	Title   string   `json:"title"`
+	Slug    string   `json:"slug"`
+	Content string   `json:"content"`
+	Created int64    `json:"created"`
+	Updated int64    `json:"updated"`
+	Tags    []string `json:"tags"`
 }
 
 type Posts struct {
@@ -52,12 +52,12 @@ func (p *Posts) Save(ctx context.Context, req *posts.SaveRequest, rsp *posts.Sav
 	// If no existing record is found, create a new one
 	if len(records) == 0 {
 		post := &Post{
-			ID:              req.Id,
-			Title:           req.Title,
-			Content:         req.Content,
-			Tags:            req.Tags,
-			Slug:            postSlug,
-			CreateTimestamp: time.Now().Unix(),
+			ID:      req.Id,
+			Title:   req.Title,
+			Content: req.Content,
+			Tags:    req.Tags,
+			Slug:    postSlug,
+			Created: time.Now().Unix(),
 		}
 		err := p.savePost(ctx, nil, post)
 		if err != nil {
@@ -72,13 +72,13 @@ func (p *Posts) Save(ctx context.Context, req *posts.SaveRequest, rsp *posts.Sav
 		return errors.InternalServerError("posts.save.unmarshal", "Failed to unmarshal old post: %v", err.Error())
 	}
 	post := &Post{
-		ID:              req.Id,
-		Title:           req.Title,
-		Content:         req.Content,
-		Slug:            postSlug,
-		Tags:            req.Tags,
-		CreateTimestamp: oldPost.CreateTimestamp,
-		UpdateTimestamp: time.Now().Unix(),
+		ID:      req.Id,
+		Title:   req.Title,
+		Content: req.Content,
+		Slug:    postSlug,
+		Tags:    req.Tags,
+		Created: oldPost.Created,
+		Updated: time.Now().Unix(),
 	}
 
 	// Check if slug exists
@@ -126,7 +126,7 @@ func (p *Posts) savePost(ctx context.Context, oldPost, post *Post) error {
 		return err
 	}
 	err = store.Write(&store.Record{
-		Key:   fmt.Sprintf("%v:%v", timeStampPrefix, math.MaxInt64-post.CreateTimestamp),
+		Key:   fmt.Sprintf("%v:%v", timeStampPrefix, math.MaxInt64-post.Created),
 		Value: bytes,
 	})
 	if err != nil {
@@ -253,5 +253,5 @@ func (p *Posts) Delete(ctx context.Context, req *pb.DeleteRequest, rsp *pb.Delet
 		return err
 	}
 	// Delete by timeStamp
-	return store.Delete(fmt.Sprintf("%v:%v", timeStampPrefix, post.CreateTimestamp))
+	return store.Delete(fmt.Sprintf("%v:%v", timeStampPrefix, post.Created))
 }

@@ -29,6 +29,6 @@ micro posts query --offset=10 --limit=10
 
 ### Delete posts
 
-```
-micro call posts Posts.Delete '{"offset": 10, "limit": 10}'
+```sh
+micro posts delete --id=3
 ```

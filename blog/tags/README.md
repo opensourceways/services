@@ -4,7 +4,7 @@ This is the Tag service
 
 ## Query tags
 
-```
+```sh
 micro tags list --type=post-tag
 ```
 

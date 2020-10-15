@@ -6,23 +6,25 @@ The posts service stores posts
 
 ### Create a post
 
-```
-micro call posts Posts.Save '{"post":{"id":"1","title":"How to Micro","content":"Simply put, Micro is awesome."}}'
-micro call posts Posts.Save '{"post":{"id":"2","title":"Fresh posts are fresh","content":"This post is fresher than the How to Micro one"}}'
+```sh
+micro posts save --id=1 --title="How to Micro" --content="Simply put, Micro is awesome."
+micro posts save --id=2 --title="Fresh posts are fresh" --content="This post is fresher than the How to Micro one"
 ```
 
 ### Create a post with tags
 
-```
-micro call posts Posts.Save '{"post":{"id":"3","title":"How to do epic things with Micro","content":"Everything is awesome.","tagNames":["a","b"]}}'
+```sh
+micro posts save --id=3 --title="How to do epic things with Micro" --content="Everything is awesome." --tags=a,b
+# or
+micro posts save --id=3 --title="How to do epic things with Micro" --content="Everything is awesome." --tags=a --tags=b
 ```
 
 ### Query posts
 
-```
-micro call posts Posts.Query '{}'
-micro call posts Posts.Query '{"slug":"how-to-micro"}'
-micro call posts Posts.Query '{"offset": 10, "limit": 10}'
+```sh
+micro posts query
+micro posts query --slug=how-to-micro
+micro posts query --offset=10 --limit=10
 ```
 
 ### Delete posts

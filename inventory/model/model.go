@@ -10,27 +10,26 @@ import (
 )
 
 type Order struct {
-	ID         string
-	Status     pb.Status
-	Items      []*Item
-	CreatedAt  time.Time
-	CapturedAt time.Time
+	ID        string
+	Status    pb.Status `gorm:"index"`
+	Items     []*Item
+	CreatedAt time.Time `gorm:"index"`
 }
 
 type Item struct {
 	ID         string
-	OrderID    string
+	OrderID    string `gorm:"index"`
 	Order      *Order
-	ProductID  string
+	ProductID  string `gorm:"index"`
 	Quantity   uint32
-	Fulfilable bool
+	Fulfilable bool `gorm:"index"`
 }
 
 type Topup struct {
 	ID        string
 	Quantity  int32
-	ProductID string
-	CreatedAt time.Time
+	ProductID string    `gorm:"index"`
+	CreatedAt time.Time `gorm:"index"`
 }
 
 type Product struct {

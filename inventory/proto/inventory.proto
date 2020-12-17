@@ -1,0 +1,120 @@
+syntax = "proto3";
+
+package inventory;
+
+option go_package = "proto;inventory";
+
+service Inventory {
+	// Reserve the inventory required to fulfil an order
+	rpc Reserve(ReserveRequest) returns (ReserveResponse);
+	// Pick inventory for an order. If the order was reserved, the units reserved will now be moved
+	// to picked.
+	rpc Pick(PickRequest) returns (PickResponse);
+	// Void an order, releasing any inventory reserved or picked for the order.
+	rpc Void(VoidRequest) returns (VoidResponse);
+	// UnfulfilableOrders returns all orders where the inventory required to fulfil the order is not
+	// available in stock
+	rpc UnfulfilableOrders(UnfulfilableOrdersRequest) returns (UnfulfilableOrdersResponse);
+	// FulfilableOrders returns all orders where the inventory required to fulfil the order is 
+	// available in stock
+	rpc FulfilableOrders(FulfilableOrdersRequest) returns (FulfilableOrdersResponse);
+	// List inventory for all products. If ids are provided, only products with these IDs will be returned
+	rpc List(ListRequest) returns (ListResponse);
+	// Topup inventory for products
+	rpc Topup(TopupRequest) returns (TopupResponse);
+	// Override inventory for products
+	rpc Override(OverrideRequest) returns (OverrideResponse);
+}
+
+message Item {
+	string id = 1;
+	string product_id = 2;
+	int32 quantity = 3;
+}
+
+enum Status {
+	STATUS_UNSPECIFIED = 0;
+	STATUS_RESERVED = 1;
+	STATUS_PICKED = 2;
+	STATUS_VOIDED = 3;
+}
+
+message Order {
+	string id = 1;
+	Status status = 2;
+	repeated Item items = 3;
+}
+
+message Product {
+	string id = 1;
+	int32 units_in_stock = 2;
+	int32 units_reserved = 3;
+	int32 units_available = 4;
+}
+
+message ReserveRequest {
+	string order_id = 1;
+	repeated Item items = 2;
+	bool error_if_unavailable = 3;
+}
+
+message ReserveResponse {}
+
+message PickRequest {
+	string order_id = 1;
+	repeated Item items = 2;
+}
+
+message PickResponse {}
+
+message VoidRequest {
+	string order_id = 1;
+}
+
+message VoidResponse {}
+
+message ActiveOrdersRequest {}
+
+message ActiveOrdersResponse {
+	repeated Order orders = 1;
+}
+
+message ListRequest {
+	repeated string ids = 1;
+}
+
+message ListResponse {
+	repeated Product products = 1;
+}
+
+message Topup {
+	string id = 1;
+	string product_id = 2;
+	int32 quantity = 3;
+}
+
+message TopupRequest {
+	repeated Topup topups = 1;
+}
+
+message TopupResponse {}
+
+message OverrideRequest {
+	string id = 1;
+	string product_id = 2;
+	int32 quantity = 3;
+}
+
+message OverrideResponse {}
+
+message UnfulfilableOrdersRequest {}
+
+message UnfulfilableOrdersResponse {
+	repeated string ids = 1;
+}
+
+message FulfilableOrdersRequest {}
+
+message FulfilableOrdersResponse {
+	repeated string ids = 1;
+}

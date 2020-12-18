@@ -1,0 +1,119 @@
+syntax = "proto3";
+
+package tasks;
+option go_package = "proto;tasks";
+
+import "google/protobuf/timestamp.proto";
+
+service Tasks {
+	rpc Create(CreateRequest) returns (CreateResponse);
+	rpc Cancel(CancelRequest) returns (CancelResponse);
+	rpc Complete(CompleteRequest) returns (CompleteResponse);
+	rpc Defer(DeferRequest) returns (DeferResponse);
+	rpc Next(NextRequest) returns (NextResponse);
+	rpc Unassign(UnassignRequest) returns (UnassignResponse);
+	rpc Remove(RemoveRequest) returns (RemoveResponse);
+}
+
+message CreateRequest {
+	// type of task, e.g. picking an order
+	string type = 1;
+	// grouping id is used to batch tasks, e.g. if multiple orders are being shipped to a single user
+	// you can provide the user_id as the grouping_id.
+	string grouping_id = 2;
+	// the subjects of the task, e.g. the ids of the orders you are picking
+	repeated string subject_ids = 3;
+	// tasks are ordered using this timestamp
+	google.protobuf.Timestamp ordering_time = 4;
+	// the earliest time at which the task should be performed
+	google.protobuf.Timestamp deferred_until = 5;
+	// tag can be used to filter tasks, e.g. frozen
+	string tag = 6;
+}
+
+message Task {
+	string id = 1;
+	// type of task, e.g. picking an order
+	string type = 2;
+	// grouping id is used to batch tasks, e.g. if multiple orders are being shipped to a single user
+	// you can provide the user_id as the grouping_id.
+	string grouping_id = 3;
+	// the subjects of the task, e.g. the ids of the orders you are picking
+	repeated string subject_ids = 4;
+	// tasks are ordered using this timestamp
+	google.protobuf.Timestamp ordering_time = 5;
+	// the earliest time at which the task should be performed
+	google.protobuf.Timestamp deferred_until = 6;
+	// the time at which the task was created
+	google.protobuf.Timestamp created_at = 7;
+	// the time at which the task was completed
+	google.protobuf.Timestamp completed_at = 8;
+	// the time at which the task was cancelled
+	google.protobuf.Timestamp cancelled_at = 9;
+	// which user is this task allocated to (can be empty)
+	string allocated_to = 10;
+	// tag can be used to filter tasks
+	string tag = 11;
+}
+
+message CreateResponse {
+	// the task which was created
+	Task task = 1;
+}
+
+message CancelRequest {
+	// the id of the task you want to cancel
+	string id = 1;
+}
+
+message CancelResponse {}
+
+message CompleteRequest {
+	// the id of the task
+	string id = 1;
+	// the id of the user allocated to the task, if provided and it doesn't match the user currently 
+	// allocated to the task, an error will be returned
+	string user_id = 2;
+}
+
+message CompleteResponse {}
+
+message DeferRequest {
+	// the id of the task
+	string id = 1;
+	// the id of the user allocated to the task, if provided and it doesn't match the user currently 
+	// allocated to the task, an error will be returned
+	string user_id = 2;
+	// the earliest time at which the task should be performed
+	google.protobuf.Timestamp deferred_until = 5;
+}
+
+message DeferResponse {}
+
+message NextRequest {
+	// id of the user requesting the task
+	string user_id = 1;
+	// the type of task to filter by
+	string type = 2;
+	// optional: tags which can be used to filter tasks
+	repeated string tags = 3;
+}
+
+message NextResponse {
+	// the task which has been allocated to the user
+	Task task = 1;
+}
+
+message UnassignRequest {
+	// the user id which should be unassigned
+	string user_id = 1;
+}
+
+message UnassignResponse {}
+
+message RemoveRequest {
+	// the subject to remove from all tasks
+	string subject_id = 1;
+}
+
+message RemoveResponse {}

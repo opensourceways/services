@@ -21,7 +21,15 @@
   </url>
   
   <url>
+    <loc>https://services.m3o.com/post/comments/</loc>
+  </url>
+  
+  <url>
     <loc>https://services.m3o.com/post/etas/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/post/feeds/</loc>
   </url>
   
   <url>
@@ -45,11 +53,19 @@
   </url>
   
   <url>
+    <loc>https://services.m3o.com/post/posts/</loc>
+  </url>
+  
+  <url>
     <loc>https://services.m3o.com/post/routing/</loc>
   </url>
   
   <url>
     <loc>https://services.m3o.com/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/post/tags/</loc>
   </url>
   
   <url>

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="dark">
-    <title> geocoding | Micro Services</title>
+    <title> posts | Micro Services</title>
     
     
     
@@ -40,8 +40,8 @@
         <header class="article-header">
             <div class="thumb">
                 <div>
-                    <h1>geocoding</h1>
-                    <div><a href="/geocoding-api.html">OpenAPI docs</a></div>
+                    <h1>posts</h1>
+                    <div><a href="/posts-api.html">OpenAPI docs</a></div>
                     <div class="post-meta">
                         <div>
                             By  on <time>January 01, 0001</time>
@@ -56,7 +56,21 @@
     </article>
 
     <div class="article-post">
-    
+    <h1 id="post-service">Post Service</h1>
+<p>The posts service stores posts</p>
+<h2 id="usage">Usage</h2>
+<h3 id="create-a-post">Create a post</h3>
+<pre><code>micro call posts Posts.Save '{&quot;post&quot;:{&quot;id&quot;:&quot;1&quot;,&quot;title&quot;:&quot;How to Micro&quot;,&quot;content&quot;:&quot;Simply put, Micro is awesome.&quot;}}'
+micro call posts Posts.Save '{&quot;post&quot;:{&quot;id&quot;:&quot;2&quot;,&quot;title&quot;:&quot;Fresh posts are fresh&quot;,&quot;content&quot;:&quot;This post is fresher than the How to Micro one&quot;}}'
+</code></pre><h3 id="create-a-post-with-tags">Create a post with tags</h3>
+<pre><code>micro call posts Posts.Save '{&quot;post&quot;:{&quot;id&quot;:&quot;3&quot;,&quot;title&quot;:&quot;How to do epic things with Micro&quot;,&quot;content&quot;:&quot;Everything is awesome.&quot;,&quot;tagNames&quot;:[&quot;a&quot;,&quot;b&quot;]}}'
+</code></pre><h3 id="query-posts">Query posts</h3>
+<pre><code>micro call posts Posts.Query '{}'
+micro call posts Posts.Query '{&quot;slug&quot;:&quot;how-to-micro&quot;}'
+micro call posts Posts.Query '{&quot;offset&quot;: 10, &quot;limit&quot;: 10}'
+</code></pre><h3 id="delete-posts">Delete posts</h3>
+<pre><code>micro call posts Posts.Delete '{&quot;offset&quot;: 10, &quot;limit&quot;: 10}'
+</code></pre>
     </div>
 </div>
 
@@ -64,16 +78,16 @@
     
     <nav class="flex container suggested">
         
-        <a rel="prev" href="/post/locations/" title="Previous post (older)">
+        <a rel="prev" href="/post/routing/" title="Previous post (older)">
             <span>Previous</span>
-            locations
+            routing
             </a>
         
         
         
-        <a rel="next" href="/post/feeds/" title="Next post (newer)">
+        <a rel="next" href="/post/notes/" title="Next post (newer)">
             <span>Next</span>
-            feeds
+            notes
             </a> 
         
     </nav>

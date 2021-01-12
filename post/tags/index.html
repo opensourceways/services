@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="dark">
-    <title> geocoding | Micro Services</title>
+    <title> tags | Micro Services</title>
     
     
     
@@ -40,8 +40,8 @@
         <header class="article-header">
             <div class="thumb">
                 <div>
-                    <h1>geocoding</h1>
-                    <div><a href="/geocoding-api.html">OpenAPI docs</a></div>
+                    <h1>tags</h1>
+                    <div><a href="/tags-api.html">OpenAPI docs</a></div>
                     <div class="post-meta">
                         <div>
                             By  on <time>January 01, 0001</time>
@@ -56,7 +56,41 @@
     </article>
 
     <div class="article-post">
-    
+    <h1 id="tag-service">Tag Service</h1>
+<p>This is the Tag service</p>
+<h2 id="query-tags">Query tags</h2>
+<pre><code>micro tags list --type=post-tag
+</code></pre><p>Generated with</p>
+<pre><code>micro new --namespace=go.micro --type=service tag
+</code></pre><h2 id="getting-started">Getting Started</h2>
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#usage">Usage</a></li>
+</ul>
+<h2 id="configuration">Configuration</h2>
+<ul>
+<li>FQDN: go.micro.service.tag</li>
+<li>Type: service</li>
+<li>Alias: tag</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<p>Micro services depend on service discovery. The default is multicast DNS, a zeroconf system.</p>
+<p>In the event you need a resilient multi-host setup we recommend etcd.</p>
+<pre><code># install etcd
+brew install etcd
+
+# run etcd
+etcd
+</code></pre><h2 id="usage">Usage</h2>
+<p>A Makefile is included for convenience</p>
+<p>Build the binary</p>
+<pre><code>make build
+</code></pre><p>Run the service</p>
+<pre><code>./tag-service
+</code></pre><p>Build a docker image</p>
+<pre><code>make docker
+</code></pre>
     </div>
 </div>
 
@@ -64,16 +98,16 @@
     
     <nav class="flex container suggested">
         
-        <a rel="prev" href="/post/locations/" title="Previous post (older)">
+        <a rel="prev" href="/post/users/" title="Previous post (older)">
             <span>Previous</span>
-            locations
+            users
             </a>
         
         
         
-        <a rel="next" href="/post/feeds/" title="Next post (newer)">
+        <a rel="next" href="/post/routing/" title="Next post (newer)">
             <span>Next</span>
-            feeds
+            routing
             </a> 
         
     </nav>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> messages | Micro Services</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.96090b4177a3194fa2de0860f2c55524d6582b68a41222fe4030905ef033075a.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    Micro Services
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/services/">Services</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>messages</h1>
+                    <div class="post-meta">
+                        <div>
+                            By  on <time>January 01, 0001</time>
+                        </div>
+                        <div class="tags">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <h1 id="messages-service">Messages Service</h1>
+<p>The messages service is a simplified service for sending messages, much like email. You can send a message using the CLI:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&gt; micro messages send --to<span class="o">=</span>John --from<span class="o">=</span>Barry --subject<span class="o">=</span>HelloWorld --text<span class="o">=</span><span class="s2">&#34;Hello John&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>And then list the messages a user has recieved:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&gt; micro messages list --user<span class="o">=</span>John
+<span class="o">{</span>
+	<span class="s2">&#34;messages&#34;</span>: <span class="o">[</span>
+		<span class="o">{</span>
+			<span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;78efd836-ca51-4163-af43-65985f7c6587&#34;</span>,
+			<span class="s2">&#34;to&#34;</span>: <span class="s2">&#34;John&#34;</span>,
+			<span class="s2">&#34;from&#34;</span>: <span class="s2">&#34;Barry&#34;</span>,
+			<span class="s2">&#34;subject&#34;</span>: <span class="s2">&#34;HelloWorld&#34;</span>,
+			<span class="s2">&#34;text&#34;</span>: <span class="s2">&#34;Hello John&#34;</span>,
+			<span class="s2">&#34;sent_at&#34;</span>: <span class="s2">&#34;1602777240&#34;</span>
+		<span class="o">}</span>
+	<span class="o">]</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Or lookup an individual email by ID:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&gt; micro messages <span class="nb">read</span> --id<span class="o">=</span>78efd836-ca51-4163-af43-65985f7c6587
+<span class="o">{</span>
+	<span class="s2">&#34;message&#34;</span>: <span class="o">{</span>
+		<span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;78efd836-ca51-4163-af43-65985f7c6587&#34;</span>,
+		<span class="s2">&#34;to&#34;</span>: <span class="s2">&#34;John&#34;</span>,
+		<span class="s2">&#34;from&#34;</span>: <span class="s2">&#34;Barry&#34;</span>,
+		<span class="s2">&#34;subject&#34;</span>: <span class="s2">&#34;HelloWorld&#34;</span>,
+		<span class="s2">&#34;text&#34;</span>: <span class="s2">&#34;Hello John&#34;</span>,
+		<span class="s2">&#34;sent_at&#34;</span>: <span class="s2">&#34;1602777240&#34;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/notes/" title="Previous post (older)">
+            <span>Previous</span>
+            notes
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/locations/" title="Next post (newer)">
+            <span>Next</span>
+            locations
+            </a> 
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

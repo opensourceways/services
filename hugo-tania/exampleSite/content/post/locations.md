@@ -1,4 +1,7 @@
----\ntitle: \n---\n
+---
+title: locations
+---
+
 # Locations Service
 
 This is the Locations service

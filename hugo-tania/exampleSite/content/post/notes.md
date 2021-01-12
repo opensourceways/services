@@ -1,4 +1,7 @@
----\ntitle: \n---\n
+---
+title: notes
+---
+
 # Notes Service
 
 Notes service is an RPC service which offers CRUD for notes. It demonstrates usage of the store, errors and logger pacakges. Example usage:

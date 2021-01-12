@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Micro Services</title>
+    <link>https://services.m3o.com/post/</link>
+    <description>Recent content in Posts on Micro Services</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://services.m3o.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>chat</title>
+      <link>https://services.m3o.com/post/chat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/chat/</guid>
+      <description>Chat Service The chat service is an example Micro service which leverages bidirectional streaming, the store and events to build a chat backend. There is both a server and client which can be run together to demonstrate the application (see client/main.go for more instructions on running the service).
+The service is documented inline and is designed to act as a reference for the events package.
+Calling the service You can call the service via the CLI:</description>
+    </item>
+    
+    <item>
+      <title>etas</title>
+      <link>https://services.m3o.com/post/etas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/etas/</guid>
+      <description>ETAs Service This is the ETAs service. It provides ETAs for single-pickup, multi-dropoff routes. It takes into account time and traffic.
+Current limitations: • Only supports &amp;ldquo;Driving&amp;rdquo; (not walking, cycling) • Does not optimize route
+Usage The ETA service depends on the Google Maps API. Ensure you set the &amp;ldquo;google.maps.apikey&amp;rdquo; config value to your API key.
+micro config set google.maps.apikey YOUR_API_KEY Once set, run the service using micro run github.com/micro/services/etas.</description>
+    </item>
+    
+    <item>
+      <title>geocoding</title>
+      <link>https://services.m3o.com/post/geocoding/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/geocoding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>locations</title>
+      <link>https://services.m3o.com/post/locations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/locations/</guid>
+      <description>Locations Service This is the Locations service
+Generated with
+micro new locations Usage Generate the proto code
+make proto Run the service
+micro run . </description>
+    </item>
+    
+    <item>
+      <title>messages</title>
+      <link>https://services.m3o.com/post/messages/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/messages/</guid>
+      <description>Messages Service The messages service is a simplified service for sending messages, much like email. You can send a message using the CLI:
+1  &amp;gt; micro messages send --to=John --from=Barry --subject=HelloWorld --text=&amp;#34;Hello John&amp;#34;   And then list the messages a user has recieved:
+1 2 3 4 5 6 7 8 9 10 11 12 13  &amp;gt; micro messages list --user=John { &amp;#34;messages&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;78efd836-ca51-4163-af43-65985f7c6587&amp;#34;, &amp;#34;to&amp;#34;: &amp;#34;John&amp;#34;, &amp;#34;from&amp;#34;: &amp;#34;Barry&amp;#34;, &amp;#34;subject&amp;#34;: &amp;#34;HelloWorld&amp;#34;, &amp;#34;text&amp;#34;: &amp;#34;Hello John&amp;#34;, &amp;#34;sent_at&amp;#34;: &amp;#34;1602777240&amp;#34; } ] }   Or lookup an individual email by ID:</description>
+    </item>
+    
+    <item>
+      <title>notes</title>
+      <link>https://services.m3o.com/post/notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/notes/</guid>
+      <description>Notes Service Notes service is an RPC service which offers CRUD for notes. It demonstrates usage of the store, errors and logger pacakges. Example usage:
+Create a note
+1 2 3 4  micro notes create --title=&amp;#34;HelloWorld&amp;#34; --text=&amp;#34;MyFirstNote&amp;#34; { &amp;#34;id&amp;#34;: &amp;#34;6d3fa5c0-6e79-4418-a72a-c1650efb65d2&amp;#34; }   Update a note
+1 2  micro notes update --id=6d3fa5c0-6e79-4418-a72a-c1650efb65d2 --title=&amp;#34;HelloWorld&amp;#34; --text=&amp;#34;MyFirstNote (v2)&amp;#34; {}   List notes
+1 2 3 4 5 6 7 8 9 10 11  micro notes list { &amp;#34;notes&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;6d3fa5c0-6e79-4418-a72a-c1650efb65d2&amp;#34;, &amp;#34;created&amp;#34;: &amp;#34;1602849877&amp;#34;, &amp;#34;title&amp;#34;: &amp;#34;HelloWorld&amp;#34;, &amp;#34;text&amp;#34;: &amp;#34;MyFirstNote (v2)&amp;#34; } ] }   Delete a note</description>
+    </item>
+    
+    <item>
+      <title>routing</title>
+      <link>https://services.m3o.com/post/routing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/routing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>users</title>
+      <link>https://services.m3o.com/post/users/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/users/</guid>
+      <description>Users Service A user service for storing accounts and simple auth.
+Getting started micro run github.com/micro/services/users Usage User server implements the following RPC Methods
+Users
+ Create Read Update Delete Search UpdatePassword Login Logout ReadSession  Create 1  micro call users Users.Create &amp;#39;{&amp;#34;id&amp;#34;: &amp;#34;ff3c06de-9e43-41c7-9bab-578f6b4ad32b&amp;#34;, &amp;#34;username&amp;#34;: &amp;#34;asim&amp;#34;, &amp;#34;email&amp;#34;: &amp;#34;asim@example.com&amp;#34;, &amp;#34;password&amp;#34;: &amp;#34;password1&amp;#34;}&amp;#39;   Read 1  micro call users Users.Read &amp;#39;{&amp;#34;id&amp;#34;: &amp;#34;ff3c06de-9e43-41c7-9bab-578f6b4ad32b&amp;#34;}&amp;#39;   Update 1  micro call users Users.</description>
+    </item>
+    
+  </channel>
+</rss>

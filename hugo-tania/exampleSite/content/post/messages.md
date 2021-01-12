@@ -1,4 +1,7 @@
----\ntitle: \n---\n
+---
+title: messages
+---
+
 # Messages Service
 
 The messages service is a simplified service for sending messages, much like email. You can send a message using the CLI:

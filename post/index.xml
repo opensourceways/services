@@ -66,9 +66,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/post/places/</guid>
-      <description>Locations Service This is the Locations service
-Generated with
-micro new locations Usage Locations makes use of postgres.</description>
+      <description>Places Service The places service stores places of interest by geolocation</description>
     </item>
     
     <item>

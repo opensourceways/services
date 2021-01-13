@@ -12,9 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/post/chat/</guid>
-      <description>Chat Service The chat service is an example Micro service which leverages bidirectional streaming, the store and events to build a chat backend. There is both a server and client which can be run together to demonstrate the application (see client/main.go for more instructions on running the service).
-The service is documented inline and is designed to act as a reference for the events package.
-Calling the service You can call the service via the CLI:</description>
+      <description>Chat Service The chat service is an example Micro service which leverages bidirectional streaming, the store and events to build a chat backend.</description>
     </item>
     
     <item>
@@ -32,10 +30,7 @@ Calling the service You can call the service via the CLI:</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/post/etas/</guid>
-      <description>ETAs Service This is the ETAs service. It provides ETAs for single-pickup, multi-dropoff routes. It takes into account time and traffic.
-Current limitations: • Only supports &amp;ldquo;Driving&amp;rdquo; (not walking, cycling) • Does not optimize route
-Usage The ETA service depends on the Google Maps API. Ensure you set the &amp;ldquo;google.maps.apikey&amp;rdquo; config value to your API key.
-micro config set google.maps.apikey YOUR_API_KEY Once set, run the service using micro run github.com/micro/services/etas.</description>
+      <description>ETAs Service This is the ETAs service. It provides ETAs for single-pickup, multi-dropoff routes.</description>
     </item>
     
     <item>
@@ -46,7 +41,7 @@ micro config set google.maps.apikey YOUR_API_KEY Once set, run the service using
       <guid>https://services.m3o.com/post/feeds/</guid>
       <description>Feeds Service This is the Feeds service
 Generated with
-micro new feeds Usage micro feeds new --name=&amp;quot;a16z&amp;quot; --url=http://a16z.com/feed/ $ micro posts query { &amp;quot;posts&amp;quot;: [ { &amp;quot;id&amp;quot;: &amp;quot;39cdfbd6e7534bcd868be9eebbf43f8f&amp;quot;, &amp;quot;title&amp;quot;: &amp;quot;Anthony Albanese: From the NYSE to Crypto&amp;quot;, &amp;quot;slug&amp;quot;: &amp;quot;anthony-albanese-from-the-nyse-to-crypto&amp;quot;, &amp;quot;created&amp;quot;: &amp;quot;1605104742&amp;quot;, &amp;quot;updated&amp;quot;: &amp;quot;1605105364&amp;quot;, &amp;quot;metadata&amp;quot;: { &amp;quot;domain&amp;quot;: &amp;quot;a16z.com&amp;quot;, &amp;quot;link&amp;quot;: &amp;quot;https://a16z.com/2020/10/28/anthony-albanese-from-the-nyse-to-crypto/&amp;quot; } }, { &amp;quot;id&amp;quot;: &amp;quot;5e9285c01311704e204322ba564cd99e&amp;quot;, &amp;quot;title&amp;quot;: &amp;quot;Journal Club: From Insect Eyes to Nanomaterials&amp;quot;, &amp;quot;slug&amp;quot;: &amp;quot;journal-club-from-insect-eyes-to-nanomaterials&amp;quot;, &amp;quot;created&amp;quot;: &amp;quot;1605104741&amp;quot;, &amp;quot;updated&amp;quot;: &amp;quot;1605105363&amp;quot;, &amp;quot;metadata&amp;quot;: { &amp;quot;domain&amp;quot;: &amp;quot;a16z.</description>
+micro new feeds Usage micro feeds new --name=&amp;quot;a16z&amp;quot; --url=http://a16z.</description>
     </item>
     
     <item>
@@ -66,9 +61,7 @@ micro new feeds Usage micro feeds new --name=&amp;quot;a16z&amp;quot; --url=http
       <guid>https://services.m3o.com/post/locations/</guid>
       <description>Locations Service This is the Locations service
 Generated with
-micro new locations Usage Generate the proto code
-make proto Run the service
-micro run . </description>
+micro new locations Usage Generate the proto code</description>
     </item>
     
     <item>
@@ -77,9 +70,7 @@ micro run . </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/post/messages/</guid>
-      <description>Messages Service The messages service is a simplified service for sending messages, much like email. You can send a message using the CLI:
-1  &amp;gt; micro messages send --to=John --from=Barry --subject=HelloWorld --text=&amp;#34;Hello John&amp;#34;   And then list the messages a user has recieved:
-1 2 3 4 5 6 7 8 9 10 11 12 13  &amp;gt; micro messages list --user=John { &amp;#34;messages&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;78efd836-ca51-4163-af43-65985f7c6587&amp;#34;, &amp;#34;to&amp;#34;: &amp;#34;John&amp;#34;, &amp;#34;from&amp;#34;: &amp;#34;Barry&amp;#34;, &amp;#34;subject&amp;#34;: &amp;#34;HelloWorld&amp;#34;, &amp;#34;text&amp;#34;: &amp;#34;Hello John&amp;#34;, &amp;#34;sent_at&amp;#34;: &amp;#34;1602777240&amp;#34; } ] }   Or lookup an individual email by ID:</description>
+      <description>Messages Service The messages service is a simplified service for sending messages, much like email.</description>
     </item>
     
     <item>
@@ -88,11 +79,7 @@ micro run . </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/post/notes/</guid>
-      <description>Notes Service Notes service is an RPC service which offers CRUD for notes. It demonstrates usage of the store, errors and logger pacakges. Example usage:
-Create a note
-1 2 3 4  micro notes create --title=&amp;#34;HelloWorld&amp;#34; --text=&amp;#34;MyFirstNote&amp;#34; { &amp;#34;id&amp;#34;: &amp;#34;6d3fa5c0-6e79-4418-a72a-c1650efb65d2&amp;#34; }   Update a note
-1 2  micro notes update --id=6d3fa5c0-6e79-4418-a72a-c1650efb65d2 --title=&amp;#34;HelloWorld&amp;#34; --text=&amp;#34;MyFirstNote (v2)&amp;#34; {}   List notes
-1 2 3 4 5 6 7 8 9 10 11  micro notes list { &amp;#34;notes&amp;#34;: [ { &amp;#34;id&amp;#34;: &amp;#34;6d3fa5c0-6e79-4418-a72a-c1650efb65d2&amp;#34;, &amp;#34;created&amp;#34;: &amp;#34;1602849877&amp;#34;, &amp;#34;title&amp;#34;: &amp;#34;HelloWorld&amp;#34;, &amp;#34;text&amp;#34;: &amp;#34;MyFirstNote (v2)&amp;#34; } ] }   Delete a note</description>
+      <description>Notes Service Notes service is an RPC service which offers CRUD for notes.</description>
     </item>
     
     <item>
@@ -102,7 +89,7 @@ Create a note
       
       <guid>https://services.m3o.com/post/posts/</guid>
       <description>Post Service The posts service stores posts
-Usage Create a post micro call posts Posts.Save &#39;{&amp;quot;post&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;1&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;How to Micro&amp;quot;,&amp;quot;content&amp;quot;:&amp;quot;Simply put, Micro is awesome.&amp;quot;}}&#39; micro call posts Posts.Save &#39;{&amp;quot;post&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;2&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;Fresh posts are fresh&amp;quot;,&amp;quot;content&amp;quot;:&amp;quot;This post is fresher than the How to Micro one&amp;quot;}}&#39; Create a post with tags micro call posts Posts.Save &#39;{&amp;quot;post&amp;quot;:{&amp;quot;id&amp;quot;:&amp;quot;3&amp;quot;,&amp;quot;title&amp;quot;:&amp;quot;How to do epic things with Micro&amp;quot;,&amp;quot;content&amp;quot;:&amp;quot;Everything is awesome.&amp;quot;,&amp;quot;tagNames&amp;quot;:[&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;]}}&#39; Query posts micro call posts Posts.Query &#39;{}&#39; micro call posts Posts.Query &#39;{&amp;quot;slug&amp;quot;:&amp;quot;how-to-micro&amp;quot;}&#39; micro call posts Posts.</description>
+Usage Create a post micro call posts Posts.</description>
     </item>
     
     <item>
@@ -121,10 +108,7 @@ Usage Create a post micro call posts Posts.Save &#39;{&amp;quot;post&amp;quot;:{
       
       <guid>https://services.m3o.com/post/tags/</guid>
       <description>Tag Service This is the Tag service
-Query tags micro tags list --type=post-tag Generated with
-micro new --namespace=go.micro --type=service tag Getting Started  Configuration Dependencies Usage  Configuration  FQDN: go.micro.service.tag Type: service Alias: tag  Dependencies Micro services depend on service discovery. The default is multicast DNS, a zeroconf system.
-In the event you need a resilient multi-host setup we recommend etcd.
-# install etcd brew install etcd # run etcd etcd Usage A Makefile is included for convenience</description>
+Query tags micro tags list --type=post-tag Generated with</description>
     </item>
     
     <item>
@@ -133,10 +117,7 @@ In the event you need a resilient multi-host setup we recommend etcd.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/post/users/</guid>
-      <description>Users Service A user service for storing accounts and simple auth.
-Getting started micro run github.com/micro/services/users Usage User server implements the following RPC Methods
-Users
- Create Read Update Delete Search UpdatePassword Login Logout ReadSession  Create 1  micro call users Users.Create &amp;#39;{&amp;#34;id&amp;#34;: &amp;#34;ff3c06de-9e43-41c7-9bab-578f6b4ad32b&amp;#34;, &amp;#34;username&amp;#34;: &amp;#34;asim&amp;#34;, &amp;#34;email&amp;#34;: &amp;#34;asim@example.com&amp;#34;, &amp;#34;password&amp;#34;: &amp;#34;password1&amp;#34;}&amp;#39;   Read 1  micro call users Users.Read &amp;#39;{&amp;#34;id&amp;#34;: &amp;#34;ff3c06de-9e43-41c7-9bab-578f6b4ad32b&amp;#34;}&amp;#39;   Update 1  micro call users Users.</description>
+      <description>Users Service A user service for storing accounts and simple auth.</description>
     </item>
     
   </channel>

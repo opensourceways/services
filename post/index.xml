@@ -12,7 +12,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/post/chat/</guid>
-      <description>Chat Service The chat service is an example Micro service which leverages bidirectional streaming, the store and events to build a chat backend.</description>
+      <description>The chat service is an example Micro service which leverages bidirectional streaming, the store and events to build a chat backend.</description>
     </item>
     
     <item>
@@ -88,8 +88,7 @@ micro new locations Usage Locations makes use of postgres.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/post/posts/</guid>
-      <description>Post Service The posts service stores posts
-Usage Create a post micro call posts Posts.</description>
+      <description>The post service is responsible for storing and querying posts by their slugs or IDs.</description>
     </item>
     
     <item>

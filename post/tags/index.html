@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="dark">
-    <title> places | Micro Services</title>
+    <title> tags | Micro Services</title>
     
     
     
@@ -40,8 +40,8 @@
         <header class="article-header">
             <div class="thumb">
                 <div>
-                    <h1>places</h1>
-                    <div><a href="/places/api"><u>API Spec</u></a></div>
+                    <h1>tags</h1>
+                    <div><a href="/tags/api"><u>API Spec</u></a></div>
                     <div class="post-meta">
                         
                         <div class="tags">
@@ -54,20 +54,67 @@
     </article>
 
     <div class="article-post">
-    <p>The places service stores places of interest by geolocation.</p>
-<h1 id="places-service">Places Service</h1>
-<p>Generated with</p>
-<pre><code>micro new places
+    <p>Tag any resource by savin a tag associated with their ID in the tag service.</p>
+<h1 id="tag-service">Tag Service</h1>
+<h2 id="query-tags">Query tags</h2>
+<pre><code>micro tags list --type=post-tag
+</code></pre><p>Generated with</p>
+<pre><code>micro new --namespace=go.micro --type=service tag
+</code></pre><h2 id="getting-started">Getting Started</h2>
+<ul>
+<li><a href="#tag-service">Tag Service</a>
+<ul>
+<li><a href="#query-tags">Query tags</a></li>
+<li><a href="#getting-started">Getting Started</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#usage">Usage</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="configuration">Configuration</h2>
+<ul>
+<li>FQDN: go.micro.service.tag</li>
+<li>Type: service</li>
+<li>Alias: tag</li>
+</ul>
+<h2 id="dependencies">Dependencies</h2>
+<p>Micro services depend on service discovery. The default is multicast DNS, a zeroconf system.</p>
+<p>In the event you need a resilient multi-host setup we recommend etcd.</p>
+<pre><code># install etcd
+brew install etcd
+
+# run etcd
+etcd
 </code></pre><h2 id="usage">Usage</h2>
-<p>Places makes use of postgres. Set the config for the database</p>
-<pre><code>micro user config set places.database &quot;postgresql://postgres@localhost:5432/locations?sslmode=disable&quot;
+<p>A Makefile is included for convenience</p>
+<p>Build the binary</p>
+<pre><code>make build
 </code></pre><p>Run the service</p>
-<pre><code>micro run .
+<pre><code>./tag-service
+</code></pre><p>Build a docker image</p>
+<pre><code>make docker
 </code></pre>
     </div>
 </div>
 
 <div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/users/" title="Previous post (older)">
+            <span>Previous</span>
+            users
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/routing/" title="Next post (newer)">
+            <span>Next</span>
+            routing
+            </a> 
+        
+    </nav>
     
 </div>
 </main>

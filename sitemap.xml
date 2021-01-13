@@ -17,39 +17,43 @@
   </url>
   
   <url>
-    <loc>https://services.m3o.com/chat/</loc>
+    <loc>https://services.m3o.com/post/chat/</loc>
   </url>
   
   <url>
-    <loc>https://services.m3o.com/etas/</loc>
+    <loc>https://services.m3o.com/post/etas/</loc>
   </url>
   
   <url>
-    <loc>https://services.m3o.com/feeds/</loc>
+    <loc>https://services.m3o.com/post/feeds/</loc>
   </url>
   
   <url>
-    <loc>https://services.m3o.com/geocoding/</loc>
+    <loc>https://services.m3o.com/post/geocoding/</loc>
   </url>
   
   <url>
-    <loc>https://services.m3o.com/messages/</loc>
+    <loc>https://services.m3o.com/post/messages/</loc>
   </url>
   
   <url>
-    <loc>https://services.m3o.com/notes/</loc>
+    <loc>https://services.m3o.com/post/notes/</loc>
   </url>
   
   <url>
-    <loc>https://services.m3o.com/places/</loc>
+    <loc>https://services.m3o.com/post/places/</loc>
   </url>
   
   <url>
-    <loc>https://services.m3o.com/posts/</loc>
+    <loc>https://services.m3o.com/post/</loc>
   </url>
   
   <url>
-    <loc>https://services.m3o.com/routing/</loc>
+    <loc>https://services.m3o.com/post/posts/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/post/routing/</loc>
   </url>
   
   <url>
@@ -57,11 +61,11 @@
   </url>
   
   <url>
-    <loc>https://services.m3o.com/tags/</loc>
+    <loc>https://services.m3o.com/post/tags/</loc>
   </url>
   
   <url>
-    <loc>https://services.m3o.com/users/</loc>
+    <loc>https://services.m3o.com/post/users/</loc>
   </url>
   
 </urlset>

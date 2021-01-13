@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="dark">
-    <title> routing | Micro Services</title>
+    <title> places | Micro Services</title>
     
     
     
@@ -40,8 +40,8 @@
         <header class="article-header">
             <div class="thumb">
                 <div>
-                    <h1>routing</h1>
-                    <div><a href="/routing/api"><u>API Spec</u></a></div>
+                    <h1>places</h1>
+                    <div><a href="/places/api"><u>API Spec</u></a></div>
                     <div class="post-meta">
                         
                         <div class="tags">
@@ -54,14 +54,36 @@
     </article>
 
     <div class="article-post">
-    <p>The routing service provides point to point directions.</p>
-<h1 id="routing-service">Routing Service</h1>
-<p>Readme coming soon. For more info see the <a href="https://github.com/micro/services/blob/master/routing/proto/routing.proto">proto</a>.</p>
-
+    <p>The places service stores places of interest by geolocation.</p>
+<h1 id="places-service">Places Service</h1>
+<p>Generated with</p>
+<pre><code>micro new places
+</code></pre><h2 id="usage">Usage</h2>
+<p>Places makes use of postgres. Set the config for the database</p>
+<pre><code>micro user config set places.database &quot;postgresql://postgres@localhost:5432/locations?sslmode=disable&quot;
+</code></pre><p>Run the service</p>
+<pre><code>micro run .
+</code></pre>
     </div>
 </div>
 
 <div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/posts/" title="Previous post (older)">
+            <span>Previous</span>
+            posts
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/notes/" title="Next post (newer)">
+            <span>Next</span>
+            notes
+            </a> 
+        
+    </nav>
     
 </div>
 </main>

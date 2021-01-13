@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Micro Services</title>
+    <link>https://services.m3o.com/post/</link>
+    <description>Recent content in Posts on Micro Services</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://services.m3o.com/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>chat</title>
+      <link>https://services.m3o.com/post/chat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/chat/</guid>
+      <description>Chat Service The chat service is an example Micro service which leverages bidirectional streaming, the store and events to build a chat backend.</description>
+    </item>
+    
+    <item>
+      <title>comments</title>
+      <link>https://services.m3o.com/post/comments/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/comments/</guid>
+      <description>Comments Service Still yet to implement</description>
+    </item>
+    
+    <item>
+      <title>etas</title>
+      <link>https://services.m3o.com/post/etas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/etas/</guid>
+      <description>ETAs Service This is the ETAs service. It provides ETAs for single-pickup, multi-dropoff routes.</description>
+    </item>
+    
+    <item>
+      <title>feeds</title>
+      <link>https://services.m3o.com/post/feeds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/feeds/</guid>
+      <description>Feeds Service This is the Feeds service
+Generated with
+micro new feeds Usage micro feeds new --name=&amp;quot;a16z&amp;quot; --url=http://a16z.</description>
+    </item>
+    
+    <item>
+      <title>geocoding</title>
+      <link>https://services.m3o.com/post/geocoding/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/geocoding/</guid>
+      <description>Geocoding Service The geocoding service provides address to lat lng geocoding as well as the reverse.</description>
+    </item>
+    
+    <item>
+      <title>messages</title>
+      <link>https://services.m3o.com/post/messages/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/messages/</guid>
+      <description>Messages Service The messages service is a simplified service for sending messages, much like email.</description>
+    </item>
+    
+    <item>
+      <title>notes</title>
+      <link>https://services.m3o.com/post/notes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/notes/</guid>
+      <description>Notes Service Notes service is an RPC service which offers CRUD for notes.</description>
+    </item>
+    
+    <item>
+      <title>places</title>
+      <link>https://services.m3o.com/post/places/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/places/</guid>
+      <description>Locations Service This is the Locations service
+Generated with
+micro new locations Usage Locations makes use of postgres.</description>
+    </item>
+    
+    <item>
+      <title>posts</title>
+      <link>https://services.m3o.com/post/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/posts/</guid>
+      <description>Post Service The posts service stores posts
+Usage Create a post micro call posts Posts.</description>
+    </item>
+    
+    <item>
+      <title>routing</title>
+      <link>https://services.m3o.com/post/routing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/routing/</guid>
+      <description>Routing Service The routing service provides point to point directions</description>
+    </item>
+    
+    <item>
+      <title>tags</title>
+      <link>https://services.m3o.com/post/tags/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/tags/</guid>
+      <description>Tag Service This is the Tag service
+Query tags micro tags list --type=post-tag Generated with</description>
+    </item>
+    
+    <item>
+      <title>users</title>
+      <link>https://services.m3o.com/post/users/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/users/</guid>
+      <description>Users Service A user service for storing accounts and simple auth.</description>
+    </item>
+    
+  </channel>
+</rss>

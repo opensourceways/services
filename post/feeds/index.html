@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> feeds | Micro Services</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.96090b4177a3194fa2de0860f2c55524d6582b68a41222fe4030905ef033075a.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    Micro Services
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/services/">Services</a>
+                
+                
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>feeds</h1>
+                    <div><a href="/feeds-api.html"><u>API Spec</u></a></div>
+                    <div class="post-meta">
+                        
+                        <div class="tags">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <h1 id="feeds-service">Feeds Service</h1>
+<p>This is the Feeds service</p>
+<p>Generated with</p>
+<pre><code>micro new feeds
+</code></pre><h2 id="usage">Usage</h2>
+<pre><code>micro feeds new --name=&quot;a16z&quot; --url=http://a16z.com/feed/
+</code></pre><pre><code>$ micro posts query
+{
+	&quot;posts&quot;: [
+		{
+			&quot;id&quot;: &quot;39cdfbd6e7534bcd868be9eebbf43f8f&quot;,
+			&quot;title&quot;: &quot;Anthony Albanese: From the NYSE to Crypto&quot;,
+			&quot;slug&quot;: &quot;anthony-albanese-from-the-nyse-to-crypto&quot;,
+			&quot;created&quot;: &quot;1605104742&quot;,
+			&quot;updated&quot;: &quot;1605105364&quot;,
+			&quot;metadata&quot;: {
+				&quot;domain&quot;: &quot;a16z.com&quot;,
+				&quot;link&quot;: &quot;https://a16z.com/2020/10/28/anthony-albanese-from-the-nyse-to-crypto/&quot;
+			}
+		},
+		{
+			&quot;id&quot;: &quot;5e9285c01311704e204322ba564cd99e&quot;,
+			&quot;title&quot;: &quot;Journal Club: From Insect Eyes to Nanomaterials&quot;,
+			&quot;slug&quot;: &quot;journal-club-from-insect-eyes-to-nanomaterials&quot;,
+			&quot;created&quot;: &quot;1605104741&quot;,
+			&quot;updated&quot;: &quot;1605105363&quot;,
+			&quot;metadata&quot;: {
+				&quot;domain&quot;: &quot;a16z.com&quot;,
+				&quot;link&quot;: &quot;https://a16z.com/2020/10/29/journal-club-insect-eyes-nanomaterials/&quot;
+			}
+		},
+	]
+}
+</code></pre><pre><code>make proto
+</code></pre><p>Run the service</p>
+<pre><code>micro run .
+</code></pre>
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/geocoding/" title="Previous post (older)">
+            <span>Previous</span>
+            geocoding
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/etas/" title="Next post (newer)">
+            <span>Next</span>
+            etas
+            </a> 
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="https://m3o.com">© 2020 Micro Services, Inc.</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

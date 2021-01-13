@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> chat | Micro Services</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.8194686cf3cf9716a81ab83bd8109e96cb8d9a3465d0c8588489ff8275d99ee9.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    Micro Services
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/explore/">Explore</a>
+                
+                
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>chat</h1>
+                    <div>
+                        <a href="/chat/api"><u>API Spec</u></a>
+                        &nbsp;
+                        <a href="https://github.com/micro/services/tree/master/chat"><u>Source</u></a>
+                    </div>
+                    <div class="post-meta">
+                        
+                        <div class="tags">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>The chat service is an example Micro service which leverages bidirectional streaming, the store and events to build a chat backend. There is both a server and client which can be run together to demonstrate the application (see client/main.go for more instructions on running the service).</p>
+<h1 id="chat-service">Chat Service</h1>
+<p>The service is documented inline and is designed to act as a reference for the events package.</p>
+<h2 id="create-a-chat">Create a chat</h2>
+<h3 id="curl">cURL</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&gt; curl <span class="s1">&#39;https://api.m3o.com/chat/New&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
+</span><span class="se"></span>  -d <span class="s1">&#39;{&#34;user_ids&#34;:[&#34;JohnBarry&#34;]}&#39;</span><span class="p">;</span>
+<span class="o">{</span>
+	<span class="s2">&#34;chat_id&#34;</span>: <span class="s2">&#34;3c9ea66c-d516-45d4-abe8-082089e18b27&#34;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="cli">CLI</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&gt; micro chat new --user_ids<span class="o">=</span>JohnBarry
+<span class="o">{</span>
+	<span class="s2">&#34;chat_id&#34;</span>: <span class="s2">&#34;3c9ea66c-d516-45d4-abe8-082089e18b27&#34;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="send-a-message-to-the-chat">Send a message to the chat</h2>
+<h3 id="curl-1">cURL</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&gt; curl <span class="s1">&#39;https://api.m3o.com/chat/Send&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
+</span><span class="se"></span>  -d <span class="s1">&#39;{&#34;user_id&#34;: &#34;John&#34;, &#34;subject&#34;: &#34;Hello&#34;, &#34;text&#34;: &#34;Hey Barry&#34;}&#39;</span><span class="p">;</span>
+<span class="o">{}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="cli-1">CLI</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&gt; micro chat send --chat_id<span class="o">=</span>bed4f0f0-da12-46d2-90d2-17ae1714a214 --user_id<span class="o">=</span>John --subject<span class="o">=</span>Hello --text<span class="o">=</span><span class="s1">&#39;Hey Barry&#39;</span>
+<span class="o">{}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="view-the-chat-history">View the chat history</h2>
+<h3 id="curl-2">cURL</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&gt; curl <span class="s1">&#39;https://api.m3o.com/chat/Send&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
+</span><span class="se"></span>  -d <span class="s1">&#39;{&#34;chat_id&#34;: &#34;bed4f0f0-da12-46d2-90d2-17ae1714a214&#34;}&#39;</span><span class="p">;</span>
+<span class="o">{</span>
+	<span class="s2">&#34;messages&#34;</span>: <span class="o">[</span>
+		<span class="o">{</span>
+			<span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;a61284a8-f471-4734-9192-640d89762e98&#34;</span>,
+			<span class="s2">&#34;client_id&#34;</span>: <span class="s2">&#34;6ba0d2a6-96fa-47d8-8f6f-7f75b4cc8b3e&#34;</span>,
+			<span class="s2">&#34;chat_id&#34;</span>: <span class="s2">&#34;bed4f0f0-da12-46d2-90d2-17ae1714a214&#34;</span>,
+			<span class="s2">&#34;user_id&#34;</span>: <span class="s2">&#34;John&#34;</span>,
+			<span class="s2">&#34;subject&#34;</span>: <span class="s2">&#34;Hello&#34;</span>,
+			<span class="s2">&#34;text&#34;</span>: <span class="s2">&#34;Hey Barry&#34;</span>
+		<span class="o">}</span>
+	<span class="o">]</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="cli-2">CLI</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&gt; micro chat <span class="nb">history</span> --chat_id<span class="o">=</span>bed4f0f0-da12-46d2-90d2-17ae1714a214
+<span class="o">{</span>
+	<span class="s2">&#34;messages&#34;</span>: <span class="o">[</span>
+		<span class="o">{</span>
+			<span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;a61284a8-f471-4734-9192-640d89762e98&#34;</span>,
+			<span class="s2">&#34;client_id&#34;</span>: <span class="s2">&#34;6ba0d2a6-96fa-47d8-8f6f-7f75b4cc8b3e&#34;</span>,
+			<span class="s2">&#34;chat_id&#34;</span>: <span class="s2">&#34;bed4f0f0-da12-46d2-90d2-17ae1714a214&#34;</span>,
+			<span class="s2">&#34;user_id&#34;</span>: <span class="s2">&#34;John&#34;</span>,
+			<span class="s2">&#34;subject&#34;</span>: <span class="s2">&#34;Hello&#34;</span>,
+			<span class="s2">&#34;text&#34;</span>: <span class="s2">&#34;Hey Barry&#34;</span>
+		<span class="o">}</span>
+	<span class="o">]</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/etas/" title="Previous post (older)">
+            <span>Previous</span>
+            etas
+            </a>
+        
+        
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="https://m3o.com">© 2020 Micro Services, Inc.</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

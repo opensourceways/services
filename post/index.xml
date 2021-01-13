@@ -50,18 +50,7 @@ micro new feeds Usage micro feeds new --name=&amp;quot;a16z&amp;quot; --url=http
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/post/geocoding/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>locations</title>
-      <link>https://services.m3o.com/post/locations/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://services.m3o.com/post/locations/</guid>
-      <description>Locations Service This is the Locations service
-Generated with
-micro new locations Usage Generate the proto code</description>
+      <description>Geocoding Service The geocoding service provides address to lat lng geocoding as well as the reverse.</description>
     </item>
     
     <item>
@@ -83,6 +72,17 @@ micro new locations Usage Generate the proto code</description>
     </item>
     
     <item>
+      <title>places</title>
+      <link>https://services.m3o.com/post/places/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/post/places/</guid>
+      <description>Locations Service This is the Locations service
+Generated with
+micro new locations Usage Locations makes use of postgres.</description>
+    </item>
+    
+    <item>
       <title>posts</title>
       <link>https://services.m3o.com/post/posts/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -98,7 +98,7 @@ Usage Create a post micro call posts Posts.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/post/routing/</guid>
-      <description></description>
+      <description>Routing Service The routing service provides point to point directions</description>
     </item>
     
     <item>

@@ -37,15 +37,15 @@
   </url>
   
   <url>
-    <loc>https://services.m3o.com/post/locations/</loc>
-  </url>
-  
-  <url>
     <loc>https://services.m3o.com/post/messages/</loc>
   </url>
   
   <url>
     <loc>https://services.m3o.com/post/notes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/post/places/</loc>
   </url>
   
   <url>

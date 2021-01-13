@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://services.m3o.com/explore/</loc>
+    <lastmod>2020-11-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/post/chat/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/post/etas/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/post/feeds/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/post/geocoding/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/post/messages/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/post/notes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/post/places/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/post/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/post/posts/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/post/routing/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/post/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/post/users/</loc>
+  </url>
+  
+</urlset>

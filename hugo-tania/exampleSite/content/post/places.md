@@ -2,9 +2,9 @@
 title: places
 ---
 
-# Places Service
+The places service stores places of interest by geolocation.
 
-The places service stores places of interest by geolocation
+# Places Service
 
 Generated with
 

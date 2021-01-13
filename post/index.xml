@@ -48,7 +48,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/post/messages/</guid>
-      <description>Messages Service The messages service is a simplified service for sending messages, much like email.</description>
+      <description>The messages service is a simplified service for sending messages, much like email.</description>
     </item>
     
     <item>
@@ -66,7 +66,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/post/places/</guid>
-      <description>Places Service The places service stores places of interest by geolocation</description>
+      <description>The places service stores places of interest by geolocation.
+Places Service Generated with</description>
     </item>
     
     <item>
@@ -94,8 +95,7 @@ Routing Service Readme coming soon.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/post/tags/</guid>
-      <description>Tag Service This is the Tag service
-Query tags micro tags list --type=post-tag Generated with</description>
+      <description>Tag any resource by savin a tag associated with their ID in the tag service.</description>
     </item>
     
     <item>
@@ -104,7 +104,8 @@ Query tags micro tags list --type=post-tag Generated with</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/post/users/</guid>
-      <description>Users Service A user service for storing accounts and simple auth.</description>
+      <description>A user service for storing accounts and simple auth.
+Users Service Getting started micro run github.</description>
     </item>
     
   </channel>

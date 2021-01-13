@@ -21,7 +21,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/post/etas/</guid>
-      <description>ETAs Service This is the ETAs service. It provides ETAs for single-pickup, multi-dropoff routes.</description>
+      <description>This is the ETAs service. It provides ETAs for single-pickup, multi-dropoff routes.</description>
     </item>
     
     <item>
@@ -30,9 +30,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/post/feeds/</guid>
-      <description>Feeds Service This is the Feeds service
-Generated with
-micro new feeds Usage micro feeds new --name=&amp;quot;a16z&amp;quot; --url=http://a16z.</description>
+      <description>Designed to populate the posts service with RSS feeds from other blogs.</description>
     </item>
     
     <item>
@@ -41,7 +39,7 @@ micro new feeds Usage micro feeds new --name=&amp;quot;a16z&amp;quot; --url=http
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/post/geocoding/</guid>
-      <description>Geocoding Service The geocoding service provides address to lat lng geocoding as well as the reverse.</description>
+      <description>The geocoding service provides address to lat lng geocoding as well as the reverse.</description>
     </item>
     
     <item>

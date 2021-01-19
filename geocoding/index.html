@@ -61,7 +61,52 @@
     <p>The geocoding service provides address to lat lng geocoding as well as the reverse.</p>
 <h1 id="geocoding-service">Geocoding service</h1>
 <p>Examples coming soon. Check the <a href="https://github.com/micro/services/blob/master/geocoding/proto/geocoding.proto">proto</a> for more details.</p>
-
+<h2 id="curl">cURL</h2>
+<h3 id="geocoding-geocode">Geocoding Geocode</h3>
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+<p>Schema related to #/components/requestBodies/GeocodingGeocodeRequest not found</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Geocoding/Geocode&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
+</span><span class="se"></span>  -d Schema related to <span class="c1">#/components/requestBodies/GeocodingGeocodeRequest not found;</span>
+<span class="c1"># Response</span>
+Schema related to <span class="c1">#/components/responses/GeocodingGeocodeResponse not found</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="geocoding-reverse">Geocoding Reverse</h3>
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+<p>Schema related to #/components/requestBodies/GeocodingReverseRequest not found</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Geocoding/Reverse&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
+</span><span class="se"></span>  -d Schema related to <span class="c1">#/components/requestBodies/GeocodingReverseRequest not found;</span>
+<span class="c1"># Response</span>
+Schema related to <span class="c1">#/components/responses/GeocodingReverseResponse not found</span>
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 </div>
 
@@ -69,9 +114,9 @@
     
     <nav class="flex container suggested">
         
-        <a rel="prev" href="/messages/" title="Previous post (older)">
+        <a rel="prev" href="/location/" title="Previous post (older)">
             <span>Previous</span>
-            messages
+            location
             </a>
         
         

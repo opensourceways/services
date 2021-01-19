@@ -1,7 +1,6 @@
 ---
 title: posts
 ---
-
 The post service is responsible for storing and querying posts by their slugs or IDs. Posts support tags and metadata, for details see `posts.proto`.
 
 # Post Service
@@ -92,3 +91,86 @@ micro call posts Posts.Query '{"offset": 10, "limit": 10}'
 ```shell
 micro call posts Posts.Delete '{"id": "3c9ea66c"}'
 ```
+
+## cURL
+
+
+### Posts Delete
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+
+```shell
+> curl 'https://api.m3o.com/posts/Posts/Delete' \
+  -H 'micro-namespace: $yourNamespace' \
+  -H 'authorization: Bearer $yourToken' \
+  -d {
+  "id": "string"
+};
+# Response
+{}
+```
+
+
+### Posts Query
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+Query posts. Acts as a listing when no id or slug provided.
+ Gets a single post by id or slug if any of them provided.
+```shell
+> curl 'https://api.m3o.com/posts/Posts/Query' \
+  -H 'micro-namespace: $yourNamespace' \
+  -H 'authorization: Bearer $yourToken' \
+  -d {
+  "id": "string",
+  "limit": 1,
+  "offset": 1,
+  "slug": "string",
+  "tag": "string"
+};
+# Response
+{
+  "posts": [
+    {
+      "author": "string",
+      "content": "string",
+      "created": 1,
+      "id": "string",
+      "image": "string",
+      "metadata": [
+        {}
+      ],
+      "slug": "string",
+      "title": "string",
+      "updated": 1
+    }
+  ]
+}
+```
+
+
+### Posts Save
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+
+```shell
+> curl 'https://api.m3o.com/posts/Posts/Save' \
+  -H 'micro-namespace: $yourNamespace' \
+  -H 'authorization: Bearer $yourToken' \
+  -d {
+  "content": "string",
+  "id": "string",
+  "image": "string",
+  "metadata": [
+    {}
+  ],
+  "slug": "string",
+  "timestamp": 1,
+  "title": "string"
+};
+# Response
+{
+  "id": "string"
+}
+```
+
+

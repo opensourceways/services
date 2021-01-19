@@ -1,7 +1,6 @@
 ---
 title: etas
 ---
-
 This is the ETAs service. It provides ETAs for single-pickup, multi-dropoff routes. It takes into account time and traffic.
 
 # ETAs Service
@@ -39,3 +38,25 @@ $ micro call etas ETAs.Calculate $(cat example-req.json)
 	}
 }
 ```
+
+## cURL
+
+
+### ETAs Calculate
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+Schema related to #/components/requestBodies/ETAsCalculateRequest not found
+```shell
+> curl 'https://api.m3o.com/protobuf/ETAs/Calculate' \
+  -H 'micro-namespace: $yourNamespace' \
+  -H 'authorization: Bearer $yourToken' \
+  -d Schema related to #/components/requestBodies/ETAsCalculateRequest not found;
+# Response
+{
+  "points": [
+    {}
+  ]
+}
+```
+
+

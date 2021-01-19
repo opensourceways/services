@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="dark">
-    <title> places | Micro Services</title>
+    <title> location | Micro Services</title>
     
     
     
@@ -40,11 +40,11 @@
         <header class="article-header">
             <div class="thumb">
                 <div>
-                    <h1>places</h1>
+                    <h1>location</h1>
                     <div>
-                        <a href="/places/api"><u>API Spec</u></a>
+                        <a href="/location/api"><u>API Spec</u></a>
                         &nbsp;
-                        <a href="https://github.com/micro/services/tree/master/places"><u>Source</u></a>
+                        <a href="https://github.com/micro/services/tree/master/location"><u>Source</u></a>
                     </div>
                     <div class="post-meta">
                         
@@ -58,38 +58,17 @@
     </article>
 
     <div class="article-post">
-    <p>The places service stores places of interest by geolocation.</p>
-<h1 id="places-service">Places Service</h1>
+    <h1 id="location-service">Location Service</h1>
+<p>A realtime GPS location tracking and search service</p>
 <p>Generated with</p>
-<pre><code>micro new places
+<pre><code>micro new location
 </code></pre><h2 id="usage">Usage</h2>
-<p>Places makes use of postgres. Set the config for the database</p>
-<pre><code>micro user config set places.database &quot;postgresql://postgres@localhost:5432/locations?sslmode=disable&quot;
+<p>Generate the proto code</p>
+<pre><code>make proto
 </code></pre><p>Run the service</p>
 <pre><code>micro run .
 </code></pre><h2 id="curl">cURL</h2>
-<h3 id="places-last">Places Last</h3>
-<!-- We use the request body description here as endpoint descriptions are not
-being lifted correctly from the proto by the openapi spec generator -->
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Places/Last&#39;</span> <span class="se">\
-</span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
-</span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
-</span><span class="se"></span>  -d <span class="o">{}</span><span class="p">;</span>
-<span class="c1"># Response</span>
-Schema related to <span class="c1">#/components/responses/PlacesLastResponse not found</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="places-near">Places Near</h3>
+<h3 id="location-read">Location Read</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -110,54 +89,88 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Places/Near&#39;</span> <span class="se">\
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/location/Location/Read&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
 </span><span class="se"></span>  -d <span class="o">{</span>
-  <span class="s2">&#34;latitude&#34;</span>: <span class="o">[</span>
-    <span class="o">{}</span>
-  <span class="o">]</span>,
-  <span class="s2">&#34;longitude&#34;</span>: <span class="o">[</span>
-    <span class="o">{}</span>
-  <span class="o">]</span>,
-  <span class="s2">&#34;radius&#34;</span>: <span class="o">[</span>
-    <span class="o">{}</span>
-  <span class="o">]</span>
+  <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>
 <span class="o">}</span><span class="p">;</span>
 <span class="c1"># Response</span>
-Schema related to <span class="c1">#/components/responses/PlacesNearResponse not found</span>
+<span class="o">{</span>
+  <span class="s2">&#34;entity&#34;</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+      <span class="s2">&#34;location&#34;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+          <span class="s2">&#34;latitude&#34;</span>: 1,
+          <span class="s2">&#34;longitude&#34;</span>: 1,
+          <span class="s2">&#34;timestamp&#34;</span>: <span class="m">1</span>
+        <span class="o">}</span>
+      <span class="o">]</span>,
+      <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;string&#34;</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="places-read">Places Read</h3>
+</div><h3 id="location-save">Location Save</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Places/Read&#39;</span> <span class="se">\
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/location/Location/Save&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
 </span><span class="se"></span>  -d <span class="o">{</span>
-  <span class="s2">&#34;after&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-  <span class="s2">&#34;before&#34;</span>: <span class="s2">&#34;string&#34;</span>
+  <span class="s2">&#34;entity&#34;</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+      <span class="s2">&#34;location&#34;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+          <span class="s2">&#34;latitude&#34;</span>: 1,
+          <span class="s2">&#34;longitude&#34;</span>: 1,
+          <span class="s2">&#34;timestamp&#34;</span>: <span class="m">1</span>
+        <span class="o">}</span>
+      <span class="o">]</span>,
+      <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;string&#34;</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
 <span class="o">}</span><span class="p">;</span>
 <span class="c1"># Response</span>
-Schema related to <span class="c1">#/components/responses/PlacesReadResponse not found</span>
+<span class="o">{}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="places-save">Places Save</h3>
+</div><h3 id="location-search">Location Search</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -185,31 +198,47 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">21
 </span><span class="lnt">22
 </span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Places/Save&#39;</span> <span class="se">\
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/location/Location/Search&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
 </span><span class="se"></span>  -d <span class="o">{</span>
-  <span class="s2">&#34;places&#34;</span>: <span class="o">[</span>
+  <span class="s2">&#34;center&#34;</span>: <span class="o">[</span>
     <span class="o">{</span>
-      <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-      <span class="s2">&#34;latitude&#34;</span>: <span class="o">[</span>
-        <span class="o">{}</span>
-      <span class="o">]</span>,
-      <span class="s2">&#34;longitude&#34;</span>: <span class="o">[</span>
-        <span class="o">{}</span>
-      <span class="o">]</span>,
-      <span class="s2">&#34;metadata&#34;</span>: <span class="o">[</span>
-        <span class="o">{}</span>
-      <span class="o">]</span>,
-      <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-      <span class="s2">&#34;timestamp&#34;</span>: <span class="s2">&#34;string&#34;</span>
+      <span class="s2">&#34;latitude&#34;</span>: 1,
+      <span class="s2">&#34;longitude&#34;</span>: 1,
+      <span class="s2">&#34;timestamp&#34;</span>: <span class="m">1</span>
     <span class="o">}</span>
-  <span class="o">]</span>
+  <span class="o">]</span>,
+  <span class="s2">&#34;num_entities&#34;</span>: 1,
+  <span class="s2">&#34;radius&#34;</span>: 1,
+  <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;string&#34;</span>
 <span class="o">}</span><span class="p">;</span>
 <span class="c1"># Response</span>
-<span class="o">{}</span>
+<span class="o">{</span>
+  <span class="s2">&#34;entities&#34;</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+      <span class="s2">&#34;location&#34;</span>: <span class="o">[</span>
+        <span class="o">{</span>
+          <span class="s2">&#34;latitude&#34;</span>: 1,
+          <span class="s2">&#34;longitude&#34;</span>: 1,
+          <span class="s2">&#34;timestamp&#34;</span>: <span class="m">1</span>
+        <span class="o">}</span>
+      <span class="o">]</span>,
+      <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;string&#34;</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
 </div>
@@ -220,16 +249,16 @@ being lifted correctly from the proto by the openapi spec generator -->
     
     <nav class="flex container suggested">
         
-        <a rel="prev" href="/posts/" title="Previous post (older)">
+        <a rel="prev" href="/places/" title="Previous post (older)">
             <span>Previous</span>
-            posts
+            places
             </a>
         
         
         
-        <a rel="next" href="/location/" title="Next post (newer)">
+        <a rel="next" href="/geocoding/" title="Next post (newer)">
             <span>Next</span>
-            location
+            geocoding
             </a> 
         
     </nav>

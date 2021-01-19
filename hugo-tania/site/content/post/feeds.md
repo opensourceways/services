@@ -1,7 +1,6 @@
 ---
 title: feeds
 ---
-
 Designed to populate the posts service with RSS feeds from other blogs. Useful for migration or just to get outside content into the posts service.
 
 # Feeds Service
@@ -65,3 +64,51 @@ Run the service
 ```
 micro run .
 ```
+
+## cURL
+
+
+### Feeds Entries
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+
+```shell
+> curl 'https://api.m3o.com/feeds/Feeds/Entries' \
+  -H 'micro-namespace: $yourNamespace' \
+  -H 'authorization: Bearer $yourToken' \
+  -d {
+  "url": "rss feed url. eg. http://a16z.com/feed/"
+};
+# Response
+{
+  "entries": [
+    {
+      "content": "string",
+      "date": 1,
+      "domain": "string",
+      "id": "string",
+      "title": "string",
+      "url": "string"
+    }
+  ]
+}
+```
+
+
+### Feeds New
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+
+```shell
+> curl 'https://api.m3o.com/feeds/Feeds/New' \
+  -H 'micro-namespace: $yourNamespace' \
+  -H 'authorization: Bearer $yourToken' \
+  -d {
+  "name": "rss feed name. eg. a16z",
+  "url": "rss feed url. eg. http://a16z.com/feed/"
+};
+# Response
+{}
+```
+
+

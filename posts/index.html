@@ -202,6 +202,144 @@ micro call posts Posts.Query <span class="s1">&#39;{&#34;offset&#34;: 10, &#34;l
 <pre class="chroma"><code class="language-shell" data-lang="shell">micro call posts Posts.Delete <span class="s1">&#39;{&#34;id&#34;: &#34;3c9ea66c&#34;}&#39;</span>
 </code></pre></td></tr></table>
 </div>
+</div><h2 id="curl-3">cURL</h2>
+<h3 id="posts-delete">Posts Delete</h3>
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/posts/Posts/Delete&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
+</span><span class="se"></span>  -d <span class="o">{</span>
+  <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>
+<span class="o">}</span><span class="p">;</span>
+<span class="c1"># Response</span>
+<span class="o">{}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="posts-query">Posts Query</h3>
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+<p>Query posts. Acts as a listing when no id or slug provided.
+Gets a single post by id or slug if any of them provided.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/posts/Posts/Query&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
+</span><span class="se"></span>  -d <span class="o">{</span>
+  <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+  <span class="s2">&#34;limit&#34;</span>: 1,
+  <span class="s2">&#34;offset&#34;</span>: 1,
+  <span class="s2">&#34;slug&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+  <span class="s2">&#34;tag&#34;</span>: <span class="s2">&#34;string&#34;</span>
+<span class="o">}</span><span class="p">;</span>
+<span class="c1"># Response</span>
+<span class="o">{</span>
+  <span class="s2">&#34;posts&#34;</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">&#34;author&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+      <span class="s2">&#34;content&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+      <span class="s2">&#34;created&#34;</span>: 1,
+      <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+      <span class="s2">&#34;image&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+      <span class="s2">&#34;metadata&#34;</span>: <span class="o">[</span>
+        <span class="o">{}</span>
+      <span class="o">]</span>,
+      <span class="s2">&#34;slug&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+      <span class="s2">&#34;title&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+      <span class="s2">&#34;updated&#34;</span>: <span class="m">1</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="posts-save">Posts Save</h3>
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/posts/Posts/Save&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
+</span><span class="se"></span>  -d <span class="o">{</span>
+  <span class="s2">&#34;content&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+  <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+  <span class="s2">&#34;image&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+  <span class="s2">&#34;metadata&#34;</span>: <span class="o">[</span>
+    <span class="o">{}</span>
+  <span class="o">]</span>,
+  <span class="s2">&#34;slug&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+  <span class="s2">&#34;timestamp&#34;</span>: 1,
+  <span class="s2">&#34;title&#34;</span>: <span class="s2">&#34;string&#34;</span>
+<span class="o">}</span><span class="p">;</span>
+<span class="c1"># Response</span>
+<span class="o">{</span>
+  <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
 </div>
     </div>
 </div>

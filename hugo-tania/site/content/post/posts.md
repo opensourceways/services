@@ -1,9 +1,11 @@
 ---
 title: posts
 ---
-The post service is responsible for storing and querying posts by their slugs or IDs. Posts support tags and metadata, for details see `posts.proto`.
+Build a blog or the foundations of a headless CMS with posts
 
 # Post Service
+
+Posts is the foundation of a headless CMS, storing blog posts with their metadata and enabling simple retrieval and querying.
 
 ## Create a post
 

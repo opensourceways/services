@@ -39,7 +39,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/geocoding/</guid>
-      <description>The geocoding service provides address to lat lng geocoding as well as the reverse.</description>
+      <description>Geocode an address to gps coordinates and the reverse.
+Geocoding service The geocoding service provides address to lat lng geocoding as well as the reverse.</description>
     </item>
     
     <item>

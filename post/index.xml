@@ -49,7 +49,8 @@ Geocoding service The geocoding service provides address to lat lng geocoding as
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/location/</guid>
-      <description>Location Service A realtime GPS location tracking and search service</description>
+      <description>Real time GPS location tracking and search
+Location Service Send, store and search real time gps point data and tracking info using the location API.</description>
     </item>
     
     <item>

@@ -21,7 +21,19 @@
   </url>
   
   <url>
+    <loc>https://services.m3o.com/chat-microjs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/tags/def/</loc>
+  </url>
+  
+  <url>
     <loc>https://services.m3o.com/etas/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/etas-microjs/</loc>
   </url>
   
   <url>
@@ -29,7 +41,23 @@
   </url>
   
   <url>
+    <loc>https://services.m3o.com/feeds-microjs/</loc>
+  </url>
+  
+  <url>
     <loc>https://services.m3o.com/geocoding/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/geocoding-microjs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/groups/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/groups-microjs/</loc>
   </url>
   
   <url>
@@ -37,7 +65,19 @@
   </url>
   
   <url>
+    <loc>https://services.m3o.com/location-microjs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/tags/microjs/</loc>
+  </url>
+  
+  <url>
     <loc>https://services.m3o.com/places/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/places-microjs/</loc>
   </url>
   
   <url>
@@ -49,19 +89,35 @@
   </url>
   
   <url>
+    <loc>https://services.m3o.com/posts-microjs/</loc>
+  </url>
+  
+  <url>
     <loc>https://services.m3o.com/routing/</loc>
   </url>
   
   <url>
+    <loc>https://services.m3o.com/routing-microjs/</loc>
+  </url>
+  
+  <url>
     <loc>https://services.m3o.com/tags/</loc>
   </url>
   
   <url>
     <loc>https://services.m3o.com/tags/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/tags-microjs/</loc>
   </url>
   
   <url>
     <loc>https://services.m3o.com/users/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/users-microjs/</loc>
   </url>
   
 </urlset>

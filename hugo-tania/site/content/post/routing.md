@@ -1,5 +1,7 @@
 ---
 title: routing
+servicename: routing
+tags: def
 ---
 Point to point routing directions
 

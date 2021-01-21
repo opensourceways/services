@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> feeds Micro.js | Micro Services</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.8194686cf3cf9716a81ab83bd8109e96cb8d9a3465d0c8588489ff8275d99ee9.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    Micro Services
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/explore/">Explore</a>
+                
+                
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>feeds Micro.js</h1>
+                    <div>
+                        <a href="/feeds/api"><u>API Spec</u></a>
+                        &nbsp;
+                        <a href="/feeds-microjs"><u>Micro.js</u></a>
+                        &nbsp;
+                        <a href="https://github.com/micro/services/tree/master/feeds"><u>Source</u></a>
+                    </div>
+                    <div class="post-meta">
+                        
+                        <div class="tags">
+                            
+                            <a href="/tags/microjs/">microjs</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>A single uniform API for crawling and indexing RSS feeds</p>
+<h1 id="feeds-service">Feeds Service</h1>
+<p>Designed to populate the posts service with RSS feeds from other blogs. Useful for migration or just to get outside content into the posts service.</p>
+<h2 id="creating-a-feed">Creating a feed</h2>
+<h3 id="curl">cURL</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">&gt; curl <span class="s1">&#39;https://api.m3o.com/feeds/New&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
+</span><span class="se"></span>  -d <span class="s1">&#39;{&#34;name&#34;:&#34;a16z&#34;, &#34;url&#34;: &#34;http://a16z.com/feed/&#34;}&#39;</span><span class="p">;</span>
+<span class="o">{}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="cli">CLI</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">micro feeds new --name<span class="o">=</span><span class="s2">&#34;a16z&#34;</span> --url<span class="o">=</span>http://a16z.com/feed/
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="querying-feeded-posts">Querying feeded posts</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">$ micro posts query
+<span class="o">{</span>
+	<span class="s2">&#34;posts&#34;</span>: <span class="o">[</span>
+		<span class="o">{</span>
+			<span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;39cdfbd6e7534bcd868be9eebbf43f8f&#34;</span>,
+			<span class="s2">&#34;title&#34;</span>: <span class="s2">&#34;Anthony Albanese: From the NYSE to Crypto&#34;</span>,
+			<span class="s2">&#34;slug&#34;</span>: <span class="s2">&#34;anthony-albanese-from-the-nyse-to-crypto&#34;</span>,
+			<span class="s2">&#34;created&#34;</span>: <span class="s2">&#34;1605104742&#34;</span>,
+			<span class="s2">&#34;updated&#34;</span>: <span class="s2">&#34;1605105364&#34;</span>,
+			<span class="s2">&#34;metadata&#34;</span>: <span class="o">{</span>
+				<span class="s2">&#34;domain&#34;</span>: <span class="s2">&#34;a16z.com&#34;</span>,
+				<span class="s2">&#34;link&#34;</span>: <span class="s2">&#34;https://a16z.com/2020/10/28/anthony-albanese-from-the-nyse-to-crypto/&#34;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>,
+		<span class="o">{</span>
+			<span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;5e9285c01311704e204322ba564cd99e&#34;</span>,
+			<span class="s2">&#34;title&#34;</span>: <span class="s2">&#34;Journal Club: From Insect Eyes to Nanomaterials&#34;</span>,
+			<span class="s2">&#34;slug&#34;</span>: <span class="s2">&#34;journal-club-from-insect-eyes-to-nanomaterials&#34;</span>,
+			<span class="s2">&#34;created&#34;</span>: <span class="s2">&#34;1605104741&#34;</span>,
+			<span class="s2">&#34;updated&#34;</span>: <span class="s2">&#34;1605105363&#34;</span>,
+			<span class="s2">&#34;metadata&#34;</span>: <span class="o">{</span>
+				<span class="s2">&#34;domain&#34;</span>: <span class="s2">&#34;a16z.com&#34;</span>,
+				<span class="s2">&#34;link&#34;</span>: <span class="s2">&#34;https://a16z.com/2020/10/29/journal-club-insect-eyes-nanomaterials/&#34;</span>
+			<span class="o">}</span>
+		<span class="o">}</span>,
+	<span class="o">]</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><pre><code>make proto
+</code></pre><p>Run the service</p>
+<pre><code>micro run .
+</code></pre><h2 id="curl-1">cURL</h2>
+<h3 id="feeds-entries">Feeds Entries</h3>
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
+        <span class="s2">&#34;/feeds/Feeds/Entries&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
+        <span class="p">{</span>
+  <span class="s2">&#34;url&#34;</span><span class="o">:</span> <span class="s2">&#34;rss feed url. eg. http://a16z.com/feed/&#34;</span>
+<span class="p">},</span>
+        <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="feeds-new">Feeds New</h3>
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
+        <span class="s2">&#34;/feeds/Feeds/New&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
+        <span class="p">{</span>
+  <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;rss feed name. eg. a16z&#34;</span><span class="p">,</span>
+  <span class="s2">&#34;url&#34;</span><span class="o">:</span> <span class="s2">&#34;rss feed url. eg. http://a16z.com/feed/&#34;</span>
+<span class="p">},</span>
+        <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/geocoding/" title="Previous post (older)">
+            <span>Previous</span>
+            geocoding
+            </a>
+        
+        
+        
+        <a rel="next" href="/feeds/" title="Next post (newer)">
+            <span>Next</span>
+            feeds
+            </a> 
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="https://m3o.com">© 2020 Micro Services, Inc.</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

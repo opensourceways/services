@@ -1,5 +1,7 @@
 ---
 title: chat
+servicename: chat
+tags: def
 ---
 Real time messaging API which enables Chat services to be embedded anywhere
 

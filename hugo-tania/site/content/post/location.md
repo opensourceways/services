@@ -1,5 +1,7 @@
 ---
 title: location
+servicename: location
+tags: def
 ---
 Real time GPS location tracking and search
 

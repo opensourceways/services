@@ -1,5 +1,7 @@
 ---
 title: feeds
+servicename: feeds
+tags: def
 ---
 A single uniform API for crawling and indexing RSS feeds
 

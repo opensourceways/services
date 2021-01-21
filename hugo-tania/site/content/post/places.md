@@ -1,5 +1,7 @@
 ---
 title: places
+servicename: places
+tags: def
 ---
 Store and search for points of interest
 

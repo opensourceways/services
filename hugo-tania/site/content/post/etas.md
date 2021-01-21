@@ -1,5 +1,7 @@
 ---
 title: etas
+servicename: etas
+tags: def
 ---
 ETAs as a service. Provides single-pickup and multi-dropoff routes. Takes into account time and traffic.
 

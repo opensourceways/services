@@ -1,5 +1,7 @@
 ---
 title: geocoding
+servicename: geocoding
+tags: def
 ---
 Geocode an address to gps coordinates and the reverse.
 

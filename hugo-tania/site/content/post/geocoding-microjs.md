@@ -15,7 +15,7 @@ Schema related to #/components/requestBodies/GeocodingGeocodeRequest not found
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    # Login is only required for endpoints doing authorization
+    <!-- Login is only required for endpoints doing authorization -->
     Micro.requireLogin(function () {
       Micro.post(
         "/protobuf/Geocoding/Geocode",
@@ -39,7 +39,7 @@ Schema related to #/components/requestBodies/GeocodingReverseRequest not found
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    # Login is only required for endpoints doing authorization
+    <!-- Login is only required for endpoints doing authorization -->
     Micro.requireLogin(function () {
       Micro.post(
         "/protobuf/Geocoding/Reverse",

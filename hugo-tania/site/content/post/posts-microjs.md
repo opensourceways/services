@@ -15,7 +15,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    # Login is only required for endpoints doing authorization
+    <!-- Login is only required for endpoints doing authorization -->
     Micro.requireLogin(function () {
       Micro.post(
         "/posts/Posts/Delete",
@@ -42,7 +42,7 @@ Query posts. Acts as a listing when no id or slug provided.
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    # Login is only required for endpoints doing authorization
+    <!-- Login is only required for endpoints doing authorization -->
     Micro.requireLogin(function () {
       Micro.post(
         "/posts/Posts/Query",
@@ -72,7 +72,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    # Login is only required for endpoints doing authorization
+    <!-- Login is only required for endpoints doing authorization -->
     Micro.requireLogin(function () {
       Micro.post(
         "/posts/Posts/Save",

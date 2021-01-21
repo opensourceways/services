@@ -62,99 +62,7 @@
     </article>
 
     <div class="article-post">
-    <p>A user service for storing accounts and simple auth.</p>
-<h1 id="users-service">Users Service</h1>
-<p>The users service provides user management and authentication so you can easily add them to your own apps
-without having to build the entire thing from scratch.</p>
-<h2 id="getting-started">Getting started</h2>
-<pre><code>micro run github.com/micro/services/users
-</code></pre><h2 id="usage">Usage</h2>
-<p>User server implements the following RPC Methods</p>
-<p>Users</p>
-<ul>
-<li>Create</li>
-<li>Read</li>
-<li>Update</li>
-<li>Delete</li>
-<li>Search</li>
-<li>UpdatePassword</li>
-<li>Login</li>
-<li>Logout</li>
-<li>ReadSession</li>
-</ul>
-<h3 id="create">Create</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">micro call users Users.Create <span class="s1">&#39;{&#34;id&#34;: &#34;ff3c06de-9e43-41c7-9bab-578f6b4ad32b&#34;, &#34;username&#34;: &#34;asim&#34;, &#34;email&#34;: &#34;asim@example.com&#34;, &#34;password&#34;: &#34;password1&#34;}&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="read">Read</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">micro call users Users.Read <span class="s1">&#39;{&#34;id&#34;: &#34;ff3c06de-9e43-41c7-9bab-578f6b4ad32b&#34;}&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="update">Update</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">micro call users Users.Update <span class="s1">&#39;{&#34;id&#34;: &#34;ff3c06de-9e43-41c7-9bab-578f6b4ad32b&#34;, &#34;username&#34;: &#34;asim&#34;, &#34;email&#34;: &#34;asim+update@example.com&#34;}&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="update-password">Update Password</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">micro call users Users.UpdatePassword <span class="s1">&#39;{&#34;userId&#34;: &#34;ff3c06de-9e43-41c7-9bab-578f6b4ad32b&#34;, &#34;oldPassword&#34;: &#34;password1&#34;, &#34;newPassword&#34;: &#34;newpassword1&#34;, &#34;confirmPassword&#34;: &#34;newpassword1&#34; }&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="delete">Delete</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">micro call users Users.Delete <span class="s1">&#39;{&#34;id&#34;: &#34;ff3c06de-9e43-41c7-9bab-578f6b4ad32b&#34;}&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="login">Login</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">micro call users Users.Login <span class="s1">&#39;{&#34;username&#34;: &#34;asim&#34;, &#34;password&#34;: &#34;password1&#34;}&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="read-session">Read Session</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">micro call users Users.ReadSession <span class="s1">&#39;{&#34;sessionId&#34;: &#34;sr7UEBmIMg5hYOgiljnhrd4XLsnalNewBV9KzpZ9aD8w37b3jRmEujGtKGcGlXPg1yYoSHR3RLy66ugglw0tofTNGm57NrNYUHsFxfwuGC6pvCn8BecB7aEF6UxTyVFq&#34;}&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="logout">Logout</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">micro call users Users.Logout <span class="s1">&#39;{&#34;sessionId&#34;: &#34;sr7UEBmIMg5hYOgiljnhrd4XLsnalNewBV9KzpZ9aD8w37b3jRmEujGtKGcGlXPg1yYoSHR3RLy66ugglw0tofTNGm57NrNYUHsFxfwuGC6pvCn8BecB7aEF6UxTyVFq&#34;}&#39;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h2 id="curl">cURL</h2>
+    <h2 id="microjs">Micro.js</h2>
 <h3 id="users-create">Users Create</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
@@ -180,21 +88,23 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">18
 </span><span class="lnt">19
 </span><span class="lnt">20
+</span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/users/Users/Create&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-  <span class="s2">&#34;email&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-  <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;uuid&#34;</span><span class="p">,</span>
-  <span class="s2">&#34;password&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-  <span class="s2">&#34;username&#34;</span><span class="o">:</span> <span class="s2">&#34;alphanumeric user or org&#34;</span>
-<span class="p">},</span>
+          <span class="s2">&#34;email&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;uuid&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;password&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;username&#34;</span><span class="o">:</span> <span class="s2">&#34;alphanumeric user or org&#34;</span>
+        <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
         <span class="p">}</span>
@@ -226,18 +136,20 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
+</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/users/Users/Delete&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-  <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
-<span class="p">},</span>
+          <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+        <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
         <span class="p">}</span>
@@ -271,20 +183,22 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
+</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/users/Users/Login&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-  <span class="s2">&#34;email&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-  <span class="s2">&#34;password&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-  <span class="s2">&#34;username&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
-<span class="p">},</span>
+          <span class="s2">&#34;email&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;password&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;username&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+        <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
         <span class="p">}</span>
@@ -316,18 +230,20 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
+</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/users/Users/Logout&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-  <span class="s2">&#34;session_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
-<span class="p">},</span>
+          <span class="s2">&#34;session_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+        <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
         <span class="p">}</span>
@@ -359,18 +275,20 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
+</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/users/Users/Read&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-  <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
-<span class="p">},</span>
+          <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+        <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
         <span class="p">}</span>
@@ -402,18 +320,20 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
+</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/users/Users/ReadSession&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-  <span class="s2">&#34;session_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
-<span class="p">},</span>
+          <span class="s2">&#34;session_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+        <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
         <span class="p">}</span>
@@ -448,21 +368,23 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">18
 </span><span class="lnt">19
 </span><span class="lnt">20
+</span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/users/Users/Search&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-  <span class="s2">&#34;email&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-  <span class="s2">&#34;limit&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">&#34;offset&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">&#34;username&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
-<span class="p">},</span>
+          <span class="s2">&#34;email&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;limit&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s2">&#34;offset&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s2">&#34;username&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+        <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
         <span class="p">}</span>
@@ -496,20 +418,22 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
+</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/users/Users/Update&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-  <span class="s2">&#34;email&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-  <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;uuid&#34;</span><span class="p">,</span>
-  <span class="s2">&#34;username&#34;</span><span class="o">:</span> <span class="s2">&#34;alphanumeric user or org&#34;</span>
-<span class="p">},</span>
+          <span class="s2">&#34;email&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;uuid&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;username&#34;</span><span class="o">:</span> <span class="s2">&#34;alphanumeric user or org&#34;</span>
+        <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
         <span class="p">}</span>
@@ -544,21 +468,23 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">18
 </span><span class="lnt">19
 </span><span class="lnt">20
+</span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/users/Users/UpdatePassword&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-  <span class="s2">&#34;confirm_password&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-  <span class="s2">&#34;new_password&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-  <span class="s2">&#34;old_password&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-  <span class="s2">&#34;user_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
-<span class="p">},</span>
+          <span class="s2">&#34;confirm_password&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;new_password&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;old_password&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;user_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+        <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
         <span class="p">}</span>

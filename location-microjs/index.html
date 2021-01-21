@@ -62,18 +62,7 @@
     </article>
 
     <div class="article-post">
-    <p>Real time GPS location tracking and search</p>
-<h1 id="location-service">Location Service</h1>
-<p>Send, store and search real time gps point data and tracking info using the location API.
-Build powerful map rendered views with up to the second updated points on the map.</p>
-<p>Generated with</p>
-<pre><code>micro new location
-</code></pre><h2 id="usage">Usage</h2>
-<p>Generate the proto code</p>
-<pre><code>make proto
-</code></pre><p>Run the service</p>
-<pre><code>micro run .
-</code></pre><h2 id="curl">cURL</h2>
+    <h2 id="microjs">Micro.js</h2>
 <h3 id="location-read">Location Read</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
@@ -96,18 +85,20 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">15
 </span><span class="lnt">16
 </span><span class="lnt">17
+</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/location/Location/Read&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-  <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
-<span class="p">},</span>
+          <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+        <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
         <span class="p">}</span>
@@ -151,30 +142,32 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">27
 </span><span class="lnt">28
 </span><span class="lnt">29
+</span><span class="lnt">30
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/location/Location/Save&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-  <span class="s2">&#34;entity&#34;</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;location&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-          <span class="s2">&#34;latitude&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-          <span class="s2">&#34;longitude&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-          <span class="s2">&#34;timestamp&#34;</span><span class="o">:</span> <span class="mi">1</span>
-        <span class="p">}</span>
-      <span class="p">],</span>
-      <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">},</span>
+          <span class="s2">&#34;entity&#34;</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                              <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+                              <span class="s2">&#34;location&#34;</span><span class="o">:</span> <span class="p">[</span>
+                                        <span class="p">{</span>
+                                                  <span class="s2">&#34;latitude&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                                                  <span class="s2">&#34;longitude&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                                                  <span class="s2">&#34;timestamp&#34;</span><span class="o">:</span> <span class="mi">1</span>
+                                        <span class="p">}</span>
+                              <span class="p">],</span>
+                              <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+                    <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
         <span class="p">}</span>
@@ -215,27 +208,29 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">24
 </span><span class="lnt">25
 </span><span class="lnt">26
+</span><span class="lnt">27
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/location/Location/Search&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-  <span class="s2">&#34;center&#34;</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;latitude&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">&#34;longitude&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">&#34;timestamp&#34;</span><span class="o">:</span> <span class="mi">1</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="s2">&#34;num_entities&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">&#34;radius&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
-<span class="p">},</span>
+          <span class="s2">&#34;center&#34;</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                              <span class="s2">&#34;latitude&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="s2">&#34;longitude&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="s2">&#34;timestamp&#34;</span><span class="o">:</span> <span class="mi">1</span>
+                    <span class="p">}</span>
+          <span class="p">],</span>
+          <span class="s2">&#34;num_entities&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s2">&#34;radius&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+        <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
         <span class="p">}</span>

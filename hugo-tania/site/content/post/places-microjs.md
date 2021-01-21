@@ -3,28 +3,8 @@ title: places Micro.js
 servicename: places
 tags: microjs
 ---
-Store and search for points of interest
 
-# Places Service
-
-The places API stores points of interest and enables you to search for places nearby or last visited.
-
-
-## Usage
-
-Places makes use of postgres. Set the config for the database
-
-```
-micro user config set places.database "postgresql://postgres@localhost:5432/locations?sslmode=disable"
-```
-
-Run the service
-
-```
-micro run .
-```
-
-## cURL
+## Micro.js
 
 
 ### Places Last
@@ -35,11 +15,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
+    # Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/protobuf/Places/Last",
         "micro",
-        {},
+                {},
         function (data) {
           console.log("Success.");
         }
@@ -58,21 +39,22 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
+    # Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/protobuf/Places/Near",
         "micro",
         {
-  "latitude": [
-    {}
-  ],
-  "longitude": [
-    {}
-  ],
-  "radius": [
-    {}
-  ]
-},
+          "latitude": [
+                    {}
+          ],
+          "longitude": [
+                    {}
+          ],
+          "radius": [
+                    {}
+          ]
+        },
         function (data) {
           console.log("Success.");
         }
@@ -91,14 +73,15 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
+    # Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/protobuf/Places/Read",
         "micro",
         {
-  "after": "string",
-  "before": "string"
-},
+          "after": "string",
+          "before": "string"
+        },
         function (data) {
           console.log("Success.");
         }
@@ -117,28 +100,29 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
+    # Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/protobuf/Places/Save",
         "micro",
         {
-  "places": [
-    {
-      "id": "string",
-      "latitude": [
-        {}
-      ],
-      "longitude": [
-        {}
-      ],
-      "metadata": [
-        {}
-      ],
-      "name": "string",
-      "timestamp": "string"
-    }
-  ]
-},
+          "places": [
+                    {
+                              "id": "string",
+                              "latitude": [
+                                        {}
+                              ],
+                              "longitude": [
+                                        {}
+                              ],
+                              "metadata": [
+                                        {}
+                              ],
+                              "name": "string",
+                              "timestamp": "string"
+                    }
+          ]
+        },
         function (data) {
           console.log("Success.");
         }

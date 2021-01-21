@@ -62,11 +62,7 @@
     </article>
 
     <div class="article-post">
-    <p>Geocode an address to gps coordinates and the reverse.</p>
-<h1 id="geocoding-service">Geocoding service</h1>
-<p>The geocoding service provides address to lat lng geocoding as well as the reverse. Useful for building mapping or location
-based services.</p>
-<h2 id="curl">cURL</h2>
+    <h2 id="microjs">Micro.js</h2>
 <h3 id="geocoding-geocode">Geocoding Geocode</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
@@ -88,11 +84,13 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/protobuf/Geocoding/Geocode&#34;</span><span class="p">,</span>
@@ -128,11 +126,13 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/protobuf/Geocoding/Reverse&#34;</span><span class="p">,</span>

@@ -12,7 +12,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/chat-microjs/</guid>
-      <description>Real time messaging API which enables Chat services to be embedded anywhere</description>
+      <description>Micro.js Chat Connect Schema related to #/components/requestBodies/ChatConnectRequest not found
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  &amp;lt;script src=&amp;#34;https://web.</description>
     </item>
     
     <item>
@@ -21,7 +22,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/etas-microjs/</guid>
-      <description>ETAs as a service. Provides single-pickup and multi-dropoff routes. Takes into account time and traffic.</description>
+      <description>Micro.js ETAs Calculate Schema related to #/components/requestBodies/ETAsCalculateRequest not found
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  &amp;lt;script src=&amp;#34;https://web.</description>
     </item>
     
     <item>
@@ -30,7 +32,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/feeds-microjs/</guid>
-      <description>A single uniform API for crawling and indexing RSS feeds</description>
+      <description>Micro.js Feeds Entries 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  &amp;lt;script src=&amp;#34;https://web.</description>
     </item>
     
     <item>
@@ -39,8 +41,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/geocoding-microjs/</guid>
-      <description>Geocode an address to gps coordinates and the reverse.
-Geocoding service The geocoding service provides address to lat lng geocoding as well as the reverse.</description>
+      <description>Micro.js Geocoding Geocode Schema related to #/components/requestBodies/GeocodingGeocodeRequest not found
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  &amp;lt;script src=&amp;#34;https://web.</description>
     </item>
     
     <item>
@@ -49,7 +51,7 @@ Geocoding service The geocoding service provides address to lat lng geocoding as
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/groups-microjs/</guid>
-      <description>Groups Service The group serivce is a basic CRUD service for groups.</description>
+      <description>Micro.js Groups AddMember 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  &amp;lt;script src=&amp;#34;https://web.</description>
     </item>
     
     <item>
@@ -58,8 +60,7 @@ Geocoding service The geocoding service provides address to lat lng geocoding as
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/location-microjs/</guid>
-      <description>Real time GPS location tracking and search
-Location Service Send, store and search real time gps point data and tracking info using the location API.</description>
+      <description>Micro.js Location Read 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  &amp;lt;script src=&amp;#34;https://web.</description>
     </item>
     
     <item>
@@ -68,8 +69,7 @@ Location Service Send, store and search real time gps point data and tracking in
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/places-microjs/</guid>
-      <description>Store and search for points of interest
-Places Service The places API stores points of interest and enables you to search for places nearby or last visited.</description>
+      <description>Micro.js Places Last 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16  &amp;lt;script src=&amp;#34;https://web.</description>
     </item>
     
     <item>
@@ -78,7 +78,7 @@ Places Service The places API stores points of interest and enables you to searc
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/posts-microjs/</guid>
-      <description>Build a blog or the foundations of a headless CMS with posts</description>
+      <description>Micro.js Posts Delete 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  &amp;lt;script src=&amp;#34;https://web.</description>
     </item>
     
     <item>
@@ -87,8 +87,7 @@ Places Service The places API stores points of interest and enables you to searc
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/routing-microjs/</guid>
-      <description>Point to point routing directions
-Routing Service The routing service provides point to point directions</description>
+      <description>Micro.js Routing Route 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37  &amp;lt;script src=&amp;#34;https://web.</description>
     </item>
     
     <item>
@@ -97,7 +96,7 @@ Routing Service The routing service provides point to point directions</descript
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/tags-microjs/</guid>
-      <description>Tag any resource by savin a tag associated with their ID in the tag service.</description>
+      <description>Micro.js Tags Add 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  &amp;lt;script src=&amp;#34;https://web.</description>
     </item>
     
     <item>
@@ -106,8 +105,7 @@ Routing Service The routing service provides point to point directions</descript
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/users-microjs/</guid>
-      <description>A user service for storing accounts and simple auth.
-Users Service The users service provides user management and authentication so you can easily add them to your own apps without having to build the entire thing from scratch.</description>
+      <description>Micro.js Users Create 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  &amp;lt;script src=&amp;#34;https://web.</description>
     </item>
     
   </channel>

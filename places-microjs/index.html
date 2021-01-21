@@ -62,15 +62,7 @@
     </article>
 
     <div class="article-post">
-    <p>Store and search for points of interest</p>
-<h1 id="places-service">Places Service</h1>
-<p>The places API stores points of interest and enables you to search for places nearby or last visited.</p>
-<h2 id="usage">Usage</h2>
-<p>Places makes use of postgres. Set the config for the database</p>
-<pre><code>micro user config set places.database &quot;postgresql://postgres@localhost:5432/locations?sslmode=disable&quot;
-</code></pre><p>Run the service</p>
-<pre><code>micro run .
-</code></pre><h2 id="curl">cURL</h2>
+    <h2 id="microjs">Micro.js</h2>
 <h3 id="places-last">Places Last</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
@@ -91,16 +83,18 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/protobuf/Places/Last&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
-        <span class="p">{},</span>
+                <span class="p">{},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
         <span class="p">}</span>
@@ -140,26 +134,28 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">23
 </span><span class="lnt">24
 </span><span class="lnt">25
+</span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/protobuf/Places/Near&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-  <span class="s2">&#34;latitude&#34;</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{}</span>
-  <span class="p">],</span>
-  <span class="s2">&#34;longitude&#34;</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{}</span>
-  <span class="p">],</span>
-  <span class="s2">&#34;radius&#34;</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{}</span>
-  <span class="p">]</span>
-<span class="p">},</span>
+          <span class="s2">&#34;latitude&#34;</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="p">{}</span>
+          <span class="p">],</span>
+          <span class="s2">&#34;longitude&#34;</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="p">{}</span>
+          <span class="p">],</span>
+          <span class="s2">&#34;radius&#34;</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="p">{}</span>
+          <span class="p">]</span>
+        <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
         <span class="p">}</span>
@@ -192,19 +188,21 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
+</span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/protobuf/Places/Read&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-  <span class="s2">&#34;after&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-  <span class="s2">&#34;before&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
-<span class="p">},</span>
+          <span class="s2">&#34;after&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;before&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+        <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
         <span class="p">}</span>
@@ -251,33 +249,35 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">30
 </span><span class="lnt">31
 </span><span class="lnt">32
+</span><span class="lnt">33
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
   <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="err">#</span> <span class="nx">Login</span> <span class="nx">is</span> <span class="nx">only</span> <span class="nx">required</span> <span class="k">for</span> <span class="nx">endpoints</span> <span class="nx">doing</span> <span class="nx">authorization</span>
     <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
         <span class="s2">&#34;/protobuf/Places/Save&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-  <span class="s2">&#34;places&#34;</span><span class="o">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;latitude&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{}</span>
-      <span class="p">],</span>
-      <span class="s2">&#34;longitude&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{}</span>
-      <span class="p">],</span>
-      <span class="s2">&#34;metadata&#34;</span><span class="o">:</span> <span class="p">[</span>
-        <span class="p">{}</span>
-      <span class="p">],</span>
-      <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-      <span class="s2">&#34;timestamp&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
-    <span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">},</span>
+          <span class="s2">&#34;places&#34;</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                              <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+                              <span class="s2">&#34;latitude&#34;</span><span class="o">:</span> <span class="p">[</span>
+                                        <span class="p">{}</span>
+                              <span class="p">],</span>
+                              <span class="s2">&#34;longitude&#34;</span><span class="o">:</span> <span class="p">[</span>
+                                        <span class="p">{}</span>
+                              <span class="p">],</span>
+                              <span class="s2">&#34;metadata&#34;</span><span class="o">:</span> <span class="p">[</span>
+                                        <span class="p">{}</span>
+                              <span class="p">],</span>
+                              <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+                              <span class="s2">&#34;timestamp&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+                    <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
         <span class="p">}</span>

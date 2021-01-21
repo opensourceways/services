@@ -3,13 +3,8 @@ title: routing Micro.js
 servicename: routing
 tags: microjs
 ---
-Point to point routing directions
 
-# Routing Service
-
-The routing service provides point to point directions
-
-## cURL
+## Micro.js
 
 
 ### Routing Route
@@ -20,32 +15,33 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
+    # Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/protobuf/Routing/Route",
         "micro",
         {
-  "destination": [
-    {
-      "latitude": [
-        {}
-      ],
-      "longitude": [
-        {}
-      ]
-    }
-  ],
-  "origin": [
-    {
-      "latitude": [
-        {}
-      ],
-      "longitude": [
-        {}
-      ]
-    }
-  ]
-},
+          "destination": [
+                    {
+                              "latitude": [
+                                        {}
+                              ],
+                              "longitude": [
+                                        {}
+                              ]
+                    }
+          ],
+          "origin": [
+                    {
+                              "latitude": [
+                                        {}
+                              ],
+                              "longitude": [
+                                        {}
+                              ]
+                    }
+          ]
+        },
         function (data) {
           console.log("Success.");
         }

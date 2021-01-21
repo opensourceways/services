@@ -3,14 +3,8 @@ title: geocoding Micro.js
 servicename: geocoding
 tags: microjs
 ---
-Geocode an address to gps coordinates and the reverse.
 
-# Geocoding service
-
-The geocoding service provides address to lat lng geocoding as well as the reverse. Useful for building mapping or location 
-based services.
-
-## cURL
+## Micro.js
 
 
 ### Geocoding Geocode
@@ -21,6 +15,7 @@ Schema related to #/components/requestBodies/GeocodingGeocodeRequest not found
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
+    # Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/protobuf/Geocoding/Geocode",
@@ -44,6 +39,7 @@ Schema related to #/components/requestBodies/GeocodingReverseRequest not found
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
+    # Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/protobuf/Geocoding/Reverse",

@@ -1,7 +1,9 @@
 ---
 title: feeds Micro.js
 servicename: feeds
-tags: microjs
+tags: 
+- Micro.js
+- Headless CMS
 ---
 
 ## Micro.js
@@ -15,7 +17,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/feeds/Feeds/Entries",
@@ -41,7 +43,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/feeds/Feeds/New",

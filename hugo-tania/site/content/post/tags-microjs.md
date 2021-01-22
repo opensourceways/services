@@ -1,7 +1,9 @@
 ---
 title: tags Micro.js
 servicename: tags
-tags: microjs
+tags: 
+- Micro.js
+- Headless CMS
 ---
 
 ## Micro.js
@@ -15,7 +17,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/tags/Tags/Add",
@@ -45,7 +47,7 @@ ListRequest: list either by resource id or type.
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/tags/Tags/List",
@@ -74,7 +76,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/tags/Tags/Remove",
@@ -102,7 +104,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/tags/Tags/Update",

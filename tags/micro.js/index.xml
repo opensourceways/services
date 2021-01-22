@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>microjs on Micro Services</title>
-    <link>https://services.m3o.com/tags/microjs/</link>
-    <description>Recent content in microjs on Micro Services</description>
+    <title>Micro.js on Micro Services</title>
+    <link>https://services.m3o.com/tags/micro.js/</link>
+    <description>Recent content in Micro.js on Micro Services</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://services.m3o.com/tags/microjs/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://services.m3o.com/tags/micro.js/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>chat Micro.js</title>
       <link>https://services.m3o.com/chat-microjs/</link>

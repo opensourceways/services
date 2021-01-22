@@ -1,7 +1,9 @@
 ---
 title: tags
 servicename: tags
-tags: def
+tags: 
+- Readme
+- Headless CMS
 ---
 Tag any resource by savin a tag associated with their ID in the tag service.
 

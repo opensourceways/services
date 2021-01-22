@@ -1,7 +1,9 @@
 ---
 title: feeds
 servicename: feeds
-tags: def
+tags: 
+- Readme
+- Headless CMS
 ---
 A single uniform API for crawling and indexing RSS feeds
 

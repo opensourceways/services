@@ -1,7 +1,9 @@
 ---
 title: routing
 servicename: routing
-tags: def
+tags: 
+- Readme
+- Logistics
 ---
 Point to point routing directions
 

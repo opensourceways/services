@@ -1,7 +1,9 @@
 ---
 title: etas Micro.js
 servicename: etas
-tags: microjs
+tags: 
+- Micro.js
+- Logistics
 ---
 
 ## Micro.js
@@ -15,7 +17,7 @@ Schema related to #/components/requestBodies/ETAsCalculateRequest not found
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/protobuf/ETAs/Calculate",

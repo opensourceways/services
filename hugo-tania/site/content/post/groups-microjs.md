@@ -1,7 +1,8 @@
 ---
 title: groups Micro.js
 servicename: groups
-tags: microjs
+tags: 
+- Micro.js
 ---
 
 ## Micro.js
@@ -15,7 +16,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/groups/Groups/AddMember",
@@ -42,7 +43,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/groups/Groups/Create",
@@ -68,7 +69,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/groups/Groups/Delete",
@@ -94,7 +95,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/groups/Groups/List",
@@ -120,7 +121,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/groups/Groups/Read",
@@ -144,7 +145,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/groups/Groups/RemoveMember",
@@ -171,7 +172,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/groups/Groups/Update",

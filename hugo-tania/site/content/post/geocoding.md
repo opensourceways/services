@@ -1,7 +1,9 @@
 ---
 title: geocoding
 servicename: geocoding
-tags: def
+tags: 
+- Readme
+- Logistics
 ---
 Geocode an address to gps coordinates and the reverse.
 

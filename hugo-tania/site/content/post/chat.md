@@ -1,7 +1,9 @@
 ---
 title: chat
 servicename: chat
-tags: def
+tags: 
+- Readme
+- Communications
 ---
 Real time messaging API which enables Chat services to be embedded anywhere
 

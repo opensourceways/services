@@ -13,6 +13,10 @@
   </url>
   
   <url>
+    <loc>https://services.m3o.com/tags/backend/</loc>
+  </url>
+  
+  <url>
     <loc>https://services.m3o.com/categories/</loc>
   </url>
   
@@ -25,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://services.m3o.com/tags/def/</loc>
+    <loc>https://services.m3o.com/tags/communications/</loc>
   </url>
   
   <url>
@@ -61,6 +65,10 @@
   </url>
   
   <url>
+    <loc>https://services.m3o.com/tags/headless-cms/</loc>
+  </url>
+  
+  <url>
     <loc>https://services.m3o.com/location/</loc>
   </url>
   
@@ -69,7 +77,11 @@
   </url>
   
   <url>
-    <loc>https://services.m3o.com/tags/microjs/</loc>
+    <loc>https://services.m3o.com/tags/logistics/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/tags/micro.js/</loc>
   </url>
   
   <url>
@@ -90,6 +102,10 @@
   
   <url>
     <loc>https://services.m3o.com/posts-microjs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/tags/readme/</loc>
   </url>
   
   <url>

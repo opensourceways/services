@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>def on Micro Services</title>
-    <link>https://services.m3o.com/tags/def/</link>
-    <description>Recent content in def on Micro Services</description>
+    <title>Readme on Micro Services</title>
+    <link>https://services.m3o.com/tags/readme/</link>
+    <description>Recent content in Readme on Micro Services</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://services.m3o.com/tags/def/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://services.m3o.com/tags/readme/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>chat</title>
       <link>https://services.m3o.com/chat/</link>

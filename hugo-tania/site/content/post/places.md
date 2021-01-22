@@ -1,7 +1,9 @@
 ---
 title: places
 servicename: places
-tags: def
+tags: 
+- Readme
+- Logistics
 ---
 Store and search for points of interest
 

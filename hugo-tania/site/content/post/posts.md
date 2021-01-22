@@ -1,7 +1,9 @@
 ---
 title: posts
 servicename: posts
-tags: def
+tags: 
+- Readme
+- Headless CMS
 ---
 Build a blog or the foundations of a headless CMS with posts
 

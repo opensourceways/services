@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Headless CMS on Micro Services</title>
+    <link>https://services.m3o.com/tags/headless-cms/</link>
+    <description>Recent content in Headless CMS on Micro Services</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://services.m3o.com/tags/headless-cms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>feeds</title>
+      <link>https://services.m3o.com/feeds/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/feeds/</guid>
+      <description>A single uniform API for crawling and indexing RSS feeds</description>
+    </item>
+    
+    <item>
+      <title>feeds Micro.js</title>
+      <link>https://services.m3o.com/feeds-microjs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/feeds-microjs/</guid>
+      <description>Micro.js Feeds Entries 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  &amp;lt;script src=&amp;#34;https://web.</description>
+    </item>
+    
+    <item>
+      <title>posts</title>
+      <link>https://services.m3o.com/posts/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/posts/</guid>
+      <description>Build a blog or the foundations of a headless CMS with posts</description>
+    </item>
+    
+    <item>
+      <title>posts Micro.js</title>
+      <link>https://services.m3o.com/posts-microjs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/posts-microjs/</guid>
+      <description>Micro.js Posts Delete 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  &amp;lt;script src=&amp;#34;https://web.</description>
+    </item>
+    
+    <item>
+      <title>tags</title>
+      <link>https://services.m3o.com/tags/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/tags/</guid>
+      <description>Tag any resource by savin a tag associated with their ID in the tag service.</description>
+    </item>
+    
+    <item>
+      <title>tags Micro.js</title>
+      <link>https://services.m3o.com/tags-microjs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/tags-microjs/</guid>
+      <description>Micro.js Tags Add 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  &amp;lt;script src=&amp;#34;https://web.</description>
+    </item>
+    
+  </channel>
+</rss>

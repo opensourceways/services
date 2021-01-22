@@ -1,7 +1,8 @@
 ---
 title: location
 servicename: location
-tags: def
+tags: 
+- Readme
 ---
 Real time GPS location tracking and search
 

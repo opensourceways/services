@@ -1,7 +1,9 @@
 ---
 title: chat Micro.js
 servicename: chat
-tags: microjs
+tags: 
+- Micro.js
+- Communications
 ---
 
 ## Micro.js
@@ -15,7 +17,7 @@ Schema related to #/components/requestBodies/ChatConnectRequest not found
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/chat/Chat/Connect",
@@ -41,7 +43,7 @@ HistoryRequest contains the id of the chat we want the history for. This RPC wil
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/chat/Chat/History",
@@ -67,7 +69,7 @@ NewRequest contains the infromation needed to create a new chat
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/chat/Chat/New",
@@ -91,7 +93,7 @@ SendRequest contains a single message to send to a chat
 <script src="https://web.m3o.com/assets/micro.js"></script>
 <script type="text/javascript">
   document.addEventListener("DOMContentLoaded", function (event) {
-    <!-- Login is only required for endpoints doing authorization -->
+    // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
         "/chat/Chat/Send",

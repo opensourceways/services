@@ -1,7 +1,8 @@
 ---
 title: groups
 servicename: groups
-tags: def
+tags: 
+- Readme
 ---
 # Groups Service
 

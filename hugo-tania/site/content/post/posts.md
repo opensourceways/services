@@ -1,7 +1,7 @@
 ---
 title: posts
 servicename: posts
-tags: 
+labels: 
 - Readme
 - Headless CMS
 ---

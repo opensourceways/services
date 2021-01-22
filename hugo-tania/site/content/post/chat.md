@@ -1,7 +1,7 @@
 ---
 title: chat
 servicename: chat
-tags: 
+labels: 
 - Readme
 - Communications
 ---

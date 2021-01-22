@@ -1,7 +1,7 @@
 ---
 title: etas Micro.js
 servicename: etas
-tags: 
+labels: 
 - Micro.js
 - Logistics
 ---

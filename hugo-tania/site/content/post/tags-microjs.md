@@ -1,7 +1,7 @@
 ---
 title: tags Micro.js
 servicename: tags
-tags: 
+labels: 
 - Micro.js
 - Headless CMS
 ---

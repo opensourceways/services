@@ -1,7 +1,7 @@
 ---
 title: chat Micro.js
 servicename: chat
-tags: 
+labels: 
 - Micro.js
 - Communications
 ---

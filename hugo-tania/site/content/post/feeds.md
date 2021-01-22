@@ -1,7 +1,7 @@
 ---
 title: feeds
 servicename: feeds
-tags: 
+labels: 
 - Readme
 - Headless CMS
 ---

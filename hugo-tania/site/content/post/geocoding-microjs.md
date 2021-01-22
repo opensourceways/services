@@ -1,7 +1,7 @@
 ---
 title: geocoding Micro.js
 servicename: geocoding
-tags: 
+labels: 
 - Micro.js
 - Logistics
 ---

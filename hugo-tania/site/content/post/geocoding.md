@@ -1,7 +1,7 @@
 ---
 title: geocoding
 servicename: geocoding
-tags: 
+labels: 
 - Readme
 - Logistics
 ---

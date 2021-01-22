@@ -1,7 +1,7 @@
 ---
 title: places
 servicename: places
-tags: 
+labels: 
 - Readme
 - Logistics
 ---

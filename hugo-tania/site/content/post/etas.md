@@ -1,7 +1,7 @@
 ---
 title: etas
 servicename: etas
-tags: 
+labels: 
 - Readme
 - Logistics
 ---

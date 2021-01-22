@@ -1,7 +1,7 @@
 ---
 title: tags
 servicename: tags
-tags: 
+labels: 
 - Readme
 - Headless CMS
 ---

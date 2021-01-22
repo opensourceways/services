@@ -1,7 +1,7 @@
 ---
 title: posts Micro.js
 servicename: posts
-tags: 
+labels: 
 - Micro.js
 - Headless CMS
 ---

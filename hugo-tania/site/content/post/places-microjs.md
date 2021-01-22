@@ -1,7 +1,7 @@
 ---
 title: places Micro.js
 servicename: places
-tags: 
+labels: 
 - Micro.js
 - Logistics
 ---

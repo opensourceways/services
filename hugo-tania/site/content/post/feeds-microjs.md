@@ -1,7 +1,7 @@
 ---
 title: feeds Micro.js
 servicename: feeds
-tags: 
+labels: 
 - Micro.js
 - Headless CMS
 ---

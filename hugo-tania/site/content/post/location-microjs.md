@@ -1,7 +1,7 @@
 ---
 title: location Micro.js
 servicename: location
-tags: 
+labels: 
 - Micro.js
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: groups
 servicename: groups
-tags: 
+labels: 
 - Readme
 ---
 # Groups Service

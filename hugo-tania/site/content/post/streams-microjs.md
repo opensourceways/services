@@ -1,15 +1,14 @@
 ---
-title: users Micro.js
-servicename: users
+title: streams Micro.js
+servicename: streams
 labels: 
 - Micro.js
-- Backend
 ---
 
 ## Micro.js
 
 
-### Users Create
+### Streams CreateConversation
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
@@ -20,13 +19,11 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Users/Create",
+        "/protobuf/Streams/CreateConversation",
         "micro",
         {
-          "email": "string",
-          "first_name": "string",
-          "last_name": "string",
-          "password": "string"
+          "group_id": "string",
+          "topic": "string"
         },
         function (data) {
           console.log("Success.");
@@ -38,7 +35,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
-### Users Delete
+### Streams CreateMessage
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
@@ -49,7 +46,35 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Users/Delete",
+        "/protobuf/Streams/CreateMessage",
+        "micro",
+        {
+          "author_id": "string",
+          "conversation_id": "string",
+          "text": "string"
+        },
+        function (data) {
+          console.log("Success.");
+        }
+      );
+    });
+  });
+</script>
+```
+
+
+### Streams DeleteConversation
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+
+```html
+<script src="https://web.m3o.com/assets/micro.js"></script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function (event) {
+    // Login is only required for endpoints doing authorization
+    Micro.requireLogin(function () {
+      Micro.post(
+        "/protobuf/Streams/DeleteConversation",
         "micro",
         {
           "id": "string"
@@ -64,7 +89,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
-### Users List
+### Streams ListConversations
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
@@ -75,35 +100,10 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Users/List",
-        "micro",
-        {},
-        function (data) {
-          console.log("Success.");
-        }
-      );
-    });
-  });
-</script>
-```
-
-
-### Users Login
-<!-- We use the request body description here as endpoint descriptions are not
-being lifted correctly from the proto by the openapi spec generator -->
-
-```html
-<script src="https://web.m3o.com/assets/micro.js"></script>
-<script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", function (event) {
-    // Login is only required for endpoints doing authorization
-    Micro.requireLogin(function () {
-      Micro.post(
-        "/protobuf/Users/Login",
+        "/protobuf/Streams/ListConversations",
         "micro",
         {
-          "email": "string",
-          "password": "string"
+          "group_id": "string"
         },
         function (data) {
           console.log("Success.");
@@ -115,7 +115,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
-### Users Logout
+### Streams ListMessages
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
@@ -126,9 +126,42 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Users/Logout",
+        "/protobuf/Streams/ListMessages",
         "micro",
         {
+          "conversation_id": "string",
+          "limit": [
+                    {}
+          ],
+          "sent_before": "string"
+        },
+        function (data) {
+          console.log("Success.");
+        }
+      );
+    });
+  });
+</script>
+```
+
+
+### Streams ReadConversation
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+
+```html
+<script src="https://web.m3o.com/assets/micro.js"></script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function (event) {
+    // Login is only required for endpoints doing authorization
+    Micro.requireLogin(function () {
+      Micro.post(
+        "/protobuf/Streams/ReadConversation",
+        "micro",
+        {
+          "group_id": [
+                    {}
+          ],
           "id": "string"
         },
         function (data) {
@@ -141,7 +174,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
-### Users Read
+### Streams RecentMessages
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
@@ -152,41 +185,10 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Users/Read",
-        "micro",
-        {},
-        function (data) {
-          console.log("Success.");
-        }
-      );
-    });
-  });
-</script>
-```
-
-
-### Users Update
-<!-- We use the request body description here as endpoint descriptions are not
-being lifted correctly from the proto by the openapi spec generator -->
-
-```html
-<script src="https://web.m3o.com/assets/micro.js"></script>
-<script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", function (event) {
-    // Login is only required for endpoints doing authorization
-    Micro.requireLogin(function () {
-      Micro.post(
-        "/protobuf/Users/Update",
+        "/protobuf/Streams/RecentMessages",
         "micro",
         {
-          "email": [
-                    {}
-          ],
-          "first_name": [
-                    {}
-          ],
-          "id": "string",
-          "last_name": [
+          "limit_per_conversation": [
                     {}
           ]
         },
@@ -200,7 +202,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
-### Users Validate
+### Streams UpdateConversation
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
@@ -211,10 +213,11 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Users/Validate",
+        "/protobuf/Streams/UpdateConversation",
         "micro",
         {
-          "token": "string"
+          "id": "string",
+          "topic": "string"
         },
         function (data) {
           console.log("Success.");

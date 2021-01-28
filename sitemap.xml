@@ -17,15 +17,19 @@
   </url>
   
   <url>
-    <loc>https://services.m3o.com/chat/</loc>
+    <loc>https://services.m3o.com/chats/</loc>
   </url>
   
   <url>
-    <loc>https://services.m3o.com/chat-microjs/</loc>
+    <loc>https://services.m3o.com/chats-microjs/</loc>
   </url>
   
   <url>
-    <loc>https://services.m3o.com/labels/communications/</loc>
+    <loc>https://services.m3o.com/datastore/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/datastore-microjs/</loc>
   </url>
   
   <url>
@@ -62,6 +66,14 @@
   
   <url>
     <loc>https://services.m3o.com/labels/headless-cms/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/invites/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/invites-microjs/</loc>
   </url>
   
   <url>
@@ -114,6 +126,14 @@
   
   <url>
     <loc>https://services.m3o.com/routing-microjs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/streams/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/streams-microjs/</loc>
   </url>
   
   <url>

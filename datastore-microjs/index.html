@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="dark">
-    <title> groups Micro.js | Micro Services</title>
+    <title> datastore Micro.js | Micro Services</title>
     
     
     
@@ -40,21 +40,23 @@
         <header class="article-header">
             <div class="thumb">
                 <div>
-                    <h1><a href="/groups">groups</a></h1>
+                    <h1><a href="/datastore">datastore</a></h1>
                     <div>
-                        <a href="/groups"><u>Readme</u></a>
+                        <a href="/datastore"><u>Readme</u></a>
                         &nbsp;
-                        <a href="/groups-microjs"><u>Micro.js</u></a>
+                        <a href="/datastore-microjs"><u>Micro.js</u></a>
                         &nbsp;
-                        <a href="/groups/api"><u>API Spec</u></a>
+                        <a href="/datastore/api"><u>API Spec</u></a>
                         &nbsp;
-                        <a href="https://github.com/micro/services/tree/master/groups"><u>Source</u></a>
+                        <a href="https://github.com/micro/services/tree/master/datastore"><u>Source</u></a>
                     </div>
                     <div class="post-meta">
                         
                         <div class="tags">
                             
                             <a href="/labels/micro.js/">Micro.js</a>
+                            
+                            <a href="/labels/backend/">Backend</a>
                             
                         </div>
                     </div>
@@ -65,7 +67,52 @@
 
     <div class="article-post">
     <h2 id="microjs">Micro.js</h2>
-<h3 id="groups-addmember">Groups AddMember</h3>
+<h3 id="datastore-create">Datastore Create</h3>
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Login is only required for endpoints doing authorization
+</span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
+        <span class="s2">&#34;/datastore/Datastore/Create&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
+        <span class="p">{</span>
+          <span class="s2">&#34;value&#34;</span><span class="o">:</span> <span class="s2">&#34;JSON marshalled record to save&#34;</span>
+        <span class="p">},</span>
+        <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="datastore-createindex">Datastore CreateIndex</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -89,6 +136,22 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -97,11 +160,27 @@ being lifted correctly from the proto by the openapi spec generator -->
     <span class="c1">// Login is only required for endpoints doing authorization
 </span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
-        <span class="s2">&#34;/groups/Groups/AddMember&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;/datastore/Datastore/CreateIndex&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-          <span class="s2">&#34;group_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-          <span class="s2">&#34;member_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+          <span class="s2">&#34;index&#34;</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                              <span class="s2">&#34;base32encode&#34;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                              <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to index on.. eg. email&#34;</span><span class="p">,</span>
+                              <span class="s2">&#34;float32max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="s2">&#34;float64max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="s2">&#34;float_format&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+                              <span class="s2">&#34;order&#34;</span><span class="o">:</span> <span class="p">[</span>
+                                        <span class="p">{</span>
+                                                  <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to order on. eg. age&#34;</span><span class="p">,</span>
+                                                  <span class="s2">&#34;order_type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of the ordering. eg. ascending, descending, unordered&#34;</span>
+                                        <span class="p">}</span>
+                              <span class="p">],</span>
+                              <span class="s2">&#34;string_order_pad_length&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of index. eg. eq&#34;</span><span class="p">,</span>
+                              <span class="s2">&#34;unique&#34;</span><span class="o">:</span> <span class="kc">true</span>
+                    <span class="p">}</span>
+          <span class="p">]</span>
         <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
@@ -112,183 +191,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="groups-create">Groups Create</h3>
-<!-- We use the request body description here as endpoint descriptions are not
-being lifted correctly from the proto by the openapi spec generator -->
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
-  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Login is only required for endpoints doing authorization
-</span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
-        <span class="s2">&#34;/groups/Groups/Create&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
-        <span class="p">{</span>
-          <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
-        <span class="p">},</span>
-        <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">);</span>
-    <span class="p">});</span>
-  <span class="p">});</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="groups-delete">Groups Delete</h3>
-<!-- We use the request body description here as endpoint descriptions are not
-being lifted correctly from the proto by the openapi spec generator -->
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
-  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Login is only required for endpoints doing authorization
-</span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
-        <span class="s2">&#34;/groups/Groups/Delete&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
-        <span class="p">{</span>
-          <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
-        <span class="p">},</span>
-        <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">);</span>
-    <span class="p">});</span>
-  <span class="p">});</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="groups-list">Groups List</h3>
-<!-- We use the request body description here as endpoint descriptions are not
-being lifted correctly from the proto by the openapi spec generator -->
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
-  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Login is only required for endpoints doing authorization
-</span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
-        <span class="s2">&#34;/groups/Groups/List&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
-        <span class="p">{</span>
-          <span class="s2">&#34;member_id&#34;</span><span class="o">:</span> <span class="s2">&#34;passing a member id will restrict the groups to that which the member is part of&#34;</span>
-        <span class="p">},</span>
-        <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">);</span>
-    <span class="p">});</span>
-  <span class="p">});</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="groups-read">Groups Read</h3>
-<!-- We use the request body description here as endpoint descriptions are not
-being lifted correctly from the proto by the openapi spec generator -->
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
-  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Login is only required for endpoints doing authorization
-</span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
-        <span class="s2">&#34;/groups/Groups/Read&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
-        <span class="p">{},</span>
-        <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">);</span>
-    <span class="p">});</span>
-  <span class="p">});</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="groups-removemember">Groups RemoveMember</h3>
+</div><h3 id="datastore-delete">Datastore Delete</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -312,6 +215,35 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -320,11 +252,40 @@ being lifted correctly from the proto by the openapi spec generator -->
     <span class="c1">// Login is only required for endpoints doing authorization
 </span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
-        <span class="s2">&#34;/groups/Groups/RemoveMember&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;/datastore/Datastore/Delete&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-          <span class="s2">&#34;group_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-          <span class="s2">&#34;member_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+          <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                              <span class="s2">&#34;index&#34;</span><span class="o">:</span> <span class="p">[</span>
+                                        <span class="p">{</span>
+                                                  <span class="s2">&#34;base32encode&#34;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                                                  <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to index on.. eg. email&#34;</span><span class="p">,</span>
+                                                  <span class="s2">&#34;float32max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                                                  <span class="s2">&#34;float64max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                                                  <span class="s2">&#34;float_format&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+                                                  <span class="s2">&#34;order&#34;</span><span class="o">:</span> <span class="p">[</span>
+                                                            <span class="p">{</span>
+                                                                      <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to order on. eg. age&#34;</span><span class="p">,</span>
+                                                                      <span class="s2">&#34;order_type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of the ordering. eg. ascending, descending, unordered&#34;</span>
+                                                            <span class="p">}</span>
+                                                  <span class="p">],</span>
+                                                  <span class="s2">&#34;string_order_pad_length&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                                                  <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of index. eg. eq&#34;</span><span class="p">,</span>
+                                                  <span class="s2">&#34;unique&#34;</span><span class="o">:</span> <span class="kc">true</span>
+                                        <span class="p">}</span>
+                              <span class="p">],</span>
+                              <span class="s2">&#34;limit&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="s2">&#34;offset&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="s2">&#34;order&#34;</span><span class="o">:</span> <span class="p">[</span>
+                                        <span class="p">{</span>
+                                                  <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to order on. eg. age&#34;</span><span class="p">,</span>
+                                                  <span class="s2">&#34;order_type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of the ordering. eg. ascending, descending, unordered&#34;</span>
+                                        <span class="p">}</span>
+                              <span class="p">],</span>
+                              <span class="s2">&#34;value&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+                    <span class="p">}</span>
+          <span class="p">]</span>
         <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
@@ -335,7 +296,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="groups-update">Groups Update</h3>
+</div><h3 id="datastore-read">Datastore Read</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -359,6 +320,35 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -367,11 +357,85 @@ being lifted correctly from the proto by the openapi spec generator -->
     <span class="c1">// Login is only required for endpoints doing authorization
 </span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
-        <span class="s2">&#34;/groups/Groups/Update&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;/datastore/Datastore/Read&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-          <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-          <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+          <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                              <span class="s2">&#34;index&#34;</span><span class="o">:</span> <span class="p">[</span>
+                                        <span class="p">{</span>
+                                                  <span class="s2">&#34;base32encode&#34;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                                                  <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to index on.. eg. email&#34;</span><span class="p">,</span>
+                                                  <span class="s2">&#34;float32max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                                                  <span class="s2">&#34;float64max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                                                  <span class="s2">&#34;float_format&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+                                                  <span class="s2">&#34;order&#34;</span><span class="o">:</span> <span class="p">[</span>
+                                                            <span class="p">{</span>
+                                                                      <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to order on. eg. age&#34;</span><span class="p">,</span>
+                                                                      <span class="s2">&#34;order_type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of the ordering. eg. ascending, descending, unordered&#34;</span>
+                                                            <span class="p">}</span>
+                                                  <span class="p">],</span>
+                                                  <span class="s2">&#34;string_order_pad_length&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                                                  <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of index. eg. eq&#34;</span><span class="p">,</span>
+                                                  <span class="s2">&#34;unique&#34;</span><span class="o">:</span> <span class="kc">true</span>
+                                        <span class="p">}</span>
+                              <span class="p">],</span>
+                              <span class="s2">&#34;limit&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="s2">&#34;offset&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="s2">&#34;order&#34;</span><span class="o">:</span> <span class="p">[</span>
+                                        <span class="p">{</span>
+                                                  <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to order on. eg. age&#34;</span><span class="p">,</span>
+                                                  <span class="s2">&#34;order_type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of the ordering. eg. ascending, descending, unordered&#34;</span>
+                                        <span class="p">}</span>
+                              <span class="p">],</span>
+                              <span class="s2">&#34;value&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+                    <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="datastore-update">Datastore Update</h3>
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Login is only required for endpoints doing authorization
+</span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
+        <span class="s2">&#34;/datastore/Datastore/Update&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
+        <span class="p">{</span>
+          <span class="s2">&#34;value&#34;</span><span class="o">:</span> <span class="s2">&#34;JSON marshalled record to save&#34;</span>
         <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
@@ -390,16 +454,16 @@ being lifted correctly from the proto by the openapi spec generator -->
     
     <nav class="flex container suggested">
         
-        <a rel="prev" href="/invites/" title="Previous post (older)">
+        <a rel="prev" href="/etas/" title="Previous post (older)">
             <span>Previous</span>
-            invites
+            etas
             </a>
         
         
         
-        <a rel="next" href="/groups/" title="Next post (newer)">
+        <a rel="next" href="/datastore/" title="Next post (newer)">
             <span>Next</span>
-            groups
+            datastore
             </a> 
         
     </nav>

@@ -1,15 +1,14 @@
 ---
-title: feeds Micro.js
-servicename: feeds
+title: invites Micro.js
+servicename: invites
 labels: 
 - Micro.js
-- Headless CMS
 ---
 
 ## Micro.js
 
 
-### Feeds Add
+### Invites Create
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
@@ -20,11 +19,11 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/feeds/Feeds/Add",
+        "/protobuf/Invites/Create",
         "micro",
         {
-          "name": "rss feed name. eg. a16z",
-          "url": "rss feed url. eg. http://a16z.com/feed/"
+          "email": "string",
+          "group_id": "string"
         },
         function (data) {
           console.log("Success.");
@@ -36,7 +35,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
-### Feeds Entries
+### Invites Delete
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
@@ -47,10 +46,10 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/feeds/Feeds/Entries",
+        "/protobuf/Invites/Delete",
         "micro",
         {
-          "url": "rss feed url. eg. http://a16z.com/feed/"
+          "id": "string"
         },
         function (data) {
           console.log("Success.");
@@ -62,7 +61,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
-### Feeds List
+### Invites List
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
@@ -73,9 +72,16 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/feeds/Feeds/List",
+        "/protobuf/Invites/List",
         "micro",
-        {},
+        {
+          "email": [
+                    {}
+          ],
+          "group_id": [
+                    {}
+          ]
+        },
         function (data) {
           console.log("Success.");
         }
@@ -86,7 +92,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
-### Feeds Remove
+### Invites Read
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
@@ -97,10 +103,15 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/feeds/Feeds/Remove",
+        "/protobuf/Invites/Read",
         "micro",
         {
-          "name": "rss feed name. eg. a16z"
+          "code": [
+                    {}
+          ],
+          "id": [
+                    {}
+          ]
         },
         function (data) {
           console.log("Success.");

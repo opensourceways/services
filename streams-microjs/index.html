@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="dark">
-    <title> groups Micro.js | Micro Services</title>
+    <title> streams Micro.js | Micro Services</title>
     
     
     
@@ -40,15 +40,15 @@
         <header class="article-header">
             <div class="thumb">
                 <div>
-                    <h1><a href="/groups">groups</a></h1>
+                    <h1><a href="/streams">streams</a></h1>
                     <div>
-                        <a href="/groups"><u>Readme</u></a>
+                        <a href="/streams"><u>Readme</u></a>
                         &nbsp;
-                        <a href="/groups-microjs"><u>Micro.js</u></a>
+                        <a href="/streams-microjs"><u>Micro.js</u></a>
                         &nbsp;
-                        <a href="/groups/api"><u>API Spec</u></a>
+                        <a href="/streams/api"><u>API Spec</u></a>
                         &nbsp;
-                        <a href="https://github.com/micro/services/tree/master/groups"><u>Source</u></a>
+                        <a href="https://github.com/micro/services/tree/master/streams"><u>Source</u></a>
                     </div>
                     <div class="post-meta">
                         
@@ -65,7 +65,7 @@
 
     <div class="article-post">
     <h2 id="microjs">Micro.js</h2>
-<h3 id="groups-addmember">Groups AddMember</h3>
+<h3 id="streams-createconversation">Streams CreateConversation</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -97,11 +97,11 @@ being lifted correctly from the proto by the openapi spec generator -->
     <span class="c1">// Login is only required for endpoints doing authorization
 </span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
-        <span class="s2">&#34;/groups/Groups/AddMember&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;/protobuf/Streams/CreateConversation&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
           <span class="s2">&#34;group_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-          <span class="s2">&#34;member_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+          <span class="s2">&#34;topic&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
         <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
@@ -112,7 +112,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="groups-create">Groups Create</h3>
+</div><h3 id="streams-createmessage">Streams CreateMessage</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -135,6 +135,8 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -143,10 +145,12 @@ being lifted correctly from the proto by the openapi spec generator -->
     <span class="c1">// Login is only required for endpoints doing authorization
 </span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
-        <span class="s2">&#34;/groups/Groups/Create&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;/protobuf/Streams/CreateMessage&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-          <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+          <span class="s2">&#34;author_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;conversation_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;text&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
         <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
@@ -157,7 +161,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="groups-delete">Groups Delete</h3>
+</div><h3 id="streams-deleteconversation">Streams DeleteConversation</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -188,7 +192,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     <span class="c1">// Login is only required for endpoints doing authorization
 </span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
-        <span class="s2">&#34;/groups/Groups/Delete&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;/protobuf/Streams/DeleteConversation&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
           <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
@@ -202,7 +206,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="groups-list">Groups List</h3>
+</div><h3 id="streams-listconversations">Streams ListConversations</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -233,10 +237,10 @@ being lifted correctly from the proto by the openapi spec generator -->
     <span class="c1">// Login is only required for endpoints doing authorization
 </span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
-        <span class="s2">&#34;/groups/Groups/List&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;/protobuf/Streams/ListConversations&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-          <span class="s2">&#34;member_id&#34;</span><span class="o">:</span> <span class="s2">&#34;passing a member id will restrict the groups to that which the member is part of&#34;</span>
+          <span class="s2">&#34;group_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
         <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
@@ -247,7 +251,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="groups-read">Groups Read</h3>
+</div><h3 id="streams-listmessages">Streams ListMessages</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -268,6 +272,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -276,9 +286,15 @@ being lifted correctly from the proto by the openapi spec generator -->
     <span class="c1">// Login is only required for endpoints doing authorization
 </span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
-        <span class="s2">&#34;/groups/Groups/Read&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;/protobuf/Streams/ListMessages&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
-        <span class="p">{},</span>
+        <span class="p">{</span>
+          <span class="s2">&#34;conversation_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+          <span class="s2">&#34;limit&#34;</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="p">{}</span>
+          <span class="p">],</span>
+          <span class="s2">&#34;sent_before&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+        <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
         <span class="p">}</span>
@@ -288,7 +304,107 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="groups-removemember">Groups RemoveMember</h3>
+</div><h3 id="streams-readconversation">Streams ReadConversation</h3>
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Login is only required for endpoints doing authorization
+</span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
+        <span class="s2">&#34;/protobuf/Streams/ReadConversation&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
+        <span class="p">{</span>
+          <span class="s2">&#34;group_id&#34;</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="p">{}</span>
+          <span class="p">],</span>
+          <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+        <span class="p">},</span>
+        <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="streams-recentmessages">Streams RecentMessages</h3>
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
+  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Login is only required for endpoints doing authorization
+</span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+      <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
+        <span class="s2">&#34;/protobuf/Streams/RecentMessages&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
+        <span class="p">{</span>
+          <span class="s2">&#34;limit_per_conversation&#34;</span><span class="o">:</span> <span class="p">[</span>
+                    <span class="p">{}</span>
+          <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">);</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="streams-updateconversation">Streams UpdateConversation</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -320,58 +436,11 @@ being lifted correctly from the proto by the openapi spec generator -->
     <span class="c1">// Login is only required for endpoints doing authorization
 </span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
       <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
-        <span class="s2">&#34;/groups/Groups/RemoveMember&#34;</span><span class="p">,</span>
-        <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
-        <span class="p">{</span>
-          <span class="s2">&#34;group_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-          <span class="s2">&#34;member_id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
-        <span class="p">},</span>
-        <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
-        <span class="p">}</span>
-      <span class="p">);</span>
-    <span class="p">});</span>
-  <span class="p">});</span>
-<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-</code></pre></td></tr></table>
-</div>
-</div><h3 id="groups-update">Groups Update</h3>
-<!-- We use the request body description here as endpoint descriptions are not
-being lifted correctly from the proto by the openapi spec generator -->
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
-  <span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&#34;DOMContentLoaded&#34;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// Login is only required for endpoints doing authorization
-</span><span class="c1"></span>    <span class="nx">Micro</span><span class="p">.</span><span class="nx">requireLogin</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-      <span class="nx">Micro</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span>
-        <span class="s2">&#34;/groups/Groups/Update&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;/protobuf/Streams/UpdateConversation&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
           <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-          <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+          <span class="s2">&#34;topic&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
         <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
@@ -390,16 +459,16 @@ being lifted correctly from the proto by the openapi spec generator -->
     
     <nav class="flex container suggested">
         
-        <a rel="prev" href="/invites/" title="Previous post (older)">
+        <a rel="prev" href="/tags/" title="Previous post (older)">
             <span>Previous</span>
-            invites
+            tags
             </a>
         
         
         
-        <a rel="next" href="/groups/" title="Next post (newer)">
+        <a rel="next" href="/streams/" title="Next post (newer)">
             <span>Next</span>
-            groups
+            streams
             </a> 
         
     </nav>

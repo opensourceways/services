@@ -7,12 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://services.m3o.com/labels/readme/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>chat</title>
-      <link>https://services.m3o.com/chat/</link>
+      <title>chats</title>
+      <link>https://services.m3o.com/chats/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://services.m3o.com/chat/</guid>
-      <description>Real time messaging API which enables Chat services to be embedded anywhere</description>
+      <guid>https://services.m3o.com/chats/</guid>
+      <description>Chats Service This is the Chats service
+cURL Chats CreateChat 1 2 3 4 5 6 7 8 9 10 11 12 13  &amp;gt; curl &amp;#39;https://api.</description>
+    </item>
+    
+    <item>
+      <title>datastore</title>
+      <link>https://services.m3o.com/datastore/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/datastore/</guid>
+      <description>Datastore Service This is the Datastore service
+Generated with
+micro new datastore Usage Generate the proto code</description>
     </item>
     
     <item>
@@ -50,6 +62,15 @@ Geocoding service The geocoding service provides address to lat lng geocoding as
       
       <guid>https://services.m3o.com/groups/</guid>
       <description>Groups Service The group serivce is a basic CRUD service for groups.</description>
+    </item>
+    
+    <item>
+      <title>invites</title>
+      <link>https://services.m3o.com/invites/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/invites/</guid>
+      <description>Invites Service The invites services allows you to create and manage invites.</description>
     </item>
     
     <item>
@@ -92,6 +113,17 @@ Routing Service The routing service provides point to point directions</descript
     </item>
     
     <item>
+      <title>streams</title>
+      <link>https://services.m3o.com/streams/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/streams/</guid>
+      <description>Streams Service This is the Streams service
+Generated with
+micro new streams Usage Generate the proto code</description>
+    </item>
+    
+    <item>
       <title>tags</title>
       <link>https://services.m3o.com/tags/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -106,8 +138,9 @@ Routing Service The routing service provides point to point directions</descript
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/users/</guid>
-      <description>A user service for storing accounts and simple auth.
-Users Service The users service provides user management and authentication so you can easily add them to your own apps without having to build the entire thing from scratch.</description>
+      <description>Users Service This is the Users service
+Generated with
+micro new users Usage Generate the proto code</description>
     </item>
     
   </channel>

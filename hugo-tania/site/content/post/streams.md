@@ -1,18 +1,17 @@
 ---
-title: users
-servicename: users
+title: streams
+servicename: streams
 labels: 
 - Readme
-- Backend
 ---
-# Users Service
+# Streams Service
 
-This is the Users service
+This is the Streams service
 
 Generated with
 
 ```
-micro new users
+micro new streams
 ```
 
 ## Usage
@@ -31,41 +30,66 @@ micro run .
 ## cURL
 
 
-### Users Create
+### Streams CreateConversation
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Users/Create' \
+> curl 'https://api.m3o.com/protobuf/Streams/CreateConversation' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
-  "email": "string",
-  "first_name": "string",
-  "last_name": "string",
-  "password": "string"
+  "group_id": "string",
+  "topic": "string"
 };
 # Response
 {
-  "token": "string",
-  "user": [
+  "conversation": [
     {
-      "email": "string",
-      "first_name": "string",
+      "created_at": "string",
+      "group_id": "string",
       "id": "string",
-      "last_name": "string"
+      "topic": "string"
     }
   ]
 }
 ```
 
 
-### Users Delete
+### Streams CreateMessage
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Users/Delete' \
+> curl 'https://api.m3o.com/protobuf/Streams/CreateMessage' \
+  -H 'micro-namespace: $yourNamespace' \
+  -H 'authorization: Bearer $yourToken' \
+  -d {
+  "author_id": "string",
+  "conversation_id": "string",
+  "text": "string"
+};
+# Response
+{
+  "message": [
+    {
+      "author_id": "string",
+      "conversation_id": "string",
+      "id": "string",
+      "sent_at": "string",
+      "text": "string"
+    }
+  ]
+}
+```
+
+
+### Streams DeleteConversation
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+
+```shell
+> curl 'https://api.m3o.com/protobuf/Streams/DeleteConversation' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -76,143 +100,137 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
-### Users List
+### Streams ListConversations
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Users/List' \
-  -H 'micro-namespace: $yourNamespace' \
-  -H 'authorization: Bearer $yourToken' \
-  -d {};
-# Response
-{
-  "users": [
-    {
-      "email": "string",
-      "first_name": "string",
-      "id": "string",
-      "last_name": "string"
-    }
-  ]
-}
-```
-
-
-### Users Login
-<!-- We use the request body description here as endpoint descriptions are not
-being lifted correctly from the proto by the openapi spec generator -->
-
-```shell
-> curl 'https://api.m3o.com/protobuf/Users/Login' \
+> curl 'https://api.m3o.com/protobuf/Streams/ListConversations' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
-  "email": "string",
-  "password": "string"
+  "group_id": "string"
 };
 # Response
 {
-  "token": "string",
-  "user": [
+  "conversations": [
     {
-      "email": "string",
-      "first_name": "string",
+      "created_at": "string",
+      "group_id": "string",
       "id": "string",
-      "last_name": "string"
+      "topic": "string"
     }
   ]
 }
 ```
 
 
-### Users Logout
+### Streams ListMessages
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Users/Logout' \
+> curl 'https://api.m3o.com/protobuf/Streams/ListMessages' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
+  "conversation_id": "string",
+  "limit": [
+    {}
+  ],
+  "sent_before": "string"
+};
+# Response
+{
+  "messages": [
+    {
+      "author_id": "string",
+      "conversation_id": "string",
+      "id": "string",
+      "sent_at": "string",
+      "text": "string"
+    }
+  ]
+}
+```
+
+
+### Streams ReadConversation
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+
+```shell
+> curl 'https://api.m3o.com/protobuf/Streams/ReadConversation' \
+  -H 'micro-namespace: $yourNamespace' \
+  -H 'authorization: Bearer $yourToken' \
+  -d {
+  "group_id": [
+    {}
+  ],
   "id": "string"
 };
 # Response
-{}
-```
-
-
-### Users Read
-<!-- We use the request body description here as endpoint descriptions are not
-being lifted correctly from the proto by the openapi spec generator -->
-
-```shell
-> curl 'https://api.m3o.com/protobuf/Users/Read' \
-  -H 'micro-namespace: $yourNamespace' \
-  -H 'authorization: Bearer $yourToken' \
-  -d {};
-# Response
 {
-  "users": [
-    {}
+  "conversation": [
+    {
+      "created_at": "string",
+      "group_id": "string",
+      "id": "string",
+      "topic": "string"
+    }
   ]
 }
 ```
 
 
-### Users Update
+### Streams RecentMessages
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Users/Update' \
+> curl 'https://api.m3o.com/protobuf/Streams/RecentMessages' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
-  "email": [
+  "limit_per_conversation": [
     {}
-  ],
-  "first_name": [
-    {}
-  ],
+  ]
+};
+# Response
+{
+  "messages": [
+    {
+      "author_id": "string",
+      "conversation_id": "string",
+      "id": "string",
+      "sent_at": "string",
+      "text": "string"
+    }
+  ]
+}
+```
+
+
+### Streams UpdateConversation
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+
+```shell
+> curl 'https://api.m3o.com/protobuf/Streams/UpdateConversation' \
+  -H 'micro-namespace: $yourNamespace' \
+  -H 'authorization: Bearer $yourToken' \
+  -d {
   "id": "string",
-  "last_name": [
-    {}
-  ]
+  "topic": "string"
 };
 # Response
 {
-  "user": [
+  "conversation": [
     {
-      "email": "string",
-      "first_name": "string",
+      "created_at": "string",
+      "group_id": "string",
       "id": "string",
-      "last_name": "string"
-    }
-  ]
-}
-```
-
-
-### Users Validate
-<!-- We use the request body description here as endpoint descriptions are not
-being lifted correctly from the proto by the openapi spec generator -->
-
-```shell
-> curl 'https://api.m3o.com/protobuf/Users/Validate' \
-  -H 'micro-namespace: $yourNamespace' \
-  -H 'authorization: Bearer $yourToken' \
-  -d {
-  "token": "string"
-};
-# Response
-{
-  "user": [
-    {
-      "email": "string",
-      "first_name": "string",
-      "id": "string",
-      "last_name": "string"
+      "topic": "string"
     }
   ]
 }

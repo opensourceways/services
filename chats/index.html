@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="dark">
-    <title> location | Micro Services</title>
+    <title> chats | Micro Services</title>
     
     
     
@@ -40,15 +40,15 @@
         <header class="article-header">
             <div class="thumb">
                 <div>
-                    <h1><a href="/location">location</a></h1>
+                    <h1><a href="/chats">chats</a></h1>
                     <div>
-                        <a href="/location"><u>Readme</u></a>
+                        <a href="/chats"><u>Readme</u></a>
                         &nbsp;
-                        <a href="/location-microjs"><u>Micro.js</u></a>
+                        <a href="/chats-microjs"><u>Micro.js</u></a>
                         &nbsp;
-                        <a href="/location/api"><u>API Spec</u></a>
+                        <a href="/chats/api"><u>API Spec</u></a>
                         &nbsp;
-                        <a href="https://github.com/micro/services/tree/master/location"><u>Source</u></a>
+                        <a href="https://github.com/micro/services/tree/master/chats"><u>Source</u></a>
                     </div>
                     <div class="post-meta">
                         
@@ -64,19 +64,10 @@
     </article>
 
     <div class="article-post">
-    <p>Real time GPS location tracking and search</p>
-<h1 id="location-service">Location Service</h1>
-<p>Send, store and search real time gps point data and tracking info using the location API.
-Build powerful map rendered views with up to the second updated points on the map.</p>
-<p>Generated with</p>
-<pre><code>micro new location
-</code></pre><h2 id="usage">Usage</h2>
-<p>Generate the proto code</p>
-<pre><code>make proto
-</code></pre><p>Run the service</p>
-<pre><code>micro run .
-</code></pre><h2 id="curl">cURL</h2>
-<h3 id="location-read">Location Read</h3>
+    <h1 id="chats-service">Chats Service</h1>
+<p>This is the Chats service</p>
+<h2 id="curl">cURL</h2>
+<h3 id="chats-createchat">Chats CreateChat</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -94,42 +85,24 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/location/Location/Read&#39;</span> <span class="se">\
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Chats/CreateChat&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
-</span><span class="se"></span>  -d <span class="o">{</span>
-  <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>
-<span class="o">}</span><span class="p">;</span>
+</span><span class="se"></span>  -d <span class="o">{}</span><span class="p">;</span>
 <span class="c1"># Response</span>
 <span class="o">{</span>
-  <span class="s2">&#34;entity&#34;</span>: <span class="o">[</span>
+  <span class="s2">&#34;chat&#34;</span>: <span class="o">[</span>
     <span class="o">{</span>
-      <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-      <span class="s2">&#34;location&#34;</span>: <span class="o">[</span>
-        <span class="o">{</span>
-          <span class="s2">&#34;latitude&#34;</span>: 1,
-          <span class="s2">&#34;longitude&#34;</span>: 1,
-          <span class="s2">&#34;timestamp&#34;</span>: <span class="m">1</span>
-        <span class="o">}</span>
-      <span class="o">]</span>,
-      <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;string&#34;</span>
+      <span class="s2">&#34;created_at&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+      <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>
     <span class="o">}</span>
   <span class="o">]</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="location-save">Location Save</h3>
+</div><h3 id="chats-createmessage">Chats CreateMessage</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -156,29 +129,29 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/location/Location/Save&#39;</span> <span class="se">\
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Chats/CreateMessage&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
 </span><span class="se"></span>  -d <span class="o">{</span>
-  <span class="s2">&#34;entity&#34;</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-      <span class="s2">&#34;location&#34;</span>: <span class="o">[</span>
-        <span class="o">{</span>
-          <span class="s2">&#34;latitude&#34;</span>: 1,
-          <span class="s2">&#34;longitude&#34;</span>: 1,
-          <span class="s2">&#34;timestamp&#34;</span>: <span class="m">1</span>
-        <span class="o">}</span>
-      <span class="o">]</span>,
-      <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;string&#34;</span>
-    <span class="o">}</span>
-  <span class="o">]</span>
+  <span class="s2">&#34;author_id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+  <span class="s2">&#34;chat_id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+  <span class="s2">&#34;text&#34;</span>: <span class="s2">&#34;string&#34;</span>
 <span class="o">}</span><span class="p">;</span>
 <span class="c1"># Response</span>
-<span class="o">{}</span>
+<span class="o">{</span>
+  <span class="s2">&#34;message&#34;</span>: <span class="o">[</span>
+    <span class="o">{</span>
+      <span class="s2">&#34;author_id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+      <span class="s2">&#34;chat_id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+      <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+      <span class="s2">&#34;sent_at&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+      <span class="s2">&#34;text&#34;</span>: <span class="s2">&#34;string&#34;</span>
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="location-search">Location Search</h3>
+</div><h3 id="chats-listmessages">Chats ListMessages</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -205,45 +178,27 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/location/Location/Search&#39;</span> <span class="se">\
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Chats/ListMessages&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
 </span><span class="se"></span>  -d <span class="o">{</span>
-  <span class="s2">&#34;center&#34;</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">&#34;latitude&#34;</span>: 1,
-      <span class="s2">&#34;longitude&#34;</span>: 1,
-      <span class="s2">&#34;timestamp&#34;</span>: <span class="m">1</span>
-    <span class="o">}</span>
+  <span class="s2">&#34;chat_id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+  <span class="s2">&#34;limit&#34;</span>: <span class="o">[</span>
+    <span class="o">{}</span>
   <span class="o">]</span>,
-  <span class="s2">&#34;num_entities&#34;</span>: 1,
-  <span class="s2">&#34;radius&#34;</span>: 1,
-  <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;string&#34;</span>
+  <span class="s2">&#34;sent_before&#34;</span>: <span class="s2">&#34;string&#34;</span>
 <span class="o">}</span><span class="p">;</span>
 <span class="c1"># Response</span>
 <span class="o">{</span>
-  <span class="s2">&#34;entities&#34;</span>: <span class="o">[</span>
+  <span class="s2">&#34;messages&#34;</span>: <span class="o">[</span>
     <span class="o">{</span>
+      <span class="s2">&#34;author_id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+      <span class="s2">&#34;chat_id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
       <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-      <span class="s2">&#34;location&#34;</span>: <span class="o">[</span>
-        <span class="o">{</span>
-          <span class="s2">&#34;latitude&#34;</span>: 1,
-          <span class="s2">&#34;longitude&#34;</span>: 1,
-          <span class="s2">&#34;timestamp&#34;</span>: <span class="m">1</span>
-        <span class="o">}</span>
-      <span class="o">]</span>,
-      <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;string&#34;</span>
+      <span class="s2">&#34;sent_at&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+      <span class="s2">&#34;text&#34;</span>: <span class="s2">&#34;string&#34;</span>
     <span class="o">}</span>
   <span class="o">]</span>
 <span class="o">}</span>
@@ -257,17 +212,12 @@ being lifted correctly from the proto by the openapi spec generator -->
     
     <nav class="flex container suggested">
         
-        <a rel="prev" href="/location-microjs/" title="Previous post (older)">
+        <a rel="prev" href="/chats-microjs/" title="Previous post (older)">
             <span>Previous</span>
-            location Micro.js
+            chats Micro.js
             </a>
         
         
-        
-        <a rel="next" href="/invites-microjs/" title="Next post (newer)">
-            <span>Next</span>
-            invites Micro.js
-            </a> 
         
     </nav>
     

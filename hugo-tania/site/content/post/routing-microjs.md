@@ -23,26 +23,14 @@ being lifted correctly from the proto by the openapi spec generator -->
         "/protobuf/Routing/Route",
         "micro",
         {
-          "destination": [
-                    {
-                              "latitude": [
-                                        {}
-                              ],
-                              "longitude": [
-                                        {}
-                              ]
-                    }
-          ],
-          "origin": [
-                    {
-                              "latitude": [
-                                        {}
-                              ],
-                              "longitude": [
-                                        {}
-                              ]
-                    }
-          ]
+          "destination": {
+                    "latitude": {},
+                    "longitude": {}
+          },
+          "origin": {
+                    "latitude": {},
+                    "longitude": {}
+          }
         },
         function (data) {
           console.log("Success.");

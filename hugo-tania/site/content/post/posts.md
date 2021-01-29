@@ -136,19 +136,7 @@ Query posts. Acts as a listing when no id or slug provided.
 # Response
 {
   "posts": [
-    {
-      "author": "string",
-      "content": "string",
-      "created": 1,
-      "id": "string",
-      "image": "string",
-      "metadata": [
-        {}
-      ],
-      "slug": "string",
-      "title": "string",
-      "updated": 1
-    }
+    {}
   ]
 }
 ```
@@ -170,6 +158,9 @@ being lifted correctly from the proto by the openapi spec generator -->
     {}
   ],
   "slug": "string",
+  "tags": [
+    {}
+  ],
   "timestamp": 1,
   "title": "string"
 };

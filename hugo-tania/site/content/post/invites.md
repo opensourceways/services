@@ -62,14 +62,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 };
 # Response
 {
-  "invite": [
-    {
-      "code": "string",
-      "email": "string",
-      "group_id": "string",
-      "id": "string"
-    }
-  ]
+  "invite": {
+    "code": "string",
+    "email": "string",
+    "group_id": "string",
+    "id": "string"
+  }
 }
 ```
 
@@ -99,22 +97,13 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
-  "email": [
-    {}
-  ],
-  "group_id": [
-    {}
-  ]
+  "email": {},
+  "group_id": {}
 };
 # Response
 {
   "invites": [
-    {
-      "code": "string",
-      "email": "string",
-      "group_id": "string",
-      "id": "string"
-    }
+    {}
   ]
 }
 ```
@@ -129,23 +118,17 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
-  "code": [
-    {}
-  ],
-  "id": [
-    {}
-  ]
+  "code": {},
+  "id": {}
 };
 # Response
 {
-  "invite": [
-    {
-      "code": "string",
-      "email": "string",
-      "group_id": "string",
-      "id": "string"
-    }
-  ]
+  "invite": {
+    "code": "string",
+    "email": "string",
+    "group_id": "string",
+    "id": "string"
+  }
 }
 ```
 

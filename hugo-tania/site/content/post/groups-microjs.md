@@ -126,7 +126,11 @@ being lifted correctly from the proto by the openapi spec generator -->
       Micro.post(
         "/groups/Groups/Read",
         "micro",
-        {},
+        {
+          "ids": [
+                    {}
+          ]
+        },
         function (data) {
           console.log("Success.");
         }

@@ -56,24 +56,20 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
-  "index": [
-    {
-      "base32encode": true,
-      "field_name": "Field to index on.. eg. email",
-      "float32max": 1,
-      "float64max": 1,
-      "float_format": "string",
-      "order": [
-        {
-          "field_name": "Field to order on. eg. age",
-          "order_type": "Type of the ordering. eg. ascending, descending, unordered"
-        }
-      ],
-      "string_order_pad_length": 1,
-      "type": "Type of index. eg. eq",
-      "unique": true
-    }
-  ]
+  "index": {
+    "base32encode": true,
+    "field_name": "Field to index on.. eg. email",
+    "float32max": 1,
+    "float64max": 1,
+    "float_format": "string",
+    "order": {
+      "field_name": "Field to order on. eg. age",
+      "order_type": "Type of the ordering. eg. ascending, descending, unordered"
+    },
+    "string_order_pad_length": 1,
+    "type": "Type of index. eg. eq",
+    "unique": true
+  }
 };
 # Response
 {}
@@ -89,37 +85,29 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
-  "query": [
-    {
-      "index": [
-        {
-          "base32encode": true,
-          "field_name": "Field to index on.. eg. email",
-          "float32max": 1,
-          "float64max": 1,
-          "float_format": "string",
-          "order": [
-            {
-              "field_name": "Field to order on. eg. age",
-              "order_type": "Type of the ordering. eg. ascending, descending, unordered"
-            }
-          ],
-          "string_order_pad_length": 1,
-          "type": "Type of index. eg. eq",
-          "unique": true
-        }
-      ],
-      "limit": 1,
-      "offset": 1,
-      "order": [
-        {
-          "field_name": "Field to order on. eg. age",
-          "order_type": "Type of the ordering. eg. ascending, descending, unordered"
-        }
-      ],
-      "value": "string"
-    }
-  ]
+  "query": {
+    "index": {
+      "base32encode": true,
+      "field_name": "Field to index on.. eg. email",
+      "float32max": 1,
+      "float64max": 1,
+      "float_format": "string",
+      "order": {
+        "field_name": "Field to order on. eg. age",
+        "order_type": "Type of the ordering. eg. ascending, descending, unordered"
+      },
+      "string_order_pad_length": 1,
+      "type": "Type of index. eg. eq",
+      "unique": true
+    },
+    "limit": 1,
+    "offset": 1,
+    "order": {
+      "field_name": "Field to order on. eg. age",
+      "order_type": "Type of the ordering. eg. ascending, descending, unordered"
+    },
+    "value": "string"
+  }
 };
 # Response
 {}
@@ -135,37 +123,29 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
-  "query": [
-    {
-      "index": [
-        {
-          "base32encode": true,
-          "field_name": "Field to index on.. eg. email",
-          "float32max": 1,
-          "float64max": 1,
-          "float_format": "string",
-          "order": [
-            {
-              "field_name": "Field to order on. eg. age",
-              "order_type": "Type of the ordering. eg. ascending, descending, unordered"
-            }
-          ],
-          "string_order_pad_length": 1,
-          "type": "Type of index. eg. eq",
-          "unique": true
-        }
-      ],
-      "limit": 1,
-      "offset": 1,
-      "order": [
-        {
-          "field_name": "Field to order on. eg. age",
-          "order_type": "Type of the ordering. eg. ascending, descending, unordered"
-        }
-      ],
-      "value": "string"
-    }
-  ]
+  "query": {
+    "index": {
+      "base32encode": true,
+      "field_name": "Field to index on.. eg. email",
+      "float32max": 1,
+      "float64max": 1,
+      "float_format": "string",
+      "order": {
+        "field_name": "Field to order on. eg. age",
+        "order_type": "Type of the ordering. eg. ascending, descending, unordered"
+      },
+      "string_order_pad_length": 1,
+      "type": "Type of index. eg. eq",
+      "unique": true
+    },
+    "limit": 1,
+    "offset": 1,
+    "order": {
+      "field_name": "Field to order on. eg. age",
+      "order_type": "Type of the ordering. eg. ascending, descending, unordered"
+    },
+    "value": "string"
+  }
 };
 # Response
 {

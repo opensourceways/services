@@ -23,38 +23,19 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
-  "destination": [
-    {
-      "latitude": [
-        {}
-      ],
-      "longitude": [
-        {}
-      ]
-    }
-  ],
-  "origin": [
-    {
-      "latitude": [
-        {}
-      ],
-      "longitude": [
-        {}
-      ]
-    }
-  ]
+  "destination": {
+    "latitude": {},
+    "longitude": {}
+  },
+  "origin": {
+    "latitude": {},
+    "longitude": {}
+  }
 };
 # Response
 {
   "waypoints": [
-    {
-      "latitude": [
-        {}
-      ],
-      "longitude": [
-        {}
-      ]
-    }
+    {}
   ]
 }
 ```

@@ -99,10 +99,6 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/location/Location/Read&#39;</span> <span class="se">\
@@ -113,19 +109,15 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="o">}</span><span class="p">;</span>
 <span class="c1"># Response</span>
 <span class="o">{</span>
-  <span class="s2">&#34;entity&#34;</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-      <span class="s2">&#34;location&#34;</span>: <span class="o">[</span>
-        <span class="o">{</span>
-          <span class="s2">&#34;latitude&#34;</span>: 1,
-          <span class="s2">&#34;longitude&#34;</span>: 1,
-          <span class="s2">&#34;timestamp&#34;</span>: <span class="m">1</span>
-        <span class="o">}</span>
-      <span class="o">]</span>,
-      <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;string&#34;</span>
-    <span class="o">}</span>
-  <span class="o">]</span>
+  <span class="s2">&#34;entity&#34;</span>: <span class="o">{</span>
+    <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+    <span class="s2">&#34;location&#34;</span>: <span class="o">{</span>
+      <span class="s2">&#34;latitude&#34;</span>: 1,
+      <span class="s2">&#34;longitude&#34;</span>: 1,
+      <span class="s2">&#34;timestamp&#34;</span>: <span class="m">1</span>
+    <span class="o">}</span>,
+    <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;string&#34;</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
@@ -150,29 +142,21 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/location/Location/Save&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
 </span><span class="se"></span>  -d <span class="o">{</span>
-  <span class="s2">&#34;entity&#34;</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-      <span class="s2">&#34;location&#34;</span>: <span class="o">[</span>
-        <span class="o">{</span>
-          <span class="s2">&#34;latitude&#34;</span>: 1,
-          <span class="s2">&#34;longitude&#34;</span>: 1,
-          <span class="s2">&#34;timestamp&#34;</span>: <span class="m">1</span>
-        <span class="o">}</span>
-      <span class="o">]</span>,
-      <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;string&#34;</span>
-    <span class="o">}</span>
-  <span class="o">]</span>
+  <span class="s2">&#34;entity&#34;</span>: <span class="o">{</span>
+    <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+    <span class="s2">&#34;location&#34;</span>: <span class="o">{</span>
+      <span class="s2">&#34;latitude&#34;</span>: 1,
+      <span class="s2">&#34;longitude&#34;</span>: 1,
+      <span class="s2">&#34;timestamp&#34;</span>: <span class="m">1</span>
+    <span class="o">}</span>,
+    <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;string&#34;</span>
+  <span class="o">}</span>
 <span class="o">}</span><span class="p">;</span>
 <span class="c1"># Response</span>
 <span class="o">{}</span>
@@ -202,31 +186,17 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/location/Location/Search&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
 </span><span class="se"></span>  -d <span class="o">{</span>
-  <span class="s2">&#34;center&#34;</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">&#34;latitude&#34;</span>: 1,
-      <span class="s2">&#34;longitude&#34;</span>: 1,
-      <span class="s2">&#34;timestamp&#34;</span>: <span class="m">1</span>
-    <span class="o">}</span>
-  <span class="o">]</span>,
+  <span class="s2">&#34;center&#34;</span>: <span class="o">{</span>
+    <span class="s2">&#34;latitude&#34;</span>: 1,
+    <span class="s2">&#34;longitude&#34;</span>: 1,
+    <span class="s2">&#34;timestamp&#34;</span>: <span class="m">1</span>
+  <span class="o">}</span>,
   <span class="s2">&#34;num_entities&#34;</span>: 1,
   <span class="s2">&#34;radius&#34;</span>: 1,
   <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;string&#34;</span>
@@ -234,17 +204,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="c1"># Response</span>
 <span class="o">{</span>
   <span class="s2">&#34;entities&#34;</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-      <span class="s2">&#34;location&#34;</span>: <span class="o">[</span>
-        <span class="o">{</span>
-          <span class="s2">&#34;latitude&#34;</span>: 1,
-          <span class="s2">&#34;longitude&#34;</span>: 1,
-          <span class="s2">&#34;timestamp&#34;</span>: <span class="m">1</span>
-        <span class="o">}</span>
-      <span class="o">]</span>,
-      <span class="s2">&#34;type&#34;</span>: <span class="s2">&#34;string&#34;</span>
-    <span class="o">}</span>
+    <span class="o">{}</span>
   <span class="o">]</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>

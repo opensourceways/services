@@ -148,10 +148,6 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">29
 </span><span class="lnt">30
 </span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -163,24 +159,20 @@ being lifted correctly from the proto by the openapi spec generator -->
         <span class="s2">&#34;/datastore/Datastore/CreateIndex&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-          <span class="s2">&#34;index&#34;</span><span class="o">:</span> <span class="p">[</span>
-                    <span class="p">{</span>
-                              <span class="s2">&#34;base32encode&#34;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-                              <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to index on.. eg. email&#34;</span><span class="p">,</span>
-                              <span class="s2">&#34;float32max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-                              <span class="s2">&#34;float64max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-                              <span class="s2">&#34;float_format&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-                              <span class="s2">&#34;order&#34;</span><span class="o">:</span> <span class="p">[</span>
-                                        <span class="p">{</span>
-                                                  <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to order on. eg. age&#34;</span><span class="p">,</span>
-                                                  <span class="s2">&#34;order_type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of the ordering. eg. ascending, descending, unordered&#34;</span>
-                                        <span class="p">}</span>
-                              <span class="p">],</span>
-                              <span class="s2">&#34;string_order_pad_length&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-                              <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of index. eg. eq&#34;</span><span class="p">,</span>
-                              <span class="s2">&#34;unique&#34;</span><span class="o">:</span> <span class="kc">true</span>
-                    <span class="p">}</span>
-          <span class="p">]</span>
+          <span class="s2">&#34;index&#34;</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&#34;base32encode&#34;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                    <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to index on.. eg. email&#34;</span><span class="p">,</span>
+                    <span class="s2">&#34;float32max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="s2">&#34;float64max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="s2">&#34;float_format&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+                    <span class="s2">&#34;order&#34;</span><span class="o">:</span> <span class="p">{</span>
+                              <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to order on. eg. age&#34;</span><span class="p">,</span>
+                              <span class="s2">&#34;order_type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of the ordering. eg. ascending, descending, unordered&#34;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&#34;string_order_pad_length&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of index. eg. eq&#34;</span><span class="p">,</span>
+                    <span class="s2">&#34;unique&#34;</span><span class="o">:</span> <span class="kc">true</span>
+          <span class="p">}</span>
         <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
@@ -236,14 +228,6 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">38
 </span><span class="lnt">39
 </span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -255,37 +239,29 @@ being lifted correctly from the proto by the openapi spec generator -->
         <span class="s2">&#34;/datastore/Datastore/Delete&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-          <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">[</span>
-                    <span class="p">{</span>
-                              <span class="s2">&#34;index&#34;</span><span class="o">:</span> <span class="p">[</span>
-                                        <span class="p">{</span>
-                                                  <span class="s2">&#34;base32encode&#34;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-                                                  <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to index on.. eg. email&#34;</span><span class="p">,</span>
-                                                  <span class="s2">&#34;float32max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-                                                  <span class="s2">&#34;float64max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-                                                  <span class="s2">&#34;float_format&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-                                                  <span class="s2">&#34;order&#34;</span><span class="o">:</span> <span class="p">[</span>
-                                                            <span class="p">{</span>
-                                                                      <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to order on. eg. age&#34;</span><span class="p">,</span>
-                                                                      <span class="s2">&#34;order_type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of the ordering. eg. ascending, descending, unordered&#34;</span>
-                                                            <span class="p">}</span>
-                                                  <span class="p">],</span>
-                                                  <span class="s2">&#34;string_order_pad_length&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-                                                  <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of index. eg. eq&#34;</span><span class="p">,</span>
-                                                  <span class="s2">&#34;unique&#34;</span><span class="o">:</span> <span class="kc">true</span>
-                                        <span class="p">}</span>
-                              <span class="p">],</span>
-                              <span class="s2">&#34;limit&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-                              <span class="s2">&#34;offset&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-                              <span class="s2">&#34;order&#34;</span><span class="o">:</span> <span class="p">[</span>
-                                        <span class="p">{</span>
-                                                  <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to order on. eg. age&#34;</span><span class="p">,</span>
-                                                  <span class="s2">&#34;order_type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of the ordering. eg. ascending, descending, unordered&#34;</span>
-                                        <span class="p">}</span>
-                              <span class="p">],</span>
-                              <span class="s2">&#34;value&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
-                    <span class="p">}</span>
-          <span class="p">]</span>
+          <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&#34;index&#34;</span><span class="o">:</span> <span class="p">{</span>
+                              <span class="s2">&#34;base32encode&#34;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                              <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to index on.. eg. email&#34;</span><span class="p">,</span>
+                              <span class="s2">&#34;float32max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="s2">&#34;float64max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="s2">&#34;float_format&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+                              <span class="s2">&#34;order&#34;</span><span class="o">:</span> <span class="p">{</span>
+                                        <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to order on. eg. age&#34;</span><span class="p">,</span>
+                                        <span class="s2">&#34;order_type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of the ordering. eg. ascending, descending, unordered&#34;</span>
+                              <span class="p">},</span>
+                              <span class="s2">&#34;string_order_pad_length&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of index. eg. eq&#34;</span><span class="p">,</span>
+                              <span class="s2">&#34;unique&#34;</span><span class="o">:</span> <span class="kc">true</span>
+                    <span class="p">},</span>
+                    <span class="s2">&#34;limit&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="s2">&#34;offset&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="s2">&#34;order&#34;</span><span class="o">:</span> <span class="p">{</span>
+                              <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to order on. eg. age&#34;</span><span class="p">,</span>
+                              <span class="s2">&#34;order_type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of the ordering. eg. ascending, descending, unordered&#34;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&#34;value&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+          <span class="p">}</span>
         <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>
@@ -341,14 +317,6 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">38
 </span><span class="lnt">39
 </span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -360,37 +328,29 @@ being lifted correctly from the proto by the openapi spec generator -->
         <span class="s2">&#34;/datastore/Datastore/Read&#34;</span><span class="p">,</span>
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
-          <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">[</span>
-                    <span class="p">{</span>
-                              <span class="s2">&#34;index&#34;</span><span class="o">:</span> <span class="p">[</span>
-                                        <span class="p">{</span>
-                                                  <span class="s2">&#34;base32encode&#34;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-                                                  <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to index on.. eg. email&#34;</span><span class="p">,</span>
-                                                  <span class="s2">&#34;float32max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-                                                  <span class="s2">&#34;float64max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-                                                  <span class="s2">&#34;float_format&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
-                                                  <span class="s2">&#34;order&#34;</span><span class="o">:</span> <span class="p">[</span>
-                                                            <span class="p">{</span>
-                                                                      <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to order on. eg. age&#34;</span><span class="p">,</span>
-                                                                      <span class="s2">&#34;order_type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of the ordering. eg. ascending, descending, unordered&#34;</span>
-                                                            <span class="p">}</span>
-                                                  <span class="p">],</span>
-                                                  <span class="s2">&#34;string_order_pad_length&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-                                                  <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of index. eg. eq&#34;</span><span class="p">,</span>
-                                                  <span class="s2">&#34;unique&#34;</span><span class="o">:</span> <span class="kc">true</span>
-                                        <span class="p">}</span>
-                              <span class="p">],</span>
-                              <span class="s2">&#34;limit&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-                              <span class="s2">&#34;offset&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-                              <span class="s2">&#34;order&#34;</span><span class="o">:</span> <span class="p">[</span>
-                                        <span class="p">{</span>
-                                                  <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to order on. eg. age&#34;</span><span class="p">,</span>
-                                                  <span class="s2">&#34;order_type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of the ordering. eg. ascending, descending, unordered&#34;</span>
-                                        <span class="p">}</span>
-                              <span class="p">],</span>
-                              <span class="s2">&#34;value&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
-                    <span class="p">}</span>
-          <span class="p">]</span>
+          <span class="s2">&#34;query&#34;</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&#34;index&#34;</span><span class="o">:</span> <span class="p">{</span>
+                              <span class="s2">&#34;base32encode&#34;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+                              <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to index on.. eg. email&#34;</span><span class="p">,</span>
+                              <span class="s2">&#34;float32max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="s2">&#34;float64max&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="s2">&#34;float_format&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+                              <span class="s2">&#34;order&#34;</span><span class="o">:</span> <span class="p">{</span>
+                                        <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to order on. eg. age&#34;</span><span class="p">,</span>
+                                        <span class="s2">&#34;order_type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of the ordering. eg. ascending, descending, unordered&#34;</span>
+                              <span class="p">},</span>
+                              <span class="s2">&#34;string_order_pad_length&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                              <span class="s2">&#34;type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of index. eg. eq&#34;</span><span class="p">,</span>
+                              <span class="s2">&#34;unique&#34;</span><span class="o">:</span> <span class="kc">true</span>
+                    <span class="p">},</span>
+                    <span class="s2">&#34;limit&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="s2">&#34;offset&#34;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="s2">&#34;order&#34;</span><span class="o">:</span> <span class="p">{</span>
+                              <span class="s2">&#34;field_name&#34;</span><span class="o">:</span> <span class="s2">&#34;Field to order on. eg. age&#34;</span><span class="p">,</span>
+                              <span class="s2">&#34;order_type&#34;</span><span class="o">:</span> <span class="s2">&#34;Type of the ordering. eg. ascending, descending, unordered&#34;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&#34;value&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+          <span class="p">}</span>
         <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Success.&#34;</span><span class="p">);</span>

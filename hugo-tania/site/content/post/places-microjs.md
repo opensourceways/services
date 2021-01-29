@@ -22,7 +22,11 @@ being lifted correctly from the proto by the openapi spec generator -->
       Micro.post(
         "/protobuf/Places/Last",
         "micro",
-        {},
+        {
+          "ids": [
+                    {}
+          ]
+        },
         function (data) {
           console.log("Success.");
         }
@@ -47,15 +51,9 @@ being lifted correctly from the proto by the openapi spec generator -->
         "/protobuf/Places/Near",
         "micro",
         {
-          "latitude": [
-                    {}
-          ],
-          "longitude": [
-                    {}
-          ],
-          "radius": [
-                    {}
-          ]
+          "latitude": {},
+          "longitude": {},
+          "radius": {}
         },
         function (data) {
           console.log("Success.");
@@ -82,7 +80,10 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "after": "string",
-          "before": "string"
+          "before": "string",
+          "ids": [
+                    {}
+          ]
         },
         function (data) {
           console.log("Success.");
@@ -109,20 +110,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "places": [
-                    {
-                              "id": "string",
-                              "latitude": [
-                                        {}
-                              ],
-                              "longitude": [
-                                        {}
-                              ],
-                              "metadata": [
-                                        {}
-                              ],
-                              "name": "string",
-                              "timestamp": "string"
-                    }
+                    {}
           ]
         },
         function (data) {

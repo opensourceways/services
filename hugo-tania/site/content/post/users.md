@@ -48,14 +48,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 # Response
 {
   "token": "string",
-  "user": [
-    {
-      "email": "string",
-      "first_name": "string",
-      "id": "string",
-      "last_name": "string"
-    }
-  ]
+  "user": {
+    "email": "string",
+    "first_name": "string",
+    "id": "string",
+    "last_name": "string"
+  }
 }
 ```
 
@@ -88,12 +86,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 # Response
 {
   "users": [
-    {
-      "email": "string",
-      "first_name": "string",
-      "id": "string",
-      "last_name": "string"
-    }
+    {}
   ]
 }
 ```
@@ -114,14 +107,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 # Response
 {
   "token": "string",
-  "user": [
-    {
-      "email": "string",
-      "first_name": "string",
-      "id": "string",
-      "last_name": "string"
-    }
-  ]
+  "user": {
+    "email": "string",
+    "first_name": "string",
+    "id": "string",
+    "last_name": "string"
+  }
 }
 ```
 
@@ -150,7 +141,11 @@ being lifted correctly from the proto by the openapi spec generator -->
 > curl 'https://api.m3o.com/protobuf/Users/Read' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
-  -d {};
+  -d {
+  "ids": [
+    {}
+  ]
+};
 # Response
 {
   "users": [
@@ -169,27 +164,19 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
-  "email": [
-    {}
-  ],
-  "first_name": [
-    {}
-  ],
+  "email": {},
+  "first_name": {},
   "id": "string",
-  "last_name": [
-    {}
-  ]
+  "last_name": {}
 };
 # Response
 {
-  "user": [
-    {
-      "email": "string",
-      "first_name": "string",
-      "id": "string",
-      "last_name": "string"
-    }
-  ]
+  "user": {
+    "email": "string",
+    "first_name": "string",
+    "id": "string",
+    "last_name": "string"
+  }
 }
 ```
 
@@ -207,14 +194,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 };
 # Response
 {
-  "user": [
-    {
-      "email": "string",
-      "first_name": "string",
-      "id": "string",
-      "last_name": "string"
-    }
-  ]
+  "user": {
+    "email": "string",
+    "first_name": "string",
+    "id": "string",
+    "last_name": "string"
+  }
 }
 ```
 

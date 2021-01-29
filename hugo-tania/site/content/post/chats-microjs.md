@@ -21,7 +21,11 @@ being lifted correctly from the proto by the openapi spec generator -->
       Micro.post(
         "/protobuf/Chats/CreateChat",
         "micro",
-        {},
+        {
+          "user_ids": [
+                    {}
+          ]
+        },
         function (data) {
           console.log("Success.");
         }
@@ -75,9 +79,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "chat_id": "string",
-          "limit": [
-                    {}
-          ],
+          "limit": {},
           "sent_before": "string"
         },
         function (data) {

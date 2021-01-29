@@ -130,9 +130,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "conversation_id": "string",
-          "limit": [
-                    {}
-          ],
+          "limit": {},
           "sent_before": "string"
         },
         function (data) {
@@ -159,9 +157,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "/protobuf/Streams/ReadConversation",
         "micro",
         {
-          "group_id": [
-                    {}
-          ],
+          "group_id": {},
           "id": "string"
         },
         function (data) {
@@ -188,9 +184,10 @@ being lifted correctly from the proto by the openapi spec generator -->
         "/protobuf/Streams/RecentMessages",
         "micro",
         {
-          "limit_per_conversation": [
+          "conversation_ids": [
                     {}
-          ]
+          ],
+          "limit_per_conversation": {}
         },
         function (data) {
           console.log("Success.");

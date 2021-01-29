@@ -37,7 +37,11 @@ being lifted correctly from the proto by the openapi spec generator -->
 > curl 'https://api.m3o.com/protobuf/Places/Last' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
-  -d {};
+  -d {
+  "ids": [
+    {}
+  ]
+};
 # Response
 Schema related to #/components/responses/PlacesLastResponse not found
 ```
@@ -52,15 +56,9 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
-  "latitude": [
-    {}
-  ],
-  "longitude": [
-    {}
-  ],
-  "radius": [
-    {}
-  ]
+  "latitude": {},
+  "longitude": {},
+  "radius": {}
 };
 # Response
 Schema related to #/components/responses/PlacesNearResponse not found
@@ -77,7 +75,10 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'authorization: Bearer $yourToken' \
   -d {
   "after": "string",
-  "before": "string"
+  "before": "string",
+  "ids": [
+    {}
+  ]
 };
 # Response
 Schema related to #/components/responses/PlacesReadResponse not found
@@ -94,20 +95,7 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'authorization: Bearer $yourToken' \
   -d {
   "places": [
-    {
-      "id": "string",
-      "latitude": [
-        {}
-      ],
-      "longitude": [
-        {}
-      ],
-      "metadata": [
-        {}
-      ],
-      "name": "string",
-      "timestamp": "string"
-    }
+    {}
   ]
 };
 # Response

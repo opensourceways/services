@@ -162,8 +162,6 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Invites/Create&#39;</span> <span class="se">\
@@ -175,14 +173,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="o">}</span><span class="p">;</span>
 <span class="c1"># Response</span>
 <span class="o">{</span>
-  <span class="s2">&#34;invite&#34;</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">&#34;code&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-      <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-      <span class="s2">&#34;group_id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-      <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>
-    <span class="o">}</span>
-  <span class="o">]</span>
+  <span class="s2">&#34;invite&#34;</span>: <span class="o">{</span>
+    <span class="s2">&#34;code&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+    <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+    <span class="s2">&#34;group_id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+    <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
@@ -229,37 +225,19 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Invites/List&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
 </span><span class="se"></span>  -d <span class="o">{</span>
-  <span class="s2">&#34;email&#34;</span>: <span class="o">[</span>
-    <span class="o">{}</span>
-  <span class="o">]</span>,
-  <span class="s2">&#34;group_id&#34;</span>: <span class="o">[</span>
-    <span class="o">{}</span>
-  <span class="o">]</span>
+  <span class="s2">&#34;email&#34;</span>: <span class="o">{}</span>,
+  <span class="s2">&#34;group_id&#34;</span>: <span class="o">{}</span>
 <span class="o">}</span><span class="p">;</span>
 <span class="c1"># Response</span>
 <span class="o">{</span>
   <span class="s2">&#34;invites&#34;</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">&#34;code&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-      <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-      <span class="s2">&#34;group_id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-      <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>
-    <span class="o">}</span>
+    <span class="o">{}</span>
   <span class="o">]</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
@@ -285,35 +263,23 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">14
 </span><span class="lnt">15
 </span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Invites/Read&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
 </span><span class="se"></span>  -d <span class="o">{</span>
-  <span class="s2">&#34;code&#34;</span>: <span class="o">[</span>
-    <span class="o">{}</span>
-  <span class="o">]</span>,
-  <span class="s2">&#34;id&#34;</span>: <span class="o">[</span>
-    <span class="o">{}</span>
-  <span class="o">]</span>
+  <span class="s2">&#34;code&#34;</span>: <span class="o">{}</span>,
+  <span class="s2">&#34;id&#34;</span>: <span class="o">{}</span>
 <span class="o">}</span><span class="p">;</span>
 <span class="c1"># Response</span>
 <span class="o">{</span>
-  <span class="s2">&#34;invite&#34;</span>: <span class="o">[</span>
-    <span class="o">{</span>
-      <span class="s2">&#34;code&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-      <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-      <span class="s2">&#34;group_id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
-      <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>
-    <span class="o">}</span>
-  <span class="o">]</span>
+  <span class="s2">&#34;invite&#34;</span>: <span class="o">{</span>
+    <span class="s2">&#34;code&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+    <span class="s2">&#34;email&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+    <span class="s2">&#34;group_id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+    <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>
+  <span class="o">}</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>

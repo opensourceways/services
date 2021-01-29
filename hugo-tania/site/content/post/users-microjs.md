@@ -154,7 +154,11 @@ being lifted correctly from the proto by the openapi spec generator -->
       Micro.post(
         "/protobuf/Users/Read",
         "micro",
-        {},
+        {
+          "ids": [
+                    {}
+          ]
+        },
         function (data) {
           console.log("Success.");
         }
@@ -179,16 +183,10 @@ being lifted correctly from the proto by the openapi spec generator -->
         "/protobuf/Users/Update",
         "micro",
         {
-          "email": [
-                    {}
-          ],
-          "first_name": [
-                    {}
-          ],
+          "email": {},
+          "first_name": {},
           "id": "string",
-          "last_name": [
-                    {}
-          ]
+          "last_name": {}
         },
         function (data) {
           console.log("Success.");

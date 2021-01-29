@@ -44,14 +44,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 };
 # Response
 {
-  "conversation": [
-    {
-      "created_at": "string",
-      "group_id": "string",
-      "id": "string",
-      "topic": "string"
-    }
-  ]
+  "conversation": {
+    "created_at": "string",
+    "group_id": "string",
+    "id": "string",
+    "topic": "string"
+  }
 }
 ```
 
@@ -71,15 +69,13 @@ being lifted correctly from the proto by the openapi spec generator -->
 };
 # Response
 {
-  "message": [
-    {
-      "author_id": "string",
-      "conversation_id": "string",
-      "id": "string",
-      "sent_at": "string",
-      "text": "string"
-    }
-  ]
+  "message": {
+    "author_id": "string",
+    "conversation_id": "string",
+    "id": "string",
+    "sent_at": "string",
+    "text": "string"
+  }
 }
 ```
 
@@ -114,12 +110,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 # Response
 {
   "conversations": [
-    {
-      "created_at": "string",
-      "group_id": "string",
-      "id": "string",
-      "topic": "string"
-    }
+    {}
   ]
 }
 ```
@@ -135,21 +126,13 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'authorization: Bearer $yourToken' \
   -d {
   "conversation_id": "string",
-  "limit": [
-    {}
-  ],
+  "limit": {},
   "sent_before": "string"
 };
 # Response
 {
   "messages": [
-    {
-      "author_id": "string",
-      "conversation_id": "string",
-      "id": "string",
-      "sent_at": "string",
-      "text": "string"
-    }
+    {}
   ]
 }
 ```
@@ -164,21 +147,17 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
-  "group_id": [
-    {}
-  ],
+  "group_id": {},
   "id": "string"
 };
 # Response
 {
-  "conversation": [
-    {
-      "created_at": "string",
-      "group_id": "string",
-      "id": "string",
-      "topic": "string"
-    }
-  ]
+  "conversation": {
+    "created_at": "string",
+    "group_id": "string",
+    "id": "string",
+    "topic": "string"
+  }
 }
 ```
 
@@ -192,20 +171,15 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
-  "limit_per_conversation": [
+  "conversation_ids": [
     {}
-  ]
+  ],
+  "limit_per_conversation": {}
 };
 # Response
 {
   "messages": [
-    {
-      "author_id": "string",
-      "conversation_id": "string",
-      "id": "string",
-      "sent_at": "string",
-      "text": "string"
-    }
+    {}
   ]
 }
 ```
@@ -225,14 +199,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 };
 # Response
 {
-  "conversation": [
-    {
-      "created_at": "string",
-      "group_id": "string",
-      "id": "string",
-      "topic": "string"
-    }
-  ]
+  "conversation": {
+    "created_at": "string",
+    "group_id": "string",
+    "id": "string",
+    "topic": "string"
+  }
 }
 ```
 

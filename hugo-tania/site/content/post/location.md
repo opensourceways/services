@@ -47,19 +47,15 @@ being lifted correctly from the proto by the openapi spec generator -->
 };
 # Response
 {
-  "entity": [
-    {
-      "id": "string",
-      "location": [
-        {
-          "latitude": 1,
-          "longitude": 1,
-          "timestamp": 1
-        }
-      ],
-      "type": "string"
-    }
-  ]
+  "entity": {
+    "id": "string",
+    "location": {
+      "latitude": 1,
+      "longitude": 1,
+      "timestamp": 1
+    },
+    "type": "string"
+  }
 }
 ```
 
@@ -73,19 +69,15 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
-  "entity": [
-    {
-      "id": "string",
-      "location": [
-        {
-          "latitude": 1,
-          "longitude": 1,
-          "timestamp": 1
-        }
-      ],
-      "type": "string"
-    }
-  ]
+  "entity": {
+    "id": "string",
+    "location": {
+      "latitude": 1,
+      "longitude": 1,
+      "timestamp": 1
+    },
+    "type": "string"
+  }
 };
 # Response
 {}
@@ -101,13 +93,11 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
-  "center": [
-    {
-      "latitude": 1,
-      "longitude": 1,
-      "timestamp": 1
-    }
-  ],
+  "center": {
+    "latitude": 1,
+    "longitude": 1,
+    "timestamp": 1
+  },
   "num_entities": 1,
   "radius": 1,
   "type": "string"
@@ -115,17 +105,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 # Response
 {
   "entities": [
-    {
-      "id": "string",
-      "location": [
-        {
-          "latitude": 1,
-          "longitude": 1,
-          "timestamp": 1
-        }
-      ],
-      "type": "string"
-    }
+    {}
   ]
 }
 ```

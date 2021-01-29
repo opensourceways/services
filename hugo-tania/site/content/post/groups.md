@@ -69,12 +69,13 @@ being lifted correctly from the proto by the openapi spec generator -->
 };
 # Response
 {
-  "group": [
-    {
-      "id": "string",
-      "name": "string"
-    }
-  ]
+  "group": {
+    "id": "string",
+    "member_ids": [
+      {}
+    ],
+    "name": "string"
+  }
 }
 ```
 
@@ -109,10 +110,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 # Response
 {
   "groups": [
-    {
-      "id": "string",
-      "name": "string"
-    }
+    {}
   ]
 }
 ```
@@ -126,7 +124,11 @@ being lifted correctly from the proto by the openapi spec generator -->
 > curl 'https://api.m3o.com/groups/Groups/Read' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
-  -d {};
+  -d {
+  "ids": [
+    {}
+  ]
+};
 # Response
 {
   "groups": [
@@ -167,12 +169,13 @@ being lifted correctly from the proto by the openapi spec generator -->
 };
 # Response
 {
-  "group": [
-    {
-      "id": "string",
-      "name": "string"
-    }
-  ]
+  "group": {
+    "id": "string",
+    "member_ids": [
+      {}
+    ],
+    "name": "string"
+  }
 }
 ```
 

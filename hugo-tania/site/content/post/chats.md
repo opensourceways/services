@@ -19,15 +19,20 @@ being lifted correctly from the proto by the openapi spec generator -->
 > curl 'https://api.m3o.com/protobuf/Chats/CreateChat' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
-  -d {};
+  -d {
+  "user_ids": [
+    {}
+  ]
+};
 # Response
 {
-  "chat": [
-    {
-      "created_at": "string",
-      "id": "string"
-    }
-  ]
+  "chat": {
+    "created_at": "string",
+    "id": "string",
+    "user_ids": [
+      {}
+    ]
+  }
 }
 ```
 
@@ -47,15 +52,13 @@ being lifted correctly from the proto by the openapi spec generator -->
 };
 # Response
 {
-  "message": [
-    {
-      "author_id": "string",
-      "chat_id": "string",
-      "id": "string",
-      "sent_at": "string",
-      "text": "string"
-    }
-  ]
+  "message": {
+    "author_id": "string",
+    "chat_id": "string",
+    "id": "string",
+    "sent_at": "string",
+    "text": "string"
+  }
 }
 ```
 
@@ -70,21 +73,13 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'authorization: Bearer $yourToken' \
   -d {
   "chat_id": "string",
-  "limit": [
-    {}
-  ],
+  "limit": {},
   "sent_before": "string"
 };
 # Response
 {
   "messages": [
-    {
-      "author_id": "string",
-      "chat_id": "string",
-      "id": "string",
-      "sent_at": "string",
-      "text": "string"
-    }
+    {}
   ]
 }
 ```

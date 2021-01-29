@@ -105,14 +105,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 # Response
 {
   "entries": [
-    {
-      "content": "string",
-      "date": 1,
-      "domain": "string",
-      "id": "string",
-      "title": "string",
-      "url": "string"
-    }
+    {}
   ]
 }
 ```
@@ -130,10 +123,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 # Response
 {
   "feeds": [
-    {
-      "name": "rss feed name. eg. a16z",
-      "url": "rss feed url. eg. http://a16z.com/feed/"
-    }
+    {}
   ]
 }
 ```

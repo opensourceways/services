@@ -27,7 +27,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "first_name": "string",
           "last_name": "string",
           "password": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -53,7 +53,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "id": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -104,7 +104,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         {
           "email": "string",
           "password": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -130,7 +130,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "id": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -158,7 +158,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "ids": [
                     {}
           ]
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -187,7 +187,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "first_name": {},
           "id": "string",
           "last_name": {}
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -213,7 +213,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "token": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }

@@ -24,7 +24,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "value": "JSON marshalled record to save"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -63,7 +63,7 @@ being lifted correctly from the proto by the openapi spec generator -->
                     "type": "Type of index. eg. eq",
                     "unique": true
           }
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -111,7 +111,7 @@ being lifted correctly from the proto by the openapi spec generator -->
                     },
                     "value": "string"
           }
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -159,7 +159,7 @@ being lifted correctly from the proto by the openapi spec generator -->
                     },
                     "value": "string"
           }
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -185,7 +185,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "value": "JSON marshalled record to save"
-        },
+},
         function (data) {
           console.log("Success.");
         }

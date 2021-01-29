@@ -23,7 +23,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "id": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -57,7 +57,7 @@ being lifted correctly from the proto by the openapi spec generator -->
                     },
                     "type": "string"
           }
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -90,7 +90,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "num_entities": 1,
           "radius": 1,
           "type": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }

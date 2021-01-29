@@ -24,7 +24,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         {
           "email": "string",
           "group_id": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -50,7 +50,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "id": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -77,7 +77,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         {
           "email": {},
           "group_id": {}
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -104,7 +104,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         {
           "code": {},
           "id": {}
-        },
+},
         function (data) {
           console.log("Success.");
         }

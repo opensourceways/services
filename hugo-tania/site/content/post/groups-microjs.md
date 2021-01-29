@@ -24,7 +24,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         {
           "group_id": "string",
           "member_id": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -50,7 +50,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "name": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -76,7 +76,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "id": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -102,7 +102,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "member_id": "passing a member id will restrict the groups to that which the member is part of"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -130,7 +130,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "ids": [
                     {}
           ]
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -157,7 +157,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         {
           "group_id": "string",
           "member_id": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -184,7 +184,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         {
           "id": "string",
           "name": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }

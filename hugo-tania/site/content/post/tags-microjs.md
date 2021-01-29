@@ -27,7 +27,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "resource_id": "string",
           "title": "string",
           "type": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -57,7 +57,7 @@ ListRequest: list either by resource id or type.
           "min_count": 1,
           "resource_id": "string",
           "type": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -85,7 +85,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "resource_id": "string",
           "title": "string",
           "type": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -113,7 +113,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "description": "string",
           "title": "string",
           "type": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }

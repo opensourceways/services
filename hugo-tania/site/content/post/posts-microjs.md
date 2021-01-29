@@ -24,7 +24,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "id": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -55,7 +55,7 @@ Query posts. Acts as a listing when no id or slug provided.
           "offset": 1,
           "slug": "string",
           "tag": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -92,7 +92,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           ],
           "timestamp": 1,
           "title": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }

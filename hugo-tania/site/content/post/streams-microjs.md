@@ -24,7 +24,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         {
           "group_id": "string",
           "topic": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -52,7 +52,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "author_id": "string",
           "conversation_id": "string",
           "text": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -78,7 +78,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "id": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -104,7 +104,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "group_id": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -132,7 +132,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "conversation_id": "string",
           "limit": {},
           "sent_before": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -159,7 +159,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         {
           "group_id": {},
           "id": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -188,7 +188,7 @@ being lifted correctly from the proto by the openapi spec generator -->
                     {}
           ],
           "limit_per_conversation": {}
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -215,7 +215,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         {
           "id": "string",
           "topic": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }

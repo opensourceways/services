@@ -26,7 +26,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "ids": [
                     {}
           ]
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -54,7 +54,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "latitude": {},
           "longitude": {},
           "radius": {}
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -84,7 +84,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "ids": [
                     {}
           ]
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -112,7 +112,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "places": [
                     {}
           ]
-        },
+},
         function (data) {
           console.log("Success.");
         }

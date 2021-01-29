@@ -25,7 +25,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         {
           "name": "rss feed name. eg. a16z",
           "url": "rss feed url. eg. http://a16z.com/feed/"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -51,7 +51,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "url": "rss feed url. eg. http://a16z.com/feed/"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -101,7 +101,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "name": "rss feed name. eg. a16z"
-        },
+},
         function (data) {
           console.log("Success.");
         }

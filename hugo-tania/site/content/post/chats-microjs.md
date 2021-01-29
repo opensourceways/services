@@ -25,7 +25,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "user_ids": [
                     {}
           ]
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -53,7 +53,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "author_id": "string",
           "chat_id": "string",
           "text": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }
@@ -81,7 +81,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "chat_id": "string",
           "limit": {},
           "sent_before": "string"
-        },
+},
         function (data) {
           console.log("Success.");
         }

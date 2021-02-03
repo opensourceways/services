@@ -86,7 +86,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 # Response
 {
   "users": [
-    {}
+    {
+      "email": "string",
+      "first_name": "string",
+      "id": "string",
+      "last_name": "string"
+    }
   ]
 }
 ```
@@ -143,13 +148,21 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'authorization: Bearer $yourToken' \
   -d {
   "ids": [
-    {}
+    "string"
   ]
 };
 # Response
 {
   "users": [
-    {}
+    {
+      "key": "string",
+      "value": {
+        "email": "string",
+        "first_name": "string",
+        "id": "string",
+        "last_name": "string"
+      }
+    }
   ]
 }
 ```

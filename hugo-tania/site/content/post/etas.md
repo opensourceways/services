@@ -60,7 +60,13 @@ Schema related to #/components/requestBodies/ETAsCalculateRequest not found
 # Response
 {
   "points": [
-    {}
+    {
+      "key": "string",
+      "value": {
+        "estimated_arrival_time": "string",
+        "estimated_departure_time": "string"
+      }
+    }
   ]
 }
 ```

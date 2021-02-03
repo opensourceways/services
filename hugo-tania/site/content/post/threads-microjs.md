@@ -185,7 +185,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "conversation_ids": [
-                    {}
+                    "string"
           ],
           "limit_per_conversation": {}
 },

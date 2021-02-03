@@ -132,7 +132,25 @@ being lifted correctly from the proto by the openapi spec generator -->
 # Response
 {
   "posts": [
-    {}
+    {
+      "author": "string",
+      "content": "string",
+      "created": 1,
+      "id": "string",
+      "image": "string",
+      "metadata": [
+        {
+          "key": "string",
+          "value": "string"
+        }
+      ],
+      "slug": "string",
+      "tags": [
+        "string"
+      ],
+      "title": "string",
+      "updated": 1
+    }
   ]
 }
 ```
@@ -157,7 +175,25 @@ Query posts. Acts as a listing when no id or slug provided.
 # Response
 {
   "posts": [
-    {}
+    {
+      "author": "string",
+      "content": "string",
+      "created": 1,
+      "id": "string",
+      "image": "string",
+      "metadata": [
+        {
+          "key": "string",
+          "value": "string"
+        }
+      ],
+      "slug": "string",
+      "tags": [
+        "string"
+      ],
+      "title": "string",
+      "updated": 1
+    }
   ]
 }
 ```
@@ -176,11 +212,14 @@ being lifted correctly from the proto by the openapi spec generator -->
   "id": "string",
   "image": "string",
   "metadata": [
-    {}
+    {
+      "key": "string",
+      "value": "string"
+    }
   ],
   "slug": "string",
   "tags": [
-    {}
+    "string"
   ],
   "timestamp": 1,
   "title": "string"

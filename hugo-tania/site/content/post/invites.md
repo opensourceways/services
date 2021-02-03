@@ -103,7 +103,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 # Response
 {
   "invites": [
-    {}
+    {
+      "code": "string",
+      "email": "string",
+      "group_id": "string",
+      "id": "string"
+    }
   ]
 }
 ```

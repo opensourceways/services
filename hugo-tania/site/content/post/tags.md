@@ -109,7 +109,13 @@ ListRequest: list either by resource id or type.
 # Response
 {
   "tags": [
-    {}
+    {
+      "count": 1,
+      "description": "string",
+      "slug": "string",
+      "title": "string",
+      "type": "Type is useful for namespacing and listing across resources,. ie. list tags for posts, customers etc."
+    }
   ]
 }
 ```

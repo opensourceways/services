@@ -111,11 +111,14 @@ being lifted correctly from the proto by the openapi spec generator -->
           "id": "string",
           "image": "string",
           "metadata": [
-                    {}
+                    {
+                              "key": "string",
+                              "value": "string"
+                    }
           ],
           "slug": "string",
           "tags": [
-                    {}
+                    "string"
           ],
           "timestamp": 1,
           "title": "string"

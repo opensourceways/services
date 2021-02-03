@@ -94,6 +94,9 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">17
 </span><span class="lnt">18
 </span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Routing/Route&#39;</span> <span class="se">\
@@ -112,7 +115,10 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="c1"># Response</span>
 <span class="o">{</span>
   <span class="s2">&#34;waypoints&#34;</span>: <span class="o">[</span>
-    <span class="o">{}</span>
+    <span class="o">{</span>
+      <span class="s2">&#34;latitude&#34;</span>: <span class="o">{}</span>,
+      <span class="s2">&#34;longitude&#34;</span>: <span class="o">{}</span>
+    <span class="o">}</span>
   <span class="o">]</span>
 <span class="o">}</span>
 </code></pre></td></tr></table>

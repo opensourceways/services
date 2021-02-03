@@ -35,7 +35,10 @@ being lifted correctly from the proto by the openapi spec generator -->
 # Response
 {
   "waypoints": [
-    {}
+    {
+      "latitude": {},
+      "longitude": {}
+    }
   ]
 }
 ```

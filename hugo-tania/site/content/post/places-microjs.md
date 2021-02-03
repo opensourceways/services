@@ -24,7 +24,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "ids": [
-                    {}
+                    "string"
           ]
 },
         function (data) {
@@ -82,7 +82,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           "after": "string",
           "before": "string",
           "ids": [
-                    {}
+                    "string"
           ]
 },
         function (data) {
@@ -110,7 +110,19 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "places": [
-                    {}
+                    {
+                              "id": "string",
+                              "latitude": {},
+                              "longitude": {},
+                              "metadata": [
+                                        {
+                                                  "key": "string",
+                                                  "value": "string"
+                                        }
+                              ],
+                              "name": "string",
+                              "timestamp": "string"
+                    }
           ]
 },
         function (data) {

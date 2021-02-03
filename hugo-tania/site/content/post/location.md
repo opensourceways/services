@@ -105,7 +105,15 @@ being lifted correctly from the proto by the openapi spec generator -->
 # Response
 {
   "entities": [
-    {}
+    {
+      "id": "string",
+      "location": {
+        "latitude": 1,
+        "longitude": 1,
+        "timestamp": 1
+      },
+      "type": "string"
+    }
   ]
 }
 ```

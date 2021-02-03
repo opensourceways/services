@@ -104,7 +104,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
           <span class="s2">&#34;ids&#34;</span><span class="o">:</span> <span class="p">[</span>
-                    <span class="p">{}</span>
+                    <span class="s2">&#34;string&#34;</span>
           <span class="p">]</span>
 <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
@@ -206,7 +206,7 @@ being lifted correctly from the proto by the openapi spec generator -->
           <span class="s2">&#34;after&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
           <span class="s2">&#34;before&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
           <span class="s2">&#34;ids&#34;</span><span class="o">:</span> <span class="p">[</span>
-                    <span class="p">{}</span>
+                    <span class="s2">&#34;string&#34;</span>
           <span class="p">]</span>
 <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
@@ -243,6 +243,18 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">18
 </span><span class="lnt">19
 </span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&#34;https://web.m3o.com/assets/micro.js&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -255,7 +267,19 @@ being lifted correctly from the proto by the openapi spec generator -->
         <span class="s2">&#34;micro&#34;</span><span class="p">,</span>
         <span class="p">{</span>
           <span class="s2">&#34;places&#34;</span><span class="o">:</span> <span class="p">[</span>
-                    <span class="p">{}</span>
+                    <span class="p">{</span>
+                              <span class="s2">&#34;id&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+                              <span class="s2">&#34;latitude&#34;</span><span class="o">:</span> <span class="p">{},</span>
+                              <span class="s2">&#34;longitude&#34;</span><span class="o">:</span> <span class="p">{},</span>
+                              <span class="s2">&#34;metadata&#34;</span><span class="o">:</span> <span class="p">[</span>
+                                        <span class="p">{</span>
+                                                  <span class="s2">&#34;key&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+                                                  <span class="s2">&#34;value&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+                                        <span class="p">}</span>
+                              <span class="p">],</span>
+                              <span class="s2">&#34;name&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span><span class="p">,</span>
+                              <span class="s2">&#34;timestamp&#34;</span><span class="o">:</span> <span class="s2">&#34;string&#34;</span>
+                    <span class="p">}</span>
           <span class="p">]</span>
 <span class="p">},</span>
         <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>

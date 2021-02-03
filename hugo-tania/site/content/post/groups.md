@@ -72,7 +72,7 @@ being lifted correctly from the proto by the openapi spec generator -->
   "group": {
     "id": "string",
     "member_ids": [
-      {}
+      "string"
     ],
     "name": "string"
   }
@@ -110,7 +110,13 @@ being lifted correctly from the proto by the openapi spec generator -->
 # Response
 {
   "groups": [
-    {}
+    {
+      "id": "string",
+      "member_ids": [
+        "string"
+      ],
+      "name": "string"
+    }
   ]
 }
 ```
@@ -126,13 +132,22 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'authorization: Bearer $yourToken' \
   -d {
   "ids": [
-    {}
+    "string"
   ]
 };
 # Response
 {
   "groups": [
-    {}
+    {
+      "key": "string",
+      "value": {
+        "id": "string",
+        "member_ids": [
+          "string"
+        ],
+        "name": "string"
+      }
+    }
   ]
 }
 ```
@@ -172,7 +187,7 @@ being lifted correctly from the proto by the openapi spec generator -->
   "group": {
     "id": "string",
     "member_ids": [
-      {}
+      "string"
     ],
     "name": "string"
   }

@@ -156,7 +156,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "ids": [
-                    {}
+                    "string"
           ]
 },
         function (data) {

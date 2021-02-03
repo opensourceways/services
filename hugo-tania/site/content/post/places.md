@@ -39,7 +39,7 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'authorization: Bearer $yourToken' \
   -d {
   "ids": [
-    {}
+    "string"
   ]
 };
 # Response
@@ -77,7 +77,7 @@ being lifted correctly from the proto by the openapi spec generator -->
   "after": "string",
   "before": "string",
   "ids": [
-    {}
+    "string"
   ]
 };
 # Response
@@ -95,7 +95,19 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'authorization: Bearer $yourToken' \
   -d {
   "places": [
-    {}
+    {
+      "id": "string",
+      "latitude": {},
+      "longitude": {},
+      "metadata": [
+        {
+          "key": "string",
+          "value": "string"
+        }
+      ],
+      "name": "string",
+      "timestamp": "string"
+    }
   ]
 };
 # Response

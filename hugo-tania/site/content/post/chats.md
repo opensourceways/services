@@ -21,7 +21,7 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'authorization: Bearer $yourToken' \
   -d {
   "user_ids": [
-    {}
+    "string"
   ]
 };
 # Response
@@ -30,7 +30,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     "created_at": "string",
     "id": "string",
     "user_ids": [
-      {}
+      "string"
     ]
   }
 }
@@ -79,7 +79,13 @@ being lifted correctly from the proto by the openapi spec generator -->
 # Response
 {
   "messages": [
-    {}
+    {
+      "author_id": "string",
+      "chat_id": "string",
+      "id": "string",
+      "sent_at": "string",
+      "text": "string"
+    }
   ]
 }
 ```

@@ -23,7 +23,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "micro",
         {
           "user_ids": [
-                    {}
+                    "string"
           ]
 },
         function (data) {

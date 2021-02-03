@@ -115,7 +115,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 # Response
 {
   "conversations": [
-    {}
+    {
+      "created_at": "string",
+      "group_id": "string",
+      "id": "string",
+      "topic": "string"
+    }
   ]
 }
 ```
@@ -137,7 +142,13 @@ being lifted correctly from the proto by the openapi spec generator -->
 # Response
 {
   "messages": [
-    {}
+    {
+      "author_id": "string",
+      "conversation_id": "string",
+      "id": "string",
+      "sent_at": "string",
+      "text": "string"
+    }
   ]
 }
 ```
@@ -177,14 +188,20 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'authorization: Bearer $yourToken' \
   -d {
   "conversation_ids": [
-    {}
+    "string"
   ],
   "limit_per_conversation": {}
 };
 # Response
 {
   "messages": [
-    {}
+    {
+      "author_id": "string",
+      "conversation_id": "string",
+      "id": "string",
+      "sent_at": "string",
+      "text": "string"
+    }
   ]
 }
 ```

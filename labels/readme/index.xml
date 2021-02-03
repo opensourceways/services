@@ -22,9 +22,7 @@ cURL Chats CreateChat 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  &amp;gt; cur
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/datastore/</guid>
-      <description>Datastore Service This is the Datastore service
-Generated with
-micro new datastore Usage Generate the proto code</description>
+      <description>Datastore Service The Datastore service is a document store with simple querying capabilities.</description>
     </item>
     
     <item>
@@ -113,23 +111,22 @@ Routing Service The routing service provides point to point directions</descript
     </item>
     
     <item>
-      <title>streams</title>
-      <link>https://services.m3o.com/streams/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://services.m3o.com/streams/</guid>
-      <description>Streams Service This is the Streams service
-Generated with
-micro new streams Usage Generate the proto code</description>
-    </item>
-    
-    <item>
       <title>tags</title>
       <link>https://services.m3o.com/tags/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/tags/</guid>
       <description>Tag any resource by savin a tag associated with their ID in the tag service.</description>
+    </item>
+    
+    <item>
+      <title>threads</title>
+      <link>https://services.m3o.com/threads/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/threads/</guid>
+      <description>Threaded conversations
+Threads Service Threads provides threaded conversations as a service grouped by topics.</description>
     </item>
     
     <item>

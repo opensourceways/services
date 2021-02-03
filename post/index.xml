@@ -31,9 +31,7 @@ cURL Chats CreateChat 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  &amp;gt; cur
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/datastore/</guid>
-      <description>Datastore Service This is the Datastore service
-Generated with
-micro new datastore Usage Generate the proto code</description>
+      <description>Datastore Service The Datastore service is a document store with simple querying capabilities.</description>
     </item>
     
     <item>
@@ -79,7 +77,7 @@ micro new datastore Usage Generate the proto code</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://services.m3o.com/feeds-microjs/</guid>
-      <description>Micro.js Feeds Add 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  &amp;lt;script src=&amp;#34;https://web.</description>
+      <description>Micro.js Feeds Add 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  &amp;lt;script src=&amp;#34;https://web.</description>
     </item>
     
     <item>
@@ -214,26 +212,6 @@ Routing Service The routing service provides point to point directions</descript
     </item>
     
     <item>
-      <title>streams</title>
-      <link>https://services.m3o.com/streams/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://services.m3o.com/streams/</guid>
-      <description>Streams Service This is the Streams service
-Generated with
-micro new streams Usage Generate the proto code</description>
-    </item>
-    
-    <item>
-      <title>streams Micro.js</title>
-      <link>https://services.m3o.com/streams-microjs/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://services.m3o.com/streams-microjs/</guid>
-      <description>Micro.js Streams CreateConversation 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  &amp;lt;script src=&amp;#34;https://web.</description>
-    </item>
-    
-    <item>
       <title>tags</title>
       <link>https://services.m3o.com/tags/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -249,6 +227,25 @@ micro new streams Usage Generate the proto code</description>
       
       <guid>https://services.m3o.com/tags-microjs/</guid>
       <description>Micro.js Tags Add 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21  &amp;lt;script src=&amp;#34;https://web.</description>
+    </item>
+    
+    <item>
+      <title>threads</title>
+      <link>https://services.m3o.com/threads/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/threads/</guid>
+      <description>Threaded conversations
+Threads Service Threads provides threaded conversations as a service grouped by topics.</description>
+    </item>
+    
+    <item>
+      <title>threads Micro.js</title>
+      <link>https://services.m3o.com/threads-microjs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/threads-microjs/</guid>
+      <description>Micro.js Threads CreateConversation 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19  &amp;lt;script src=&amp;#34;https://web.</description>
     </item>
     
     <item>

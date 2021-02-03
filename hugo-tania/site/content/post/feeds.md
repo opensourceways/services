@@ -83,6 +83,7 @@ being lifted correctly from the proto by the openapi spec generator -->
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
+  "category": "category to add",
   "name": "rss feed name. eg. a16z",
   "url": "rss feed url. eg. http://a16z.com/feed/"
 };

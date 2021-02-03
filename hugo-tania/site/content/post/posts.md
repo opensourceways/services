@@ -117,6 +117,27 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
+### Posts Index
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+
+```shell
+> curl 'https://api.m3o.com/posts/Posts/Index' \
+  -H 'micro-namespace: $yourNamespace' \
+  -H 'authorization: Bearer $yourToken' \
+  -d {
+  "limit": 1,
+  "offset": 1
+};
+# Response
+{
+  "posts": [
+    {}
+  ]
+}
+```
+
+
 ### Posts Query
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->

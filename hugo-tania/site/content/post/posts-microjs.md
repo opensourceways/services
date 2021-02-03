@@ -35,6 +35,33 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
+### Posts Index
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+
+```html
+<script src="https://web.m3o.com/assets/micro.js"></script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function (event) {
+    // Login is only required for endpoints doing authorization
+    Micro.requireLogin(function () {
+      Micro.post(
+        "/posts/Posts/Index",
+        "micro",
+        {
+          "limit": 1,
+          "offset": 1
+},
+        function (data) {
+          console.log("Success.");
+        }
+      );
+    });
+  });
+</script>
+```
+
+
 ### Posts Query
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->

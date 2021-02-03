@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="theme-color" content="dark">
-    <title> streams | Micro Services</title>
+    <title> threads | Micro Services</title>
     
     
     
@@ -40,15 +40,15 @@
         <header class="article-header">
             <div class="thumb">
                 <div>
-                    <h1><a href="/streams">streams</a></h1>
+                    <h1><a href="/threads">threads</a></h1>
                     <div>
-                        <a href="/streams"><u>Readme</u></a>
+                        <a href="/threads"><u>Readme</u></a>
                         &nbsp;
-                        <a href="/streams-microjs"><u>Micro.js</u></a>
+                        <a href="/threads-microjs"><u>Micro.js</u></a>
                         &nbsp;
-                        <a href="/streams/api"><u>API Spec</u></a>
+                        <a href="/threads/api"><u>API Spec</u></a>
                         &nbsp;
-                        <a href="https://github.com/micro/services/tree/master/streams"><u>Source</u></a>
+                        <a href="https://github.com/micro/services/tree/master/threads"><u>Source</u></a>
                     </div>
                     <div class="post-meta">
                         
@@ -64,17 +64,19 @@
     </article>
 
     <div class="article-post">
-    <h1 id="streams-service">Streams Service</h1>
-<p>This is the Streams service</p>
+    <p>Threaded conversations</p>
+<h1 id="threads-service">Threads Service</h1>
+<p>Threads provides threaded conversations as a service grouped by topics.</p>
+<h2 id="usage">Usage</h2>
 <p>Generated with</p>
-<pre><code>micro new streams
-</code></pre><h2 id="usage">Usage</h2>
+<pre><code>micro new threads
+</code></pre><h2 id="usage-1">Usage</h2>
 <p>Generate the proto code</p>
 <pre><code>make proto
 </code></pre><p>Run the service</p>
 <pre><code>micro run .
 </code></pre><h2 id="curl">cURL</h2>
-<h3 id="streams-createconversation">Streams CreateConversation</h3>
+<h3 id="threads-createconversation">Threads CreateConversation</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -97,7 +99,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Streams/CreateConversation&#39;</span> <span class="se">\
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Threads/CreateConversation&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
 </span><span class="se"></span>  -d <span class="o">{</span>
@@ -115,7 +117,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="streams-createmessage">Streams CreateMessage</h3>
+</div><h3 id="threads-createmessage">Threads CreateMessage</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -140,7 +142,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Streams/CreateMessage&#39;</span> <span class="se">\
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Threads/CreateMessage&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
 </span><span class="se"></span>  -d <span class="o">{</span>
@@ -160,7 +162,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="streams-deleteconversation">Streams DeleteConversation</h3>
+</div><h3 id="threads-deleteconversation">Threads DeleteConversation</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -175,7 +177,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Streams/DeleteConversation&#39;</span> <span class="se">\
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Threads/DeleteConversation&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
 </span><span class="se"></span>  -d <span class="o">{</span>
@@ -185,7 +187,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="o">{}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="streams-listconversations">Streams ListConversations</h3>
+</div><h3 id="threads-listconversations">Threads ListConversations</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -204,7 +206,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Streams/ListConversations&#39;</span> <span class="se">\
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Threads/ListConversations&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
 </span><span class="se"></span>  -d <span class="o">{</span>
@@ -218,7 +220,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="streams-listmessages">Streams ListMessages</h3>
+</div><h3 id="threads-listmessages">Threads ListMessages</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -239,7 +241,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Streams/ListMessages&#39;</span> <span class="se">\
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Threads/ListMessages&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
 </span><span class="se"></span>  -d <span class="o">{</span>
@@ -255,7 +257,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="streams-readconversation">Streams ReadConversation</h3>
+</div><h3 id="threads-readconversation">Threads ReadConversation</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -278,7 +280,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Streams/ReadConversation&#39;</span> <span class="se">\
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Threads/ReadConversation&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
 </span><span class="se"></span>  -d <span class="o">{</span>
@@ -296,7 +298,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="streams-recentmessages">Streams RecentMessages</h3>
+</div><h3 id="threads-recentmessages">Threads RecentMessages</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -318,7 +320,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Streams/RecentMessages&#39;</span> <span class="se">\
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Threads/RecentMessages&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
 </span><span class="se"></span>  -d <span class="o">{</span>
@@ -335,7 +337,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="streams-updateconversation">Streams UpdateConversation</h3>
+</div><h3 id="threads-updateconversation">Threads UpdateConversation</h3>
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 <div class="highlight"><div class="chroma">
@@ -358,7 +360,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Streams/UpdateConversation&#39;</span> <span class="se">\
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Threads/UpdateConversation&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
 </span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
 </span><span class="se"></span>  -d <span class="o">{</span>
@@ -384,16 +386,16 @@ being lifted correctly from the proto by the openapi spec generator -->
     
     <nav class="flex container suggested">
         
-        <a rel="prev" href="/streams-microjs/" title="Previous post (older)">
+        <a rel="prev" href="/threads-microjs/" title="Previous post (older)">
             <span>Previous</span>
-            streams Micro.js
+            threads Micro.js
             </a>
         
         
         
-        <a rel="next" href="/routing-microjs/" title="Next post (newer)">
+        <a rel="next" href="/tags-microjs/" title="Next post (newer)">
             <span>Next</span>
-            routing Micro.js
+            tags Micro.js
             </a> 
         
     </nav>

@@ -129,19 +129,19 @@
   </url>
   
   <url>
-    <loc>https://services.m3o.com/streams/</loc>
-  </url>
-  
-  <url>
-    <loc>https://services.m3o.com/streams-microjs/</loc>
-  </url>
-  
-  <url>
     <loc>https://services.m3o.com/tags/</loc>
   </url>
   
   <url>
     <loc>https://services.m3o.com/tags-microjs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/threads/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/threads-microjs/</loc>
   </url>
   
   <url>

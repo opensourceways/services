@@ -23,6 +23,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         "/feeds/Feeds/Add",
         "micro",
         {
+          "category": "category to add",
           "name": "rss feed name. eg. a16z",
           "url": "rss feed url. eg. http://a16z.com/feed/"
 },

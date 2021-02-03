@@ -1,17 +1,21 @@
 ---
-title: streams
-servicename: streams
+title: threads
+servicename: threads
 labels: 
 - Readme
 ---
-# Streams Service
+Threaded conversations
 
-This is the Streams service
+# Threads Service
+
+Threads provides threaded conversations as a service grouped by topics.
+
+## Usage
 
 Generated with
 
 ```
-micro new streams
+micro new threads
 ```
 
 ## Usage
@@ -27,15 +31,16 @@ Run the service
 ```
 micro run .
 ```
+
 ## cURL
 
 
-### Streams CreateConversation
+### Threads CreateConversation
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Streams/CreateConversation' \
+> curl 'https://api.m3o.com/protobuf/Threads/CreateConversation' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -54,12 +59,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
-### Streams CreateMessage
+### Threads CreateMessage
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Streams/CreateMessage' \
+> curl 'https://api.m3o.com/protobuf/Threads/CreateMessage' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -80,12 +85,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
-### Streams DeleteConversation
+### Threads DeleteConversation
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Streams/DeleteConversation' \
+> curl 'https://api.m3o.com/protobuf/Threads/DeleteConversation' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -96,12 +101,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
-### Streams ListConversations
+### Threads ListConversations
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Streams/ListConversations' \
+> curl 'https://api.m3o.com/protobuf/Threads/ListConversations' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -116,12 +121,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
-### Streams ListMessages
+### Threads ListMessages
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Streams/ListMessages' \
+> curl 'https://api.m3o.com/protobuf/Threads/ListMessages' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -138,12 +143,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
-### Streams ReadConversation
+### Threads ReadConversation
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Streams/ReadConversation' \
+> curl 'https://api.m3o.com/protobuf/Threads/ReadConversation' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -162,12 +167,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
-### Streams RecentMessages
+### Threads RecentMessages
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Streams/RecentMessages' \
+> curl 'https://api.m3o.com/protobuf/Threads/RecentMessages' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -185,12 +190,12 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
-### Streams UpdateConversation
+### Threads UpdateConversation
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Streams/UpdateConversation' \
+> curl 'https://api.m3o.com/protobuf/Threads/UpdateConversation' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {

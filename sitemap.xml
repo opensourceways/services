@@ -49,6 +49,14 @@
   </url>
   
   <url>
+    <loc>https://services.m3o.com/files/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/files-microjs/</loc>
+  </url>
+  
+  <url>
     <loc>https://services.m3o.com/geocoding/</loc>
   </url>
   

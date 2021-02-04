@@ -81,6 +81,24 @@ cURL Chats CreateChat 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18  &amp;gt; cur
     </item>
     
     <item>
+      <title>files</title>
+      <link>https://services.m3o.com/files/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/files/</guid>
+      <description>Files Service Save and list text files by project and path.</description>
+    </item>
+    
+    <item>
+      <title>files Micro.js</title>
+      <link>https://services.m3o.com/files-microjs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/files-microjs/</guid>
+      <description>Micro.js Files List List files by their project and optionally a path.</description>
+    </item>
+    
+    <item>
       <title>geocoding</title>
       <link>https://services.m3o.com/geocoding/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

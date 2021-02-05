@@ -48,6 +48,7 @@ being lifted correctly from the proto by the openapi spec generator -->
   -d {
   "author_id": "string",
   "chat_id": "string",
+  "id": "string",
   "text": "string"
 };
 # Response

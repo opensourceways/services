@@ -52,6 +52,7 @@ being lifted correctly from the proto by the openapi spec generator -->
         {
           "author_id": "string",
           "chat_id": "string",
+          "id": "string",
           "text": "string"
 },
         function (data) {

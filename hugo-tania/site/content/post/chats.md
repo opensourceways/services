@@ -4,9 +4,11 @@ servicename: chats
 labels: 
 - Readme
 ---
+Chats is a service for direct messaging
+
 # Chats Service
 
-This is the Chats service
+The chats service enables direct messaging between one or more parties.
 
 ## cURL
 

@@ -94,6 +94,8 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">19
 </span><span class="lnt">20
 </span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/files/Files/List&#39;</span> <span class="se">\
@@ -109,8 +111,10 @@ being lifted correctly from the proto by the openapi spec generator -->
     <span class="o">{</span>
       <span class="s2">&#34;created&#34;</span>: 1,
       <span class="s2">&#34;file_contents&#34;</span>: <span class="s2">&#34;File contents. Empty for directories.&#34;</span>,
+      <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
       <span class="s2">&#34;is_directory&#34;</span>: true,
       <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;Name of folder or file.&#34;</span>,
+      <span class="s2">&#34;owner&#34;</span>: <span class="s2">&#34;owner&#34;</span>,
       <span class="s2">&#34;path&#34;</span>: <span class="s2">&#34;Path. Default is &#39;/&#39;, ie. top level&#34;</span>,
       <span class="s2">&#34;project&#34;</span>: <span class="s2">&#34;A custom string for namespacing purposes. eg. files-of-mywebsite.com&#34;</span>,
       <span class="s2">&#34;updated&#34;</span>: <span class="m">1</span>
@@ -143,6 +147,8 @@ being lifted correctly from the proto by the openapi spec generator -->
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/files/Files/Save&#39;</span> <span class="se">\
@@ -153,8 +159,10 @@ being lifted correctly from the proto by the openapi spec generator -->
     <span class="o">{</span>
       <span class="s2">&#34;created&#34;</span>: 1,
       <span class="s2">&#34;file_contents&#34;</span>: <span class="s2">&#34;File contents. Empty for directories.&#34;</span>,
+      <span class="s2">&#34;id&#34;</span>: <span class="s2">&#34;string&#34;</span>,
       <span class="s2">&#34;is_directory&#34;</span>: true,
       <span class="s2">&#34;name&#34;</span>: <span class="s2">&#34;Name of folder or file.&#34;</span>,
+      <span class="s2">&#34;owner&#34;</span>: <span class="s2">&#34;owner&#34;</span>,
       <span class="s2">&#34;path&#34;</span>: <span class="s2">&#34;Path. Default is &#39;/&#39;, ie. top level&#34;</span>,
       <span class="s2">&#34;project&#34;</span>: <span class="s2">&#34;A custom string for namespacing purposes. eg. files-of-mywebsite.com&#34;</span>,
       <span class="s2">&#34;updated&#34;</span>: <span class="m">1</span>

@@ -28,8 +28,10 @@ List files by their project and optionally a path.
     {
       "created": 1,
       "file_contents": "File contents. Empty for directories.",
+      "id": "string",
       "is_directory": true,
       "name": "Name of folder or file.",
+      "owner": "owner",
       "path": "Path. Default is '/', ie. top level",
       "project": "A custom string for namespacing purposes. eg. files-of-mywebsite.com",
       "updated": 1
@@ -52,8 +54,10 @@ The save endpoint lets you batch save text files.
     {
       "created": 1,
       "file_contents": "File contents. Empty for directories.",
+      "id": "string",
       "is_directory": true,
       "name": "Name of folder or file.",
+      "owner": "owner",
       "path": "Path. Default is '/', ie. top level",
       "project": "A custom string for namespacing purposes. eg. files-of-mywebsite.com",
       "updated": 1

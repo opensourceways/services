@@ -25,6 +25,14 @@
   </url>
   
   <url>
+    <loc>https://services.m3o.com/codes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/codes-microjs/</loc>
+  </url>
+  
+  <url>
     <loc>https://services.m3o.com/datastore/</loc>
   </url>
   
@@ -74,6 +82,14 @@
   
   <url>
     <loc>https://services.m3o.com/labels/headless-cms/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/helloworld/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/helloworld-microjs/</loc>
   </url>
   
   <url>
@@ -134,6 +150,14 @@
   
   <url>
     <loc>https://services.m3o.com/routing-microjs/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/sentiment/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/sentiment-microjs/</loc>
   </url>
   
   <url>

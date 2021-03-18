@@ -168,6 +168,36 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
+### Users ReadByEmail
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+
+```shell
+> curl 'https://api.m3o.com/protobuf/Users/ReadByEmail' \
+  -H 'micro-namespace: $yourNamespace' \
+  -H 'authorization: Bearer $yourToken' \
+  -d {
+  "emails": [
+    "string"
+  ]
+};
+# Response
+{
+  "users": [
+    {
+      "key": "string",
+      "value": {
+        "email": "string",
+        "first_name": "string",
+        "id": "string",
+        "last_name": "string"
+      }
+    }
+  ]
+}
+```
+
+
 ### Users Update
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
@@ -180,7 +210,8 @@ being lifted correctly from the proto by the openapi spec generator -->
   "email": {},
   "first_name": {},
   "id": "string",
-  "last_name": {}
+  "last_name": {},
+  "password": {}
 };
 # Response
 {

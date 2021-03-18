@@ -169,6 +169,34 @@ being lifted correctly from the proto by the openapi spec generator -->
 ```
 
 
+### Users ReadByEmail
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+
+```html
+<script src="https://web.m3o.com/assets/micro.js"></script>
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function (event) {
+    // Login is only required for endpoints doing authorization
+    Micro.requireLogin(function () {
+      Micro.post(
+        "/protobuf/Users/ReadByEmail",
+        "micro",
+        {
+          "emails": [
+                    "string"
+          ]
+},
+        function (data) {
+          console.log("Success.");
+        }
+      );
+    });
+  });
+</script>
+```
+
+
 ### Users Update
 <!-- We use the request body description here as endpoint descriptions are not
 being lifted correctly from the proto by the openapi spec generator -->
@@ -186,7 +214,8 @@ being lifted correctly from the proto by the openapi spec generator -->
           "email": {},
           "first_name": {},
           "id": "string",
-          "last_name": {}
+          "last_name": {},
+          "password": {}
 },
         function (data) {
           console.log("Success.");

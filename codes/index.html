@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> codes | Micro Services</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.8194686cf3cf9716a81ab83bd8109e96cb8d9a3465d0c8588489ff8275d99ee9.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    Micro Services
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/explore/">Explore</a>
+                
+                
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1><a href="/codes">codes</a></h1>
+                    <div>
+                        <a href="/codes"><u>Readme</u></a>
+                        &nbsp;
+                        <a href="/codes-microjs"><u>Micro.js</u></a>
+                        &nbsp;
+                        <a href="/codes/api"><u>API Spec</u></a>
+                        &nbsp;
+                        <a href="https://github.com/micro/services/tree/master/codes"><u>Source</u></a>
+                    </div>
+                    <div class="post-meta">
+                        
+                        <div class="tags">
+                            
+                            <a href="/labels/readme/">Readme</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <h1 id="codes-service">Codes Service</h1>
+<p>The codes service generates codes for use with email / sms verification</p>
+<h2 id="curl">cURL</h2>
+<h3 id="codes-create">Codes Create</h3>
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Codes/Create&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
+</span><span class="se"></span>  -d <span class="o">{</span>
+  <span class="s2">&#34;expires_at&#34;</span>: <span class="s2">&#34;expiry time for the code, default 5 minutes&#34;</span>,
+  <span class="s2">&#34;identity&#34;</span>: <span class="s2">&#34;e.g. phone number or email being verified&#34;</span>
+<span class="o">}</span><span class="p">;</span>
+<span class="c1"># Response</span>
+<span class="o">{</span>
+  <span class="s2">&#34;code&#34;</span>: <span class="s2">&#34;string&#34;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="codes-verify">Codes Verify</h3>
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Codes/Verify&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
+</span><span class="se"></span>  -d <span class="o">{</span>
+  <span class="s2">&#34;code&#34;</span>: <span class="s2">&#34;string&#34;</span>,
+  <span class="s2">&#34;identity&#34;</span>: <span class="s2">&#34;string&#34;</span>
+<span class="o">}</span><span class="p">;</span>
+<span class="c1"># Response</span>
+<span class="o">{}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+</div>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="https://m3o.com">© 2020 Micro Services, Inc.</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

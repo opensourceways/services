@@ -17,6 +17,15 @@ Chats Service The chats service enables direct messaging between one or more par
     </item>
     
     <item>
+      <title>codes</title>
+      <link>https://services.m3o.com/codes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/codes/</guid>
+      <description>Codes Service The codes service generates codes for use with email / sms verification</description>
+    </item>
+    
+    <item>
       <title>datastore</title>
       <link>https://services.m3o.com/datastore/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -72,6 +81,16 @@ Geocoding service The geocoding service provides address to lat lng geocoding as
     </item>
     
     <item>
+      <title>helloworld</title>
+      <link>https://services.m3o.com/helloworld/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/helloworld/</guid>
+      <description>Helloworld Service This is the Helloworld service
+Overview An example of how to write a simple helloworld service.</description>
+    </item>
+    
+    <item>
       <title>invites</title>
       <link>https://services.m3o.com/invites/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -117,6 +136,15 @@ Places Service The places API stores points of interest and enables you to searc
       <guid>https://services.m3o.com/routing/</guid>
       <description>Point to point routing directions
 Routing Service The routing service provides point to point directions</description>
+    </item>
+    
+    <item>
+      <title>sentiment</title>
+      <link>https://services.m3o.com/sentiment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/sentiment/</guid>
+      <description>Sentiment Service The sentiment service provides rudimentary sentiment analysis on text</description>
     </item>
     
     <item>

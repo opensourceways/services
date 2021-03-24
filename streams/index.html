@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> streams | Micro Services</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.8194686cf3cf9716a81ab83bd8109e96cb8d9a3465d0c8588489ff8275d99ee9.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    Micro Services
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="/explore/">Explore</a>
+                
+                
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1><a href="/streams">streams</a></h1>
+                    <div>
+                        <a href="/streams"><u>Readme</u></a>
+                        &nbsp;
+                        <a href="/streams-microjs"><u>Micro.js</u></a>
+                        &nbsp;
+                        <a href="/streams/api"><u>API Spec</u></a>
+                        &nbsp;
+                        <a href="https://github.com/micro/services/tree/master/streams"><u>Source</u></a>
+                    </div>
+                    <div class="post-meta">
+                        
+                        <div class="tags">
+                            
+                            <a href="/labels/readme/">Readme</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <h1 id="streams-service">Streams Service</h1>
+<p>The streams service provides an event stream, designed for sending messages from a server to mutliple
+clients connecting via Websockets. The Token RPC should be called to generate a token for each client,
+the clients should then subscribe using the Subscribe RPC.</p>
+<h2 id="curl">cURL</h2>
+<h3 id="streams-publish">Streams Publish</h3>
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+<p>Schema related to #/components/requestBodies/StreamsPublishRequest not found</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Streams/Publish&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
+</span><span class="se"></span>  -d Schema related to <span class="c1">#/components/requestBodies/StreamsPublishRequest not found;</span>
+<span class="c1"># Response</span>
+<span class="o">{}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="streams-subscribe">Streams Subscribe</h3>
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Streams/Subscribe&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
+</span><span class="se"></span>  -d <span class="o">{</span>
+  <span class="s2">&#34;token&#34;</span>: <span class="s2">&#34;tokens should be provided if the user is not proving an API key on the request (e.g. in cases. where the stream is being consumed directly from the frontend via websockets). tokens can be. generated using the Token RPC&#34;</span>,
+  <span class="s2">&#34;topic&#34;</span>: <span class="s2">&#34;topic the user wishes to subscribe to, required&#34;</span>
+<span class="o">}</span><span class="p">;</span>
+<span class="c1"># Response</span>
+Schema related to <span class="c1">#/components/responses/StreamsSubscribeResponse not found</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="streams-token">Streams Token</h3>
+<!-- We use the request body description here as endpoint descriptions are not
+being lifted correctly from the proto by the openapi spec generator -->
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">&gt; curl <span class="s1">&#39;https://api.m3o.com/protobuf/Streams/Token&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;micro-namespace: $yourNamespace&#39;</span> <span class="se">\
+</span><span class="se"></span>  -H <span class="s1">&#39;authorization: Bearer $yourToken&#39;</span> <span class="se">\
+</span><span class="se"></span>  -d <span class="o">{</span>
+  <span class="s2">&#34;topic&#34;</span>: <span class="s2">&#34;the topic the token should be restricted to, if no topic is required the token can be used to . subscribe to any topic&#34;</span>
+<span class="o">}</span><span class="p">;</span>
+<span class="c1"># Response</span>
+<span class="o">{</span>
+  <span class="s2">&#34;token&#34;</span>: <span class="s2">&#34;string&#34;</span>
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+</div>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="https://m3o.com">© 2020 Micro Services, Inc.</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

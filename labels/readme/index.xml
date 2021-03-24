@@ -148,6 +148,15 @@ Routing Service The routing service provides point to point directions</descript
     </item>
     
     <item>
+      <title>streams</title>
+      <link>https://services.m3o.com/streams/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/streams/</guid>
+      <description>Streams Service The streams service provides an event stream, designed for sending messages from a server to mutliple clients connecting via Websockets.</description>
+    </item>
+    
+    <item>
       <title>tags</title>
       <link>https://services.m3o.com/tags/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -161,6 +161,14 @@
   </url>
   
   <url>
+    <loc>https://services.m3o.com/streams/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/streams-microjs/</loc>
+  </url>
+  
+  <url>
     <loc>https://services.m3o.com/tags/</loc>
   </url>
   

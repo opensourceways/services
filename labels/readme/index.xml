@@ -139,6 +139,15 @@ Routing Service The routing service provides point to point directions</descript
     </item>
     
     <item>
+      <title>seen</title>
+      <link>https://services.m3o.com/seen/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://services.m3o.com/seen/</guid>
+      <description>Seen is a service to keep track of which resources a user has seen (read).</description>
+    </item>
+    
+    <item>
       <title>sentiment</title>
       <link>https://services.m3o.com/sentiment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

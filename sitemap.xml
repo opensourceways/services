@@ -153,6 +153,14 @@
   </url>
   
   <url>
+    <loc>https://services.m3o.com/seen/</loc>
+  </url>
+  
+  <url>
+    <loc>https://services.m3o.com/seen-microjs/</loc>
+  </url>
+  
+  <url>
     <loc>https://services.m3o.com/sentiment/</loc>
   </url>
   

@@ -19,7 +19,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Chats/CreateChat",
+        "/chats/Chats/CreateChat",
         "micro",
         {
           "user_ids": [
@@ -47,7 +47,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Chats/CreateMessage",
+        "/chats/Chats/CreateMessage",
         "micro",
         {
           "author_id": "string",
@@ -76,7 +76,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Chats/ListMessages",
+        "/chats/Chats/ListMessages",
         "micro",
         {
           "chat_id": "string",

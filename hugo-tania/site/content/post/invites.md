@@ -53,7 +53,7 @@ The invites services allows you to create and manage invites. Example usage:
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Invites/Create' \
+> curl 'https://api.m3o.com/invites/Invites/Create' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -77,7 +77,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Invites/Delete' \
+> curl 'https://api.m3o.com/invites/Invites/Delete' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -93,7 +93,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Invites/List' \
+> curl 'https://api.m3o.com/invites/Invites/List' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -119,7 +119,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Invites/Read' \
+> curl 'https://api.m3o.com/invites/Invites/Read' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {

@@ -19,7 +19,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Invites/Create",
+        "/invites/Invites/Create",
         "micro",
         {
           "email": "string",
@@ -46,7 +46,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Invites/Delete",
+        "/invites/Invites/Delete",
         "micro",
         {
           "id": "string"
@@ -72,7 +72,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Invites/List",
+        "/invites/Invites/List",
         "micro",
         {
           "email": {},
@@ -99,7 +99,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Invites/Read",
+        "/invites/Invites/Read",
         "micro",
         {
           "code": {},

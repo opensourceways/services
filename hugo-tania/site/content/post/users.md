@@ -36,7 +36,7 @@ micro run .
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Users/Create' \
+> curl 'https://api.m3o.com/users/Users/Create' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -63,7 +63,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Users/Delete' \
+> curl 'https://api.m3o.com/users/Users/Delete' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -79,7 +79,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Users/List' \
+> curl 'https://api.m3o.com/users/Users/List' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {};
@@ -102,7 +102,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Users/Login' \
+> curl 'https://api.m3o.com/users/Users/Login' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -127,7 +127,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Users/Logout' \
+> curl 'https://api.m3o.com/users/Users/Logout' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -143,7 +143,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Users/Read' \
+> curl 'https://api.m3o.com/users/Users/Read' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -173,7 +173,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Users/ReadByEmail' \
+> curl 'https://api.m3o.com/users/Users/ReadByEmail' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -203,7 +203,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Users/Update' \
+> curl 'https://api.m3o.com/users/Users/Update' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -230,7 +230,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Users/Validate' \
+> curl 'https://api.m3o.com/users/Users/Validate' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {

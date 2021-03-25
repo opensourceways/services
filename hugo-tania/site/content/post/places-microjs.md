@@ -20,7 +20,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Places/Last",
+        "/places/Places/Last",
         "micro",
         {
           "ids": [
@@ -48,7 +48,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Places/Near",
+        "/places/Places/Near",
         "micro",
         {
           "latitude": {},
@@ -76,7 +76,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Places/Read",
+        "/places/Places/Read",
         "micro",
         {
           "after": "string",
@@ -106,7 +106,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Places/Save",
+        "/places/Places/Save",
         "micro",
         {
           "places": [

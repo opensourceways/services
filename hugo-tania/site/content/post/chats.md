@@ -18,7 +18,7 @@ The chats service enables direct messaging between one or more parties.
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Chats/CreateChat' \
+> curl 'https://api.m3o.com/chats/Chats/CreateChat' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -44,7 +44,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Chats/CreateMessage' \
+> curl 'https://api.m3o.com/chats/Chats/CreateMessage' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -71,7 +71,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Chats/ListMessages' \
+> curl 'https://api.m3o.com/chats/Chats/ListMessages' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {

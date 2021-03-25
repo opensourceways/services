@@ -19,7 +19,7 @@ The routing service provides point to point directions
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Routing/Route' \
+> curl 'https://api.m3o.com/routing/Routing/Route' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {

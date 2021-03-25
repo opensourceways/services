@@ -34,7 +34,7 @@ micro run .
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Places/Last' \
+> curl 'https://api.m3o.com/places/Places/Last' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -52,7 +52,7 @@ Schema related to #/components/responses/PlacesLastResponse not found
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Places/Near' \
+> curl 'https://api.m3o.com/places/Places/Near' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -70,7 +70,7 @@ Schema related to #/components/responses/PlacesNearResponse not found
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Places/Read' \
+> curl 'https://api.m3o.com/places/Places/Read' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -90,7 +90,7 @@ Schema related to #/components/responses/PlacesReadResponse not found
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Places/Save' \
+> curl 'https://api.m3o.com/places/Places/Save' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {

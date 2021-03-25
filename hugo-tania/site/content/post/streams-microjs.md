@@ -19,7 +19,7 @@ Schema related to #/components/requestBodies/StreamsPublishRequest not found
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Streams/Publish",
+        "/streams/Streams/Publish",
         "micro",
         Schema related to #/components/requestBodies/StreamsPublishRequest not found,
         function (data) {
@@ -43,7 +43,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Streams/Subscribe",
+        "/streams/Streams/Subscribe",
         "micro",
         {
           "token": "tokens should be provided if the user is not proving an API key on the request (e.g. in cases. where the stream is being consumed directly from the frontend via websockets). tokens can be. generated using the Token RPC",
@@ -70,7 +70,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Streams/Token",
+        "/streams/Streams/Token",
         "micro",
         {
           "topic": "the topic the token should be restricted to, if no topic is required the token can be used to . subscribe to any topic"

@@ -19,7 +19,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Codes/Create",
+        "/codes/Codes/Create",
         "micro",
         {
           "expires_at": "expiry time for the code, default 5 minutes",
@@ -46,7 +46,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Codes/Verify",
+        "/codes/Codes/Verify",
         "micro",
         {
           "code": "string",

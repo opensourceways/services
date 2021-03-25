@@ -53,7 +53,7 @@ $ micro call etas ETAs.Calculate $(cat example-req.json)
 being lifted correctly from the proto by the openapi spec generator -->
 Schema related to #/components/requestBodies/ETAsCalculateRequest not found
 ```shell
-> curl 'https://api.m3o.com/protobuf/ETAs/Calculate' \
+> curl 'https://api.m3o.com/etas/ETAs/Calculate' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d Schema related to #/components/requestBodies/ETAsCalculateRequest not found;

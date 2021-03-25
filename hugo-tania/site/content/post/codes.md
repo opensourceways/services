@@ -16,7 +16,7 @@ The codes service generates codes for use with email / sms verification
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Codes/Create' \
+> curl 'https://api.m3o.com/codes/Codes/Create' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -35,7 +35,7 @@ being lifted correctly from the proto by the openapi spec generator -->
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Codes/Verify' \
+> curl 'https://api.m3o.com/codes/Codes/Verify' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {

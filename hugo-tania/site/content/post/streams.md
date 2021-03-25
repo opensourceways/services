@@ -18,7 +18,7 @@ the clients should then subscribe using the Subscribe RPC.
 being lifted correctly from the proto by the openapi spec generator -->
 Schema related to #/components/requestBodies/StreamsPublishRequest not found
 ```shell
-> curl 'https://api.m3o.com/protobuf/Streams/Publish' \
+> curl 'https://api.m3o.com/streams/Streams/Publish' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d Schema related to #/components/requestBodies/StreamsPublishRequest not found;
@@ -32,7 +32,7 @@ Schema related to #/components/requestBodies/StreamsPublishRequest not found
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Streams/Subscribe' \
+> curl 'https://api.m3o.com/streams/Streams/Subscribe' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {
@@ -49,7 +49,7 @@ Schema related to #/components/responses/StreamsSubscribeResponse not found
 being lifted correctly from the proto by the openapi spec generator -->
 
 ```shell
-> curl 'https://api.m3o.com/protobuf/Streams/Token' \
+> curl 'https://api.m3o.com/streams/Streams/Token' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d {

@@ -20,7 +20,7 @@ Schema related to #/components/requestBodies/GeocodingGeocodeRequest not found
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Geocoding/Geocode",
+        "/geocoding/Geocoding/Geocode",
         "micro",
         Schema related to #/components/requestBodies/GeocodingGeocodeRequest not found,
         function (data) {
@@ -44,7 +44,7 @@ Schema related to #/components/requestBodies/GeocodingReverseRequest not found
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Geocoding/Reverse",
+        "/geocoding/Geocoding/Reverse",
         "micro",
         Schema related to #/components/requestBodies/GeocodingReverseRequest not found,
         function (data) {

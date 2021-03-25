@@ -19,7 +19,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Threads/CreateConversation",
+        "/threads/Threads/CreateConversation",
         "micro",
         {
           "group_id": "string",
@@ -46,7 +46,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Threads/CreateMessage",
+        "/threads/Threads/CreateMessage",
         "micro",
         {
           "author_id": "string",
@@ -75,7 +75,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Threads/DeleteConversation",
+        "/threads/Threads/DeleteConversation",
         "micro",
         {
           "id": "string"
@@ -101,7 +101,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Threads/ListConversations",
+        "/threads/Threads/ListConversations",
         "micro",
         {
           "group_id": "string"
@@ -127,7 +127,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Threads/ListMessages",
+        "/threads/Threads/ListMessages",
         "micro",
         {
           "conversation_id": "string",
@@ -155,7 +155,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Threads/ReadConversation",
+        "/threads/Threads/ReadConversation",
         "micro",
         {
           "group_id": {},
@@ -182,7 +182,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Threads/RecentMessages",
+        "/threads/Threads/RecentMessages",
         "micro",
         {
           "conversation_ids": [
@@ -211,7 +211,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Threads/UpdateConversation",
+        "/threads/Threads/UpdateConversation",
         "micro",
         {
           "id": "string",

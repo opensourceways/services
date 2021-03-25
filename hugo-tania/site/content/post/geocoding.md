@@ -20,7 +20,7 @@ based services.
 being lifted correctly from the proto by the openapi spec generator -->
 Schema related to #/components/requestBodies/GeocodingGeocodeRequest not found
 ```shell
-> curl 'https://api.m3o.com/protobuf/Geocoding/Geocode' \
+> curl 'https://api.m3o.com/geocoding/Geocoding/Geocode' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d Schema related to #/components/requestBodies/GeocodingGeocodeRequest not found;
@@ -34,7 +34,7 @@ Schema related to #/components/responses/GeocodingGeocodeResponse not found
 being lifted correctly from the proto by the openapi spec generator -->
 Schema related to #/components/requestBodies/GeocodingReverseRequest not found
 ```shell
-> curl 'https://api.m3o.com/protobuf/Geocoding/Reverse' \
+> curl 'https://api.m3o.com/geocoding/Geocoding/Reverse' \
   -H 'micro-namespace: $yourNamespace' \
   -H 'authorization: Bearer $yourToken' \
   -d Schema related to #/components/requestBodies/GeocodingReverseRequest not found;

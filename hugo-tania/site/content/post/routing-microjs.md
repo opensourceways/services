@@ -20,7 +20,7 @@ being lifted correctly from the proto by the openapi spec generator -->
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/Routing/Route",
+        "/routing/Routing/Route",
         "micro",
         {
           "destination": {

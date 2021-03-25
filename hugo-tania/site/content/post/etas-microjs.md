@@ -20,7 +20,7 @@ Schema related to #/components/requestBodies/ETAsCalculateRequest not found
     // Login is only required for endpoints doing authorization
     Micro.requireLogin(function () {
       Micro.post(
-        "/protobuf/ETAs/Calculate",
+        "/etas/ETAs/Calculate",
         "micro",
         Schema related to #/components/requestBodies/ETAsCalculateRequest not found,
         function (data) {

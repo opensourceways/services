@@ -9,7 +9,7 @@ import (
 func main() {
 	// Create service
 	srv := service.New(
-		service.Name("helloworld"),
+		service.Name("helloworld2"),
 	)
 
 	// Register Handler
